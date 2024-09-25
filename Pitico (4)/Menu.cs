@@ -1,12 +1,5 @@
-﻿using Pjt_Pitico;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Pitico
@@ -18,10 +11,12 @@ namespace Pitico
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Location = new Point(100, 100);
-        
-    
+            this.KeyDown += new KeyEventHandler(Menu_KeyDown);
+            this.KeyPreview = true;
 
-if (Config.Ling == true)
+
+
+            if (Config.Ling == true)
             {
                 lbl_título.Text = "Segurança Confiscada";
                 btn_créditos.Text = "Créditos";
@@ -38,6 +33,30 @@ if (Config.Ling == true)
                 btn_sair.Text = "Exit";
             }
         }
+
+
+        private void Menu_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F11)
+            {
+                ToggleFullScreen();
+            }
+        }
+
+        private void ToggleFullScreen()
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.FormBorderStyle = FormBorderStyle.Sizable;
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -58,7 +77,7 @@ if (Config.Ling == true)
             Form formm = new Configurações();
             formm.Closed += (s, args) => this.Close();
             formm.Show();
-            
+
         }
 
         private void btn_créditos_Click(object sender, EventArgs e)
@@ -71,7 +90,7 @@ if (Config.Ling == true)
 
         private void btn_sair_Click(object sender, EventArgs e)
         {
-            Close();   
+            Close();
         }
 
         private void button1_Click(object sender, EventArgs e)

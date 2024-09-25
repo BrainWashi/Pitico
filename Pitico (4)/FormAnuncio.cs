@@ -18,6 +18,11 @@ namespace Pjt_Pitico
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
 
+            foreach (Control control in this.Controls)
+            {
+                control.KeyDown += new KeyEventHandler(Control_KeyDown);
+            }
+
             // Inicializa o Timer para fechar o formulário
             timer1 = new Timer();
             timer1.Interval = 5000; // Intervalo em milissegundos (5000 ms = 5 segundos)
@@ -153,6 +158,20 @@ namespace Pjt_Pitico
         private void FormANUNCIO_Load(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void Control_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Verifica se a tecla pressionada foi Enter
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Impede o som do 'bip' padrão
+                e.SuppressKeyPress = true;
+
+                // Move o foco para o próximo controle no formulário
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
         }
     }
 

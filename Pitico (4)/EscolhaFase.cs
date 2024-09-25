@@ -11,7 +11,7 @@ namespace Pjt_Pitico
     public partial class EscolhaFase : Form
     {
         private bool videoPlayed = false;
-        private int currentStage = 1; // Usado para controlar o estágio atual
+        private int currentStage = 1; 
 
         public EscolhaFase()
         {
@@ -19,6 +19,11 @@ namespace Pjt_Pitico
             this.StartPosition = FormStartPosition.CenterScreen;
             axWindowsMediaPlayer1.uiMode = "none";
             axWindowsMediaPlayer1.PlayStateChange += axWindowsMediaPlayer1_PlayStateChange;
+
+            foreach (Control control in this.Controls)
+            {
+                control.KeyDown += new KeyEventHandler(Control_KeyDown);
+            }
         }
 
         private void EscolhaFase_Load(object sender, EventArgs e)
@@ -137,6 +142,20 @@ namespace Pjt_Pitico
             Form frm = new Fase1();
             frm.Closed += (s, args) => this.Close();
             frm.Show();
+        }
+
+
+        private void Control_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+   
+                e.SuppressKeyPress = true;
+
+
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
         }
     }
 }

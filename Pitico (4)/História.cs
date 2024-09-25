@@ -1,6 +1,7 @@
 ﻿using AxWMPLib;
 using Pitico;
 using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -10,11 +11,11 @@ namespace Pjt_Pitico
     {
         private bool videoPlayed = false;
         private string legendaAtual = "";
-        private int legendaIndex = 0; // Controle do índice da legenda atual
+        private int legendaIndex = 0;
         private Timer legendaTimer;
         private int sequenceStep = 0;
         private bool isFinalState = false;
-
+        private double aspectRatio = 16.0 / 9.0;
         public História()
         {
             InitializeComponent();
@@ -27,8 +28,60 @@ namespace Pjt_Pitico
             btn_avancar.Click += button1_Click;
 
             legendaTimer = new Timer();
-            legendaTimer.Interval = 500; // Intervalo em milissegundos para verificar o tempo do vídeo
+            legendaTimer.Interval = 500;
             legendaTimer.Tick += LegendaTimer_Tick;
+
+            this.Resize += new EventHandler(Form1_Resize);
+
+            foreach (Control control in this.Controls)
+            {
+                control.KeyDown += new KeyEventHandler(Control_KeyDown);
+            }
+        }
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            int largura = this.ClientSize.Width;
+            int altura = (largura * 9) / 16;
+            this.ClientSize = new Size(largura, altura);
+
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+
+                SetFullScreenVideo();
+            }
+            else
+            {
+ 
+                AdjustVideoSize();
+            }
+        }
+        private void SetFullScreenVideo()
+        {
+
+            int newWidth = this.ClientSize.Width;
+            int newHeight = (int)(newWidth / aspectRatio);
+
+            if (newHeight > this.ClientSize.Height)
+            {
+     
+                newHeight = this.ClientSize.Height;
+                newWidth = (int)(newHeight * aspectRatio);
+            }
+
+
+            axWindowsMediaPlayer1.Width = newWidth;
+            axWindowsMediaPlayer1.Height = newHeight;
+
+
+            axWindowsMediaPlayer1.Location = new Point((this.ClientSize.Width - newWidth) / 2, (this.ClientSize.Height - newHeight) / 2);
+        }
+
+        private void AdjustVideoSize()
+        {
+         
+            axWindowsMediaPlayer1.Width = this.ClientSize.Width;
+            axWindowsMediaPlayer1.Height = this.ClientSize.Height;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -38,7 +91,7 @@ namespace Pjt_Pitico
             if (Config.Leg == true)
             {
                 lbl_legenda.Visible = true;
-                legendaTimer.Start(); // Inicia o timer para controlar as legendas
+                legendaTimer.Start(); 
             }
             else
             {
@@ -93,19 +146,19 @@ namespace Pjt_Pitico
         {
             double currentTime = axWindowsMediaPlayer1.Ctlcontrols.currentPosition;
 
-           if (currentTime >= 0 && currentTime < 18)
+            if (currentTime >= 0 && currentTime < 18)
             {
-                legendaIndex = 0; 
+                legendaIndex = 0;
                 ExibirLegenda();
             }
-            else if (currentTime >= 18 && currentTime < 40) 
+            else if (currentTime >= 18 && currentTime < 40)
             {
                 legendaIndex = 1;
-                ExibirLegenda(); 
+                ExibirLegenda();
             }
             else
             {
-                lbl_legenda.Text = ""; 
+                lbl_legenda.Text = "";
             }
         }
 
@@ -120,7 +173,7 @@ namespace Pjt_Pitico
                     lbl_legenda.Visible = false;
                     break;
                 case "cut2":
-                    video = Pitico.Properties.Resources.cut2; // Adicione o cut2
+                    video = Pitico.Properties.Resources.cut2;
                     break;
                 default:
                     throw new ArgumentException("Nome do vídeo inválido");
@@ -152,7 +205,7 @@ namespace Pjt_Pitico
             if (e.newState == 8)
             {
 
-           
+
                 sequenceStep++;
                 ControlFlow();
             }
@@ -161,28 +214,28 @@ namespace Pjt_Pitico
             if (e.newState == 8)
             {
                 if (axWindowsMediaPlayer1.URL.Contains("cut2.mp4"))
-            {
-                btn_avancar.Visible = true;
-                axWindowsMediaPlayer1.Visible = false;
+                {
+                    btn_avancar.Visible = true;
+                    axWindowsMediaPlayer1.Visible = false;
 
-         
-            }
+
+                }
             }
         }
 
         private void ControlFlow()
-            {
+        {
             if (isFinalState) return;
 
             switch (sequenceStep)
-                {
-                    case 1:
-                    // Exibe a primeira imagem
+            {
+                case 1:
+ 
                     lbl_legenda2.Visible = true;
-                        pic_mae1.Visible = true;
+                    pic_mae1.Visible = true;
                     passar_mae1.Visible = true;
                     lbl_legenda2.Text = "Oi filho, chegou cedo em casa hoje";
-                        break;
+                    break;
                 case 2:
                     pic_mae1.Visible = false;
                     pitico_1.Visible = true;
@@ -202,13 +255,13 @@ namespace Pjt_Pitico
                     lbl_legenda2.Text = "Ele disse que ia na casa de um amigo e depois iria voltar pra casa";
                     break;
                 case 5:
-             
+
                     pitico_2.Visible = false;
                     passar_pra_cutscene.Visible = false;
                     PlayVideoFromResources("cut2");
                     break;
             }
-            }
+        }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -277,7 +330,7 @@ namespace Pjt_Pitico
                 pitico_1.Visible = true;
                 passar_pitico1.Visible = true;
             }
-    }
+        }
 
         private void pitico_1_Click(object sender, EventArgs e)
         {
@@ -301,6 +354,20 @@ namespace Pjt_Pitico
             lbl_legenda2.Visible = true;
             btn_telapreta1.Visible = false;
             lbl_legenda2.Text = "“Ah ok, preste atenção nele. Seu irmão está meio…mal… Você deve cuidar dele, ta bom?”";
+        }
+
+
+        private void Control_KeyDown(object sender, KeyEventArgs e)
+        {
+   
+            if (e.KeyCode == Keys.Enter)
+            {
+     
+                e.SuppressKeyPress = true;
+
+         
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
         }
     }
 }

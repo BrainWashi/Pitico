@@ -95,6 +95,12 @@
     <Compile Include="Fase2.Designer.cs">
       <DependentUpon>Fase2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fase3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fase3.Designer.cs">
+      <DependentUpon>Fase3.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAnuncio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fase2.resx">
       <DependentUpon>Fase2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fase3.resx">
+      <DependentUpon>Fase3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAnuncio.resx">
       <DependentUpon>FormAnuncio.cs</DependentUpon>
@@ -540,7 +549,7 @@
     <EmbeddedResource Include="Resources\fase2intro1.mp4" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fase2final1.mp4" />
+    <None Include="Resources\fase2final4.mp4" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fase2final2.mp4" />
@@ -549,7 +558,7 @@
     <None Include="Resources\fase2final3.mp4" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fase2final4.mp4" />
+    <None Include="Resources\fase2final1.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
