@@ -35,6 +35,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.Location = new System.Drawing.Point(0, 540);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -45,6 +46,7 @@
             // 
             // btn_avancar
             // 
+            this.btn_avancar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_avancar.Location = new System.Drawing.Point(937, 388);
             this.btn_avancar.Name = "btn_avancar";
             this.btn_avancar.Size = new System.Drawing.Size(81, 44);
@@ -56,6 +58,7 @@
             // 
             // lbl_legenda
             // 
+            this.lbl_legenda.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_legenda.BackColor = System.Drawing.Color.Black;
             this.lbl_legenda.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_legenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -68,6 +71,7 @@
             // 
             // axWindowsMediaPlayer1
             // 
+            this.axWindowsMediaPlayer1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.axWindowsMediaPlayer1.Enabled = true;
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(0, 0);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
@@ -77,6 +81,7 @@
             // 
             // pitico_1
             // 
+            this.pitico_1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pitico_1.BackgroundImage = global::Pitico.Properties.Resources.dialogo1;
             this.pitico_1.Location = new System.Drawing.Point(0, 0);
             this.pitico_1.Name = "pitico_1";
@@ -87,6 +92,7 @@
             // 
             // pitico_2
             // 
+            this.pitico_2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pitico_2.BackgroundImage = global::Pitico.Properties.Resources.dialogo2;
             this.pitico_2.Location = new System.Drawing.Point(0, 0);
             this.pitico_2.Name = "pitico_2";
@@ -97,16 +103,19 @@
             // 
             // pic_mae1
             // 
+            this.pic_mae1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pic_mae1.BackgroundImage = global::Pitico.Properties.Resources.mãe2;
             this.pic_mae1.Location = new System.Drawing.Point(0, -37);
             this.pic_mae1.Name = "pic_mae1";
             this.pic_mae1.Size = new System.Drawing.Size(1067, 665);
+            this.pic_mae1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_mae1.TabIndex = 5;
             this.pic_mae1.TabStop = false;
             this.pic_mae1.Visible = false;
             // 
             // pic_mae2
             // 
+            this.pic_mae2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pic_mae2.Image = global::Pitico.Properties.Resources.mãe;
             this.pic_mae2.Location = new System.Drawing.Point(-4, -20);
             this.pic_mae2.Name = "pic_mae2";
@@ -117,6 +126,7 @@
             // 
             // passar_mae1
             // 
+            this.passar_mae1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passar_mae1.Location = new System.Drawing.Point(943, 562);
             this.passar_mae1.Name = "passar_mae1";
             this.passar_mae1.Size = new System.Drawing.Size(75, 23);
@@ -128,6 +138,7 @@
             // 
             // passar_pitico1
             // 
+            this.passar_pitico1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passar_pitico1.Location = new System.Drawing.Point(943, 562);
             this.passar_pitico1.Name = "passar_pitico1";
             this.passar_pitico1.Size = new System.Drawing.Size(75, 23);
@@ -139,6 +150,7 @@
             // 
             // passar_mae2
             // 
+            this.passar_mae2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passar_mae2.Location = new System.Drawing.Point(943, 562);
             this.passar_mae2.Name = "passar_mae2";
             this.passar_mae2.Size = new System.Drawing.Size(75, 23);
@@ -150,6 +162,7 @@
             // 
             // passar_pra_cutscene
             // 
+            this.passar_pra_cutscene.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passar_pra_cutscene.Location = new System.Drawing.Point(943, 562);
             this.passar_pra_cutscene.Name = "passar_pra_cutscene";
             this.passar_pra_cutscene.Size = new System.Drawing.Size(75, 23);
@@ -161,6 +174,7 @@
             // 
             // lbl_legenda2
             // 
+            this.lbl_legenda2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_legenda2.BackColor = System.Drawing.Color.Black;
             this.lbl_legenda2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_legenda2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -175,6 +189,7 @@
             // 
             // telapreta2
             // 
+            this.telapreta2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.telapreta2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.telapreta2.Location = new System.Drawing.Point(-236, -97);
             this.telapreta2.Name = "telapreta2";
@@ -185,16 +200,19 @@
             // 
             // telapreta1
             // 
+            this.telapreta1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.telapreta1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.telapreta1.Location = new System.Drawing.Point(0, -72);
             this.telapreta1.Name = "telapreta1";
             this.telapreta1.Size = new System.Drawing.Size(1052, 628);
+            this.telapreta1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.telapreta1.TabIndex = 14;
             this.telapreta1.TabStop = false;
             this.telapreta1.Visible = false;
             // 
             // btn_telapreta2
             // 
+            this.btn_telapreta2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_telapreta2.Location = new System.Drawing.Point(943, 562);
             this.btn_telapreta2.Name = "btn_telapreta2";
             this.btn_telapreta2.Size = new System.Drawing.Size(75, 23);
@@ -206,6 +224,7 @@
             // 
             // btn_telapreta1
             // 
+            this.btn_telapreta1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_telapreta1.Location = new System.Drawing.Point(943, 562);
             this.btn_telapreta1.Name = "btn_telapreta1";
             this.btn_telapreta1.Size = new System.Drawing.Size(75, 23);

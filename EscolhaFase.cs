@@ -11,7 +11,7 @@ namespace Pjt_Pitico
     public partial class EscolhaFase : Form
     {
         private bool videoPlayed = false;
-        private int currentStage = 1; // Usado para controlar o estágio atual
+        private int currentStage = 1; 
 
         public EscolhaFase()
         {
@@ -147,13 +147,13 @@ namespace Pjt_Pitico
 
         private void Control_KeyDown(object sender, KeyEventArgs e)
         {
-            // Verifica se a tecla pressionada foi Enter
+
             if (e.KeyCode == Keys.Enter)
             {
-                // Impede o som do 'bip' padrão
+   
                 e.SuppressKeyPress = true;
 
-                // Move o foco para o próximo controle no formulário
+
                 this.SelectNextControl((Control)sender, true, true, true, true);
             }
         }

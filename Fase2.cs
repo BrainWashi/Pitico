@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pjt_Pitico;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,10 +18,9 @@ namespace Pitico
         private const int vidaMaxima = 5;
         private int vidaCshar = 5;
 
-        private int videoAtual = 1; // Controle do estado do vídeo
-        private bool modoJogoIniciado = false; // Controle se o jogo já foi iniciado
-        private int videoSequenciaFinal = 1; // Controle da nova sequência de vídeos
-
+        private int videoAtual = 1; 
+        private bool modoJogoIniciado = false; 
+        private int videoSequenciaFinal = 1; 
 
         public Fase2()
         {
@@ -37,13 +37,13 @@ namespace Pitico
 
             this.KeyDown += new KeyEventHandler(Fase2_KeyDown);
 
-            // Reproduzir o primeiro vídeo ao carregar o form
+  
             ReproduzirVideo("fase2intro1");
 
-            // Adicionar o evento para detectar o fim do vídeo
+      
             axWindowsMediaPlayer1.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(AxWindowsMediaPlayer1_PlayStateChange);
 
-            // Adicionar evento para a tecla Enter
+  
             this.KeyDown += new KeyEventHandler(Fase2_KeyDown);
 
             btn_ajuda.Click += SelecionarOpcao;
@@ -166,10 +166,9 @@ namespace Pitico
 
         private void IniciarSequenciaFinal()
         {
-            // Zerar o vídeo atual para garantir a reprodução correta
+
             videoSequenciaFinal = 1;
 
-            // Garantir que os elementos de jogo estejam invisíveis
             btn_ajuda.Visible = false;
             btn_block.Visible = false;
             btn_denunciar.Visible = false;
@@ -198,10 +197,9 @@ namespace Pitico
             label1.Visible = false;
             axWindowsMediaPlayer1.Visible = true;
 
-            // Exibir o botão de "Próximo" para o controle da sequência de vídeos
+ 
             btn_next.Visible = true;
 
-            // Começar a sequência final de vídeos
             ReproduzirVideo("fase2final1");
         }
 
@@ -327,7 +325,7 @@ namespace Pitico
             vida = 5;
             vidaCshar = 5;
 
-            // Atualiza a interface gráfica para refletir a nova vida
+
             AtualizarCoracoes();
             AtualizarCoracoesAdversario();
 
@@ -361,14 +359,14 @@ namespace Pitico
         {
             if (e.newState == (int)WMPLib.WMPPlayState.wmppsStopped)
             {
-                // Exibe o botão "Próximo" quando o vídeo termina, tanto na sequência normal quanto na final
+ 
                 if (vidaCshar > 0 && videoAtual <= 8 && !modoJogoIniciado)
                 {
-                    btn_next.Visible = true; // Sequência normal de vídeos
+                    btn_next.Visible = true; 
                 }
                 else if (videoSequenciaFinal <= 5 && modoJogoIniciado)
                 {
-                    btn_next.Visible = true; // Sequência final de vídeos
+                    btn_next.Visible = true;
                 }
             }
         }
@@ -378,12 +376,12 @@ namespace Pitico
 
         private void btn_next_Click(object sender, EventArgs e)
         {
-            btn_next.Visible = false; // O botão desaparece ao ser clicado
+            btn_next.Visible = false; 
 
-            // Verificar qual sequência de vídeos está sendo exibida
+   
             if (vidaCshar > 0)
             {
-                // Sequência normal de vídeos
+       
                 switch (videoAtual)
                 {
                     case 1:
@@ -424,7 +422,7 @@ namespace Pitico
             }
             else
             {
-                // Sequência final de vídeos após derrotar o Cshar
+
                 switch (videoSequenciaFinal)
                 {
                     case 1:
@@ -441,38 +439,39 @@ namespace Pitico
                         break;
                     case 4:
                         // Final da sequência
-                        MessageBox.Show("Parabéns! Você venceu o jogo!");
+                        MessageBox.Show("Parabéns! Você venceu a fase!");
+                        Form proximoFormulario = new Fase3();
+                        proximoFormulario.Show();
                         break;
                 }
             }
         }
-        //teste
 
 
 
         private void ReproduzirVideo(string videoNome)
         {
-            // Tenta obter os bytes do vídeo dos recursos
+        
             byte[] videoBytes = (byte[])Properties.Resources.ResourceManager.GetObject(videoNome);
 
             if (videoBytes != null)
             {
-                // Ocultar o botão no início do vídeo
+
                 btn_next.Visible = false;
 
-                // Define o caminho temporário
+
                 string videoTempPath = Path.Combine(Path.GetTempPath(), videoNome + ".mp4");
 
-                // Verifica se o arquivo já existe e o exclui
+
                 if (File.Exists(videoTempPath))
                 {
                     File.Delete(videoTempPath);
                 }
 
-                // Escreve o arquivo de vídeo
+     
                 File.WriteAllBytes(videoTempPath, videoBytes);
 
-                // Reproduz o vídeo no Windows Media Player
+
                 axWindowsMediaPlayer1.URL = videoTempPath;
                 axWindowsMediaPlayer1.Ctlcontrols.play();
             }
@@ -484,16 +483,16 @@ namespace Pitico
 
         private void IniciarJogo()
         {
-            // Torna todos os elementos invisíveis e começa o jogo
+
             axWindowsMediaPlayer1.Visible = false;
             btn_next.Visible = false;
             Block.Visible = false;
             batalha.Visible = false;
 
-            // Reproduz o vídeo da batalha, se necessário
+
             if (vidaCshar > 0)
             {
-                ReproduzirVideo("fase2batalha"); // Substitua pelo nome do vídeo que deve ser reproduzido
+                ReproduzirVideo("fase2batalha");
             }
 
             modoJogoIniciado = true;
@@ -502,7 +501,7 @@ namespace Pitico
 
         private void Fase2_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && videoAtual == 8) // Verifica se está na última fase
+            if (e.KeyCode == Keys.Enter && videoAtual == 8) 
             {
                 IniciarJogo();
             }
@@ -510,14 +509,14 @@ namespace Pitico
 
         private void MostrarBotoesParaProssseguir()
         {
-            // Mostra os botões necessários após a exibição da picture box
+
             btn_ajuda.Visible = true;
             btn_block.Visible = true;
             btn_denunciar.Visible = true;
             btn_xingar.Visible = true;
             btn_ignorar.Visible = true;
 
-            // Adiciona a visibilidade do btn_next caso ele precise ser exibido novamente
+
             btn_next.Visible = true;
         }
 

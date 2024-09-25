@@ -16,7 +16,7 @@ namespace Pitico
     public partial class Fase1 : Form
     {
         private string Atual;
-        // Lista de vídeos e índice atual
+
         private List<string> sequenciaVideos = new List<string> { "fase1_end", "fase1final2", "fase1final3", "fase1final4" };
         private int indiceVideoAtual = 0;
 
@@ -328,7 +328,7 @@ namespace Pitico
         }
         private void SetSpecificControlsInvisible()
         {
-            // Lista de controles específicos que devem ser invisíveis
+
             List<Control> controlsToHide = new List<Control>()
     {
         Cenario3,
@@ -362,10 +362,10 @@ namespace Pitico
 
     };
 
-            // Itera sobre todos os controles no formulário
+
             foreach (Control control in this.Controls)
             {
-                // Se o controle estiver na lista, define a propriedade Visible como false
+    
                 if (controlsToHide.Contains(control))
                 {
                     control.Visible = false;
