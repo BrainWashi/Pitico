@@ -173,6 +173,7 @@
             this.Controls.Add(this.lbl_titulo);
             this.DoubleBuffered = true;
             this.Name = "Configurações";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configurações";
             this.Load += new System.EventHandler(this.Configurações_Load);
             this.ResumeLayout(false);

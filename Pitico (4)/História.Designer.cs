@@ -255,6 +255,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Name = "História";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();

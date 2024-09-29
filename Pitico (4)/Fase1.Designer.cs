@@ -64,12 +64,12 @@
             this.cenario_original = new System.Windows.Forms.PictureBox();
             this.btn_póspergunta2 = new System.Windows.Forms.Button();
             this.btn_Póspergunta3 = new System.Windows.Forms.Button();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.textBox_acertou = new System.Windows.Forms.TextBox();
             this.textBox_errado = new System.Windows.Forms.TextBox();
             this.informativo1 = new System.Windows.Forms.PictureBox();
             this.informativo2 = new System.Windows.Forms.PictureBox();
             this.btn_avanca = new System.Windows.Forms.Button();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.erroPergunta1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cenario3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cenario4)).BeginInit();
@@ -82,9 +82,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.erroperg4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cenario9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cenario_original)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.informativo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.informativo2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // LetraCperg1
@@ -556,17 +556,6 @@
             this.btn_Póspergunta3.Visible = false;
             this.btn_Póspergunta3.Click += new System.EventHandler(this.btn_Póspergunta3_Click);
             // 
-            // axWindowsMediaPlayer1
-            // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(-158, -95);
-            this.axWindowsMediaPlayer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1415, 812);
-            this.axWindowsMediaPlayer1.TabIndex = 35;
-            this.axWindowsMediaPlayer1.Visible = false;
-            // 
             // textBox_acertou
             // 
             this.textBox_acertou.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -627,6 +616,17 @@
             this.btn_avanca.UseVisualStyleBackColor = true;
             this.btn_avanca.Click += new System.EventHandler(this.btn_avanca_Click_1);
             // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(-158, -95);
+            this.axWindowsMediaPlayer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1415, 812);
+            this.axWindowsMediaPlayer1.TabIndex = 35;
+            this.axWindowsMediaPlayer1.Visible = false;
+            // 
             // Fase1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -677,6 +677,7 @@
             this.Controls.Add(this.erroPergunta1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Fase1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fase1";
             this.TransparencyKey = System.Drawing.Color.Transparent;
             this.Load += new System.EventHandler(this.Fase1_Load);
@@ -692,9 +693,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.erroperg4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cenario9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cenario_original)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.informativo1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.informativo2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

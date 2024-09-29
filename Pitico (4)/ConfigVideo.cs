@@ -45,6 +45,7 @@ namespace Pitico
             Form form = new Configurações();
             form.Closed += (s, args) => this.Close();
             form.Show();
+            this.Close();
         }
 
         private void ConfigVideo_Load(object sender, EventArgs e)

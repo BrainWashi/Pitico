@@ -144,6 +144,7 @@
             this.Controls.Add(this.BOTAO);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EscolhaFase";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EscolhaFase";
             this.Load += new System.EventHandler(this.EscolhaFase_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();

@@ -174,6 +174,7 @@
             this.Controls.Add(this.lbl_titulo);
             this.DoubleBuffered = true;
             this.Name = "ConfigVideo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConfigVideo";
             this.Load += new System.EventHandler(this.ConfigVideo_Load);
             this.ResumeLayout(false);

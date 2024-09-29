@@ -25,6 +25,7 @@ namespace Pitico
             Form form = new Menu();
             form.Closed += (s, args) => this.Close();
             form.Show();
+            this.Close();
         }
 
         private void Rdb_português_CheckedChanged(object sender, EventArgs e)
@@ -65,6 +66,7 @@ namespace Pitico
             Form form = new ConfigAudio();
             form.Closed += (s, args) => this.Close();
             form.Show();
+            this.Close();
         }
 
         private void Btn_video_Click(object sender, EventArgs e)
@@ -73,6 +75,7 @@ namespace Pitico
             Form form = new ConfigVideo();
             form.Closed += (s, args) => this.Close();
             form.Show();
+            this.Close();
         }
 
         private void Configurações_Load(object sender, EventArgs e)

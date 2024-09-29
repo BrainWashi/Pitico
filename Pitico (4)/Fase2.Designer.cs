@@ -530,6 +530,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Fase2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fase2";
             this.Load += new System.EventHandler(this.Fase2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cshar_1)).EndInit();

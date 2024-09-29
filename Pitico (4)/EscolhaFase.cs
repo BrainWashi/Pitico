@@ -142,6 +142,7 @@ namespace Pjt_Pitico
             Form frm = new Fase1();
             frm.Closed += (s, args) => this.Close();
             frm.Show();
+            this.Close();
         }
 
 

@@ -279,6 +279,7 @@ namespace Pjt_Pitico
         {
             Form proximoFormulario = new FormAnuncio();
             proximoFormulario.Show();
+            this.Close();
         }
 
         private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)

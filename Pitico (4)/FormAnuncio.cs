@@ -152,6 +152,7 @@ namespace Pjt_Pitico
             {
                 Form proximoFormulario = new CutscenePiticoPuxado();
                 proximoFormulario.Show();
+                this.Close();
             }
         }
 

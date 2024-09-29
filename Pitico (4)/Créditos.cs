@@ -40,6 +40,7 @@ namespace Pitico
             Form f = new Menu();
             f.Closed += (s, args) => this.Close();
             f.Show();
+            this.Close();
         }
 
         private void Créditos_Load(object sender, EventArgs e)

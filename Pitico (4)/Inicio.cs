@@ -38,6 +38,7 @@ namespace Pitico
                 Form form = new História();
                 form.Closed += (s, args) => this.Close();
                 form.Show();
+                this.Close();
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);

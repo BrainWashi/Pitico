@@ -77,6 +77,7 @@ namespace Pitico
             Form formm = new Configurações();
             formm.Closed += (s, args) => this.Close();
             formm.Show();
+            this.Close();
 
         }
 

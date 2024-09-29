@@ -38,24 +38,24 @@
             this.lbl_titulo.BackColor = System.Drawing.Color.Transparent;
             this.lbl_titulo.Font = new System.Drawing.Font("MS PGothic", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_titulo.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lbl_titulo.Location = new System.Drawing.Point(170, 231);
-            this.lbl_titulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_titulo.Location = new System.Drawing.Point(227, 284);
             this.lbl_titulo.Name = "lbl_titulo";
-            this.lbl_titulo.Size = new System.Drawing.Size(481, 48);
+            this.lbl_titulo.Size = new System.Drawing.Size(594, 60);
             this.lbl_titulo.TabIndex = 1;
             this.lbl_titulo.Text = "THE IFSP PRESENTS";
             // 
             // Inicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Pitico.Properties.Resources.Inicio;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(787, 510);
+            this.ClientSize = new System.Drawing.Size(1049, 628);
             this.Controls.Add(this.lbl_titulo);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Inicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
             this.Load += new System.EventHandler(this.Inicio_Load);
             this.ResumeLayout(false);

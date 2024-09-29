@@ -442,6 +442,7 @@ namespace Pitico
                         MessageBox.Show("Parabéns! Você venceu a fase!");
                         Form proximoFormulario = new Fase3();
                         proximoFormulario.Show();
+                        this.Close();
                         break;
                 }
             }

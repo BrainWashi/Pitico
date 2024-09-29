@@ -255,6 +255,7 @@
             this.DoubleBuffered = true;
             this.Location = new System.Drawing.Point(423, 144);
             this.Name = "ConfigAudio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConfigAudio";
             this.Load += new System.EventHandler(this.ConfigAudio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
