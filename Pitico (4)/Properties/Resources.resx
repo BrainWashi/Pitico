@@ -469,4 +469,16 @@
   <data name="fase2final4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fase2final4.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="pixel_cshar_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pixel_cshar_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pixel_cshar_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pixel_cshar_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pixel_pitico_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pixel_pitico_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pixel_pitico_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pixel_pitico_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -279,7 +279,6 @@ namespace Pjt_Pitico
         {
             Form proximoFormulario = new FormAnuncio();
             proximoFormulario.Show();
-            this.Close();
         }
 
         private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
@@ -364,11 +363,15 @@ namespace Pjt_Pitico
             if (e.KeyCode == Keys.Enter)
             {
      
-                e.SuppressKeyPress = true;
 
          
                 this.SelectNextControl((Control)sender, true, true, true, true);
             }
+        }
+
+        private void telapreta1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

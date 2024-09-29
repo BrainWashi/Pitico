@@ -1003,6 +1003,26 @@ namespace Pitico.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pixel_cshar_2 {
+            get {
+                object obj = ResourceManager.GetObject("pixel_cshar_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pixel_cshar_3 {
+            get {
+                object obj = ResourceManager.GetObject("pixel_cshar_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pixel_gameover {
             get {
                 object obj = ResourceManager.GetObject("pixel_gameover", resourceCulture);
@@ -1026,6 +1046,26 @@ namespace Pitico.Properties {
         internal static System.Drawing.Bitmap pixel_pitico_1 {
             get {
                 object obj = ResourceManager.GetObject("pixel_pitico_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pixel_pitico_2 {
+            get {
+                object obj = ResourceManager.GetObject("pixel_pitico_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pixel_pitico_3 {
+            get {
+                object obj = ResourceManager.GetObject("pixel_pitico_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

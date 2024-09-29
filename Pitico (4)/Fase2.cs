@@ -54,6 +54,11 @@ namespace Pitico
 
             AtualizarCoracoes();
             AtualizarCoracoesAdversario();
+            
+            pitico_2.Visible = false;
+            pitico_3.Visible = false;
+            cshar_2.Visible = false;
+            cshar_3.Visible = false;
         }
 
         private void SelecionarOpcao(object sender, EventArgs e)
@@ -73,7 +78,6 @@ namespace Pitico
 
                 vidaCshar--;
                 if (vidaCshar < 0) vidaCshar = 0; 
-                MessageBox.Show("Você denunciou! O adversário perdeu um coração.");
             }
             else if (botao == btn_block)
             {
@@ -222,7 +226,11 @@ namespace Pitico
             btn_block.Visible = false;
             btn_denunciar.Visible = false;
             btn_xingar.Visible = false;
-            btn_ignorar.Visible = false;    
+            btn_ignorar.Visible = false;
+            pitico_1.Visible = false;
+            cshar_1.Visible = false;
+            cshar_2.Visible = true;
+            pitico_3.Visible = true;
 
         }
 
@@ -243,6 +251,10 @@ namespace Pitico
             btn_denunciar.Visible = false;
             btn_xingar.Visible = false;
             btn_ignorar.Visible = false;
+            pitico_1.Visible = false;
+            cshar_1.Visible = false;
+            cshar_2.Visible = true;
+            pitico_2.Visible = true;
         }
 
         private void prosseguir2_Click(object sender, EventArgs e)
@@ -262,6 +274,8 @@ namespace Pitico
             btn_denunciar.Visible = false;
             btn_xingar.Visible = false;
             btn_ignorar.Visible = false;
+            pitico_1.Visible = false;
+            cshar_1.Visible = false;
         }
 
         private void prosseguir3_Click(object sender, EventArgs e)
@@ -282,6 +296,10 @@ namespace Pitico
             btn_denunciar.Visible = false;
             btn_xingar.Visible = false;
             btn_ignorar.Visible = false;
+            pitico_1.Visible = false;
+            cshar_1.Visible = false;
+            cshar_3.Visible = true;
+            pitico_2.Visible = true;
         }
 
         private void prosseguir4_Click(object sender, EventArgs e)
@@ -300,6 +318,10 @@ namespace Pitico
             btn_denunciar.Visible = false;
             btn_xingar.Visible = false;
             btn_ignorar.Visible = false;
+            pitico_1.Visible = false;
+            cshar_1.Visible = false;
+            pitico_3.Visible = true;
+            cshar_2.Visible = true;
         }
 
         private void prosseguir5_Click(object sender, EventArgs e)
@@ -318,6 +340,12 @@ namespace Pitico
             btn_denunciar.Visible = true;
             btn_xingar.Visible = true;
             btn_ignorar.Visible = true;
+            pitico_1.Visible = true;
+            pitico_2.Visible = false;
+            pitico_3.Visible = false;
+            cshar_1.Visible = true;
+            cshar_2.Visible = false;
+            cshar_3.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -560,5 +560,17 @@
   <ItemGroup>
     <None Include="Resources\fase2final1.mp4" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pixel_pitico_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pixel_pitico_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pixel_cshar_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pixel_cshar_2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

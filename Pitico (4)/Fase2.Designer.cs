@@ -65,6 +65,10 @@
             this.batalha = new System.Windows.Forms.PictureBox();
             this.btn_next = new System.Windows.Forms.Button();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.cshar_2 = new System.Windows.Forms.PictureBox();
+            this.cshar_3 = new System.Windows.Forms.PictureBox();
+            this.pitico_2 = new System.Windows.Forms.PictureBox();
+            this.pitico_3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.cshar_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pitico_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,6 +86,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Block)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.batalha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cshar_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cshar_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pitico_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pitico_3)).BeginInit();
             this.SuspendLayout();
             // 
             // cshar_1
@@ -486,12 +494,68 @@
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1234, 787);
             this.axWindowsMediaPlayer1.TabIndex = 37;
             // 
+            // cshar_2
+            // 
+            this.cshar_2.BackColor = System.Drawing.Color.Transparent;
+            this.cshar_2.Image = global::Pitico.Properties.Resources.pixel_cshar_2;
+            this.cshar_2.Location = new System.Drawing.Point(543, 17);
+            this.cshar_2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cshar_2.Name = "cshar_2";
+            this.cshar_2.Size = new System.Drawing.Size(901, 709);
+            this.cshar_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cshar_2.TabIndex = 41;
+            this.cshar_2.TabStop = false;
+            this.cshar_2.Visible = false;
+            // 
+            // cshar_3
+            // 
+            this.cshar_3.BackColor = System.Drawing.Color.Transparent;
+            this.cshar_3.Image = global::Pitico.Properties.Resources.pixel_cshar_3;
+            this.cshar_3.Location = new System.Drawing.Point(543, 17);
+            this.cshar_3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cshar_3.Name = "cshar_3";
+            this.cshar_3.Size = new System.Drawing.Size(901, 709);
+            this.cshar_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cshar_3.TabIndex = 42;
+            this.cshar_3.TabStop = false;
+            this.cshar_3.Visible = false;
+            // 
+            // pitico_2
+            // 
+            this.pitico_2.BackColor = System.Drawing.Color.Transparent;
+            this.pitico_2.Image = global::Pitico.Properties.Resources.pixel_pitico_2;
+            this.pitico_2.Location = new System.Drawing.Point(169, 264);
+            this.pitico_2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pitico_2.Name = "pitico_2";
+            this.pitico_2.Size = new System.Drawing.Size(623, 386);
+            this.pitico_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pitico_2.TabIndex = 43;
+            this.pitico_2.TabStop = false;
+            this.pitico_2.Visible = false;
+            // 
+            // pitico_3
+            // 
+            this.pitico_3.BackColor = System.Drawing.Color.Transparent;
+            this.pitico_3.Image = global::Pitico.Properties.Resources.pixel_pitico_3;
+            this.pitico_3.Location = new System.Drawing.Point(169, 264);
+            this.pitico_3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pitico_3.Name = "pitico_3";
+            this.pitico_3.Size = new System.Drawing.Size(623, 386);
+            this.pitico_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pitico_3.TabIndex = 44;
+            this.pitico_3.TabStop = false;
+            this.pitico_3.Visible = false;
+            // 
             // Fase2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Pitico.Properties.Resources.pixel_bg1;
             this.ClientSize = new System.Drawing.Size(1401, 799);
+            this.Controls.Add(this.pitico_3);
+            this.Controls.Add(this.pitico_2);
+            this.Controls.Add(this.cshar_3);
+            this.Controls.Add(this.cshar_2);
             this.Controls.Add(this.btn_next);
             this.Controls.Add(this.batalha);
             this.Controls.Add(this.Block);
@@ -530,7 +594,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Fase2";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fase2";
             this.Load += new System.EventHandler(this.Fase2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cshar_1)).EndInit();
@@ -550,6 +613,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Block)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.batalha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cshar_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cshar_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pitico_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pitico_3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -593,5 +660,9 @@
         private System.Windows.Forms.PictureBox Block;
         private System.Windows.Forms.PictureBox batalha;
         private System.Windows.Forms.Button btn_next;
+        private System.Windows.Forms.PictureBox cshar_2;
+        private System.Windows.Forms.PictureBox cshar_3;
+        private System.Windows.Forms.PictureBox pitico_2;
+        private System.Windows.Forms.PictureBox pitico_3;
     }
 }

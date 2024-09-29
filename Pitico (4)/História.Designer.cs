@@ -209,6 +209,7 @@
             this.telapreta1.TabIndex = 14;
             this.telapreta1.TabStop = false;
             this.telapreta1.Visible = false;
+            this.telapreta1.Click += new System.EventHandler(this.telapreta1_Click);
             // 
             // btn_telapreta2
             // 

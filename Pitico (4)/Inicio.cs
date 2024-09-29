@@ -29,19 +29,18 @@ namespace Pitico
         }
 
         private void Inicio_Load(object sender, EventArgs e)
-        { }
-            protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == Keys.Enter)
+
+        }
+            protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
             {
-                this.Hide();
-                Form form = new História();
-                form.Closed += (s, args) => this.Close();
-                form.Show();
-                this.Close();
-                return true;
+              if (keyData == Keys.Enter)
+              {
+                Form historiaForm = new História();
+                historiaForm.Show(); // Abre o formulário História
+                this.Hide(); // Oculte o formulário Inicio, se desejado
             }
             return base.ProcessCmdKey(ref msg, keyData);
-        }
+            }
     }
 }

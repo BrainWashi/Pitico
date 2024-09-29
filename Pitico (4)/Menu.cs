@@ -67,25 +67,23 @@ namespace Pitico
         {
             this.Hide();
             Form frm = new Inicio();
-            frm.Closed += (s, args) => this.Close();
+            frm.Closed += (s, args) => this.Close(); // Fecha o Menu quando o formulário Inicio for fechado
             frm.Show();
         }
 
         private void btn_opções_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Form formm = new Configurações();
-            formm.Closed += (s, args) => this.Close();
-            formm.Show();
-            this.Close();
-
+            formm.Closed += (s, args) => this.Close(); // Fecha o Menu quando Configurações for fechado
+            formm.Show(); // Mostra o novo formulário
+            this.Hide(); // Oculte o Menu
         }
 
         private void btn_créditos_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form f = new Créditos();
-            f.Closed += (s, args) => this.Close();
+            f.Closed += (s, args) => this.Close(); // Fecha o Menu quando Créditos for fechado
             f.Show();
         }
 
@@ -97,8 +95,8 @@ namespace Pitico
         private void button1_Click(object sender, EventArgs e)
         {
             Form proximoFormulario = new Fase1();
-            proximoFormulario.Show();
-            this.Close();
+            proximoFormulario.Show(); // Mostra o próximo formulário
+            this.Close(); // Fecha o Menu
         }
     }
 }
