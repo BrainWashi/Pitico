@@ -1,15 +1,17 @@
 ﻿using AxWMPLib;
 using Pitico;
 using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Pjt_Pitico
 {
     public partial class CutscenePiticoPuxado : Form
     {
         private bool video3Played = false;
-
+        private double aspectRatio = 16.0 / 9.0;
         public CutscenePiticoPuxado()
         {
             InitializeComponent();
@@ -23,6 +25,8 @@ namespace Pjt_Pitico
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
             this.KeyPreview = true;
 
+            this.Resize += new EventHandler(Form1_Resize);
+
             // Associe o evento Load do formulário ao método que irá iniciar o vídeo
             this.Load += new EventHandler(CutscenePiticoPuxado_Load);
         }
@@ -30,8 +34,55 @@ namespace Pjt_Pitico
         private void CutscenePiticoPuxado_Load(object sender, EventArgs e)
         {
             PlayVideoFromResources("video3");
+            Form1_Resize(this, EventArgs.Empty);
         }
 
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            int largura = this.ClientSize.Width;
+            int altura = (largura * 9) / 16;
+            this.ClientSize = new Size(largura, altura);
+
+
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+
+                SetFullScreenVideo();
+            }
+            else
+            {
+
+                AdjustVideoSize();
+            }
+        }
+        private void SetFullScreenVideo()
+        {
+
+            int newWidth = this.ClientSize.Width;
+            int newHeight = (int)(newWidth / aspectRatio);
+
+            if (newHeight > this.ClientSize.Height)
+            {
+
+                newHeight = this.ClientSize.Height;
+                newWidth = (int)(newHeight * aspectRatio);
+            }
+
+
+            axWindowsMediaPlayer2.Width = newWidth;
+            axWindowsMediaPlayer2.Height = newHeight;
+
+
+            axWindowsMediaPlayer2.Location = new Point((this.ClientSize.Width - newWidth) / 2, (this.ClientSize.Height - newHeight) / 2);
+        }
+
+        private void AdjustVideoSize()
+        {
+
+            axWindowsMediaPlayer2.Width = this.ClientSize.Width;
+            axWindowsMediaPlayer2.Height = this.ClientSize.Height;
+
+        }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && !video3Played)

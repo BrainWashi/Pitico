@@ -1,6 +1,8 @@
 ﻿// FormANUNCIO.cs
 using Pitico;
 using System;
+using System.Drawing;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace Pjt_Pitico
@@ -12,7 +14,7 @@ namespace Pjt_Pitico
         private int blinkDuration = 5000;
         private Timer timer;
         private bool shouldOpenNewForm = false;
-
+        private double aspectRatio = 16.0 / 9.0;
         public FormAnuncio()
         {
             InitializeComponent();
@@ -37,6 +39,7 @@ namespace Pjt_Pitico
             durationTimer = new Timer();
             durationTimer.Interval = blinkDuration;
             durationTimer.Tick += DurationTimer_Tick;
+            this.Resize += new EventHandler(Formresize);
 
             // Associa o evento VisibleChanged da PictureBox
             pictureBox3.VisibleChanged += PictureBox3_VisibleChanged;
@@ -75,7 +78,7 @@ namespace Pjt_Pitico
                 durationTimer.Stop();
                 this.Visible = true; // Certifica-se de que o formulário esteja visível ao parar de piscar
                 shouldOpenNewForm = true;
-                this.Close();
+            
             }
         }
 
@@ -150,12 +153,39 @@ namespace Pjt_Pitico
             base.OnFormClosed(e);
             if (shouldOpenNewForm)
             {
-                Form proximoFormulario = new CutscenePiticoPuxado();
-                proximoFormulario.Show();
-                this.Close();
+              
+                if (Application.OpenForms["CutscenePiticoPuxado"] == null)
+                {
+            
+                    Form proximoFormulario = new CutscenePiticoPuxado();
+                    proximoFormulario.Show();
+                    this.Close();
+                }
             }
         }
+        private void Formresize(object sender, EventArgs e)
+            {
+            int largura = this.ClientSize.Width;
+            int altura = (largura * 9) / 16;
+            this.ClientSize = new Size(largura, altura);
 
+            pictureBox3.Width = this.ClientSize.Width;
+            pictureBox3.Height = this.ClientSize.Height;
+
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            pictureBox3.Location = new Point(0, 0);
+
+            pictureBox1.Width = this.ClientSize.Width;
+            pictureBox1.Height = this.ClientSize.Height;
+
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            pictureBox1.Location = new Point(0, 0);
+        }
+        
         private void FormANUNCIO_Load(object sender, EventArgs e)
         {
 

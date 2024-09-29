@@ -3,6 +3,7 @@ using Pitico;
 using System;
 using System.Drawing;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace Pjt_Pitico
@@ -16,6 +17,7 @@ namespace Pjt_Pitico
         private int sequenceStep = 0;
         private bool isFinalState = false;
         private double aspectRatio = 16.0 / 9.0;
+
         public História()
         {
             InitializeComponent();
@@ -43,6 +45,40 @@ namespace Pjt_Pitico
             int largura = this.ClientSize.Width;
             int altura = (largura * 9) / 16;
             this.ClientSize = new Size(largura, altura);
+
+            pic_mae1.Width = this.ClientSize.Width;
+            pic_mae1.Height = this.ClientSize.Height;
+            pic_mae2.Width = this.ClientSize.Width;
+            pic_mae2.Height = this.ClientSize.Height;
+            pitico_1.Width = this.ClientSize.Width;
+            pitico_1.Height = this.ClientSize.Height;
+            pitico_2.Width = this.ClientSize.Width;
+            pitico_2.Height = this.ClientSize.Height;
+            telapreta1.Width = this.ClientSize.Width;
+            telapreta1.Height = this.ClientSize.Height;
+          telapreta2.Width = this.ClientSize.Width;
+            telapreta2.Height = this.ClientSize.Height;
+
+            pic_mae1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pic_mae2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pitico_1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pitico_2.SizeMode = PictureBoxSizeMode.StretchImage;
+            telapreta1.SizeMode = PictureBoxSizeMode.StretchImage;
+            telapreta2.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            lbl_legenda.Width = this.ClientSize.Width - 20;
+            lbl_legenda2.Width = this.ClientSize.Width;
+            lbl_legenda2.Dock = DockStyle.Bottom;
+
+            textBox1.Width = this.ClientSize.Width - 20;
+            textBox1.Dock = DockStyle.Top;
+            pic_mae1.Location = new Point(0, 0); 
+            pic_mae2.Location = new Point(0, 0); 
+            pitico_1.Location = new Point(0, 0); 
+            pitico_2.Location = new Point(0, 0); 
+          telapreta1.Location = new Point(0, 0); 
+            telapreta2.Location = new Point(0, 0); 
+
 
             if (this.WindowState == FormWindowState.Maximized)
             {
@@ -86,6 +122,8 @@ namespace Pjt_Pitico
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Form1_Resize(this, EventArgs.Empty);
+
             PlayVideoFromResources("video");
 
             if (Config.Leg == true)
@@ -274,9 +312,20 @@ namespace Pjt_Pitico
                 }
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is FormAnuncio)
+                {
+                    form.BringToFront(); 
+                    return; 
+                }
+            }
+
+        
             Form proximoFormulario = new FormAnuncio();
             proximoFormulario.Show();
         }
@@ -370,6 +419,11 @@ namespace Pjt_Pitico
         }
 
         private void telapreta1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_legenda2_Click(object sender, EventArgs e)
         {
 
         }

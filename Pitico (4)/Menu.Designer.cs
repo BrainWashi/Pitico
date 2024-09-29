@@ -41,10 +41,9 @@
             this.lbl_título.BackColor = System.Drawing.Color.Transparent;
             this.lbl_título.Font = new System.Drawing.Font("MS PGothic", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.lbl_título.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.lbl_título.Location = new System.Drawing.Point(233, 53);
-            this.lbl_título.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_título.Location = new System.Drawing.Point(175, 43);
             this.lbl_título.Name = "lbl_título";
-            this.lbl_título.Size = new System.Drawing.Size(795, 80);
+            this.lbl_título.Size = new System.Drawing.Size(646, 64);
             this.lbl_título.TabIndex = 0;
             this.lbl_título.Text = "Segurança Confiscada";
             // 
@@ -57,10 +56,10 @@
             this.btn_sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_sair.Font = new System.Drawing.Font("MS PGothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btn_sair.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.btn_sair.Location = new System.Drawing.Point(925, 465);
-            this.btn_sair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_sair.Location = new System.Drawing.Point(694, 378);
+            this.btn_sair.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_sair.Name = "btn_sair";
-            this.btn_sair.Size = new System.Drawing.Size(201, 46);
+            this.btn_sair.Size = new System.Drawing.Size(151, 37);
             this.btn_sair.TabIndex = 7;
             this.btn_sair.Text = "Sair";
             this.btn_sair.UseVisualStyleBackColor = false;
@@ -74,10 +73,10 @@
             this.btn_créditos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_créditos.Font = new System.Drawing.Font("MS PGothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btn_créditos.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.btn_créditos.Location = new System.Drawing.Point(925, 401);
-            this.btn_créditos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_créditos.Location = new System.Drawing.Point(694, 326);
+            this.btn_créditos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_créditos.Name = "btn_créditos";
-            this.btn_créditos.Size = new System.Drawing.Size(201, 46);
+            this.btn_créditos.Size = new System.Drawing.Size(151, 37);
             this.btn_créditos.TabIndex = 6;
             this.btn_créditos.Text = "Créditos";
             this.btn_créditos.UseVisualStyleBackColor = false;
@@ -92,10 +91,10 @@
             this.btn_opções.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_opções.Font = new System.Drawing.Font("MS PGothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btn_opções.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.btn_opções.Location = new System.Drawing.Point(925, 341);
-            this.btn_opções.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_opções.Location = new System.Drawing.Point(694, 277);
+            this.btn_opções.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_opções.Name = "btn_opções";
-            this.btn_opções.Size = new System.Drawing.Size(201, 46);
+            this.btn_opções.Size = new System.Drawing.Size(151, 37);
             this.btn_opções.TabIndex = 5;
             this.btn_opções.Text = "Opções";
             this.btn_opções.UseVisualStyleBackColor = false;
@@ -110,10 +109,10 @@
             this.btn_iniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_iniciar.Font = new System.Drawing.Font("MS PGothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btn_iniciar.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.btn_iniciar.Location = new System.Drawing.Point(925, 277);
-            this.btn_iniciar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_iniciar.Location = new System.Drawing.Point(694, 225);
+            this.btn_iniciar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_iniciar.Name = "btn_iniciar";
-            this.btn_iniciar.Size = new System.Drawing.Size(201, 46);
+            this.btn_iniciar.Size = new System.Drawing.Size(151, 37);
             this.btn_iniciar.TabIndex = 1;
             this.btn_iniciar.Text = "Iniciar";
             this.btn_iniciar.UseVisualStyleBackColor = false;
@@ -121,21 +120,22 @@
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Pitico.Properties.Resources.Menu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1399, 773);
+            this.ClientSize = new System.Drawing.Size(1049, 628);
             this.Controls.Add(this.btn_sair);
             this.Controls.Add(this.btn_créditos);
             this.Controls.Add(this.btn_opções);
             this.Controls.Add(this.btn_iniciar);
             this.Controls.Add(this.lbl_título);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
