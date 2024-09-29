@@ -38,10 +38,6 @@ namespace Pjt_Pitico
                 control.KeyDown += new KeyEventHandler(Control_KeyDown);
             }
         }
-
-        //testeeee
-
-
         private void Form1_Resize(object sender, EventArgs e)
         {
             int largura = this.ClientSize.Width;
