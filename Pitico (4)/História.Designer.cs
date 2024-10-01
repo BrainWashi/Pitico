@@ -8,18 +8,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(História));
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btn_avancar = new System.Windows.Forms.Button();
             this.lbl_legenda = new System.Windows.Forms.Label();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.passar_mae1 = new System.Windows.Forms.Button();
             this.passar_pitico1 = new System.Windows.Forms.Button();
             this.passar_mae2 = new System.Windows.Forms.Button();
             this.passar_pra_cutscene = new System.Windows.Forms.Button();
-            this.btn_telapreta2 = new System.Windows.Forms.Button();
             this.btn_telapreta1 = new System.Windows.Forms.Button();
+            this.btn_telapreta2 = new System.Windows.Forms.Button();
             this.lbl_legenda2 = new System.Windows.Forms.Label();
             this.telapreta1 = new System.Windows.Forms.PictureBox();
             this.telapreta2 = new System.Windows.Forms.PictureBox();
+            this.btn_avancar = new System.Windows.Forms.Button();
             this.pitico_1 = new System.Windows.Forms.PictureBox();
             this.pitico_2 = new System.Windows.Forms.PictureBox();
             this.pic_mae1 = new System.Windows.Forms.PictureBox();
@@ -43,20 +43,6 @@
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "aaaaaaaaaaaaa";
             this.textBox1.Visible = false;
-            // 
-            // btn_avancar
-            // 
-            this.btn_avancar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_avancar.BackgroundImage = global::Pitico.Properties.Resources.Botão;
-            this.btn_avancar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_avancar.Location = new System.Drawing.Point(937, 388);
-            this.btn_avancar.Name = "btn_avancar";
-            this.btn_avancar.Size = new System.Drawing.Size(81, 44);
-            this.btn_avancar.TabIndex = 2;
-            this.btn_avancar.Text = "AVANÇAR";
-            this.btn_avancar.UseVisualStyleBackColor = true;
-            this.btn_avancar.Visible = false;
-            this.btn_avancar.Click += new System.EventHandler(this.button1_Click);
             // 
             // lbl_legenda
             // 
@@ -133,21 +119,6 @@
             this.passar_pra_cutscene.Visible = false;
             this.passar_pra_cutscene.Click += new System.EventHandler(this.passar_pra_cutscene_Click);
             // 
-            // btn_telapreta2
-            // 
-            this.btn_telapreta2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_telapreta2.AutoSize = true;
-            this.btn_telapreta2.BackgroundImage = global::Pitico.Properties.Resources.Botão;
-            this.btn_telapreta2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_telapreta2.Location = new System.Drawing.Point(943, 562);
-            this.btn_telapreta2.Name = "btn_telapreta2";
-            this.btn_telapreta2.Size = new System.Drawing.Size(75, 23);
-            this.btn_telapreta2.TabIndex = 15;
-            this.btn_telapreta2.Text = "Prosseguir";
-            this.btn_telapreta2.UseVisualStyleBackColor = true;
-            this.btn_telapreta2.Visible = false;
-            this.btn_telapreta2.Click += new System.EventHandler(this.btn_telapreta2_Click);
-            // 
             // btn_telapreta1
             // 
             this.btn_telapreta1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -163,6 +134,21 @@
             this.btn_telapreta1.Visible = false;
             this.btn_telapreta1.Click += new System.EventHandler(this.btn_telapreta1_Click);
             // 
+            // btn_telapreta2
+            // 
+            this.btn_telapreta2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_telapreta2.AutoSize = true;
+            this.btn_telapreta2.BackgroundImage = global::Pitico.Properties.Resources.Botão;
+            this.btn_telapreta2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_telapreta2.Location = new System.Drawing.Point(943, 562);
+            this.btn_telapreta2.Name = "btn_telapreta2";
+            this.btn_telapreta2.Size = new System.Drawing.Size(75, 23);
+            this.btn_telapreta2.TabIndex = 15;
+            this.btn_telapreta2.Text = "Prosseguir";
+            this.btn_telapreta2.UseVisualStyleBackColor = true;
+            this.btn_telapreta2.Visible = false;
+            this.btn_telapreta2.Click += new System.EventHandler(this.btn_telapreta2_Click);
+            // 
             // lbl_legenda2
             // 
             this.lbl_legenda2.BackColor = System.Drawing.Color.Transparent;
@@ -170,8 +156,8 @@
             this.lbl_legenda2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lbl_legenda2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_legenda2.ForeColor = System.Drawing.Color.Black;
-            this.lbl_legenda2.Image = global::Pitico.Properties.Resources.falas;
-            this.lbl_legenda2.Location = new System.Drawing.Point(-4, 534);
+            this.lbl_legenda2.Image = global::Pitico.Properties.Resources.BalaoFala;
+            this.lbl_legenda2.Location = new System.Drawing.Point(0, 534);
             this.lbl_legenda2.Name = "lbl_legenda2";
             this.lbl_legenda2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lbl_legenda2.Size = new System.Drawing.Size(1052, 94);
@@ -207,6 +193,20 @@
             this.telapreta2.TabIndex = 13;
             this.telapreta2.TabStop = false;
             this.telapreta2.Visible = false;
+            // 
+            // btn_avancar
+            // 
+            this.btn_avancar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_avancar.BackgroundImage = global::Pitico.Properties.Resources.Botão;
+            this.btn_avancar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_avancar.Location = new System.Drawing.Point(937, 388);
+            this.btn_avancar.Name = "btn_avancar";
+            this.btn_avancar.Size = new System.Drawing.Size(81, 44);
+            this.btn_avancar.TabIndex = 2;
+            this.btn_avancar.Text = "AVANÇAR";
+            this.btn_avancar.UseVisualStyleBackColor = true;
+            this.btn_avancar.Visible = false;
+            this.btn_avancar.Click += new System.EventHandler(this.button1_Click);
             // 
             // pitico_1
             // 
