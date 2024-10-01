@@ -133,6 +133,36 @@ namespace Pitico.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Botão {
+            get {
+                object obj = ResourceManager.GetObject("Botão", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Botão1 {
+            get {
+                object obj = ResourceManager.GetObject("Botão1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap botãoo {
+            get {
+                object obj = ResourceManager.GetObject("botãoo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Captura_de_tela_2024_09_01_212603 {
             get {
                 object obj = ResourceManager.GetObject("Captura de tela 2024-09-01 212603", resourceCulture);
@@ -496,6 +526,16 @@ namespace Pitico.Properties {
         internal static System.Drawing.Bitmap erroPergunta1 {
             get {
                 object obj = ResourceManager.GetObject("erroPergunta1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap falas {
+            get {
+                object obj = ResourceManager.GetObject("falas", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

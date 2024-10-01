@@ -57,7 +57,7 @@
             this.btn_sair.Font = new System.Drawing.Font("MS PGothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btn_sair.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.btn_sair.Location = new System.Drawing.Point(694, 378);
-            this.btn_sair.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_sair.Margin = new System.Windows.Forms.Padding(2);
             this.btn_sair.Name = "btn_sair";
             this.btn_sair.Size = new System.Drawing.Size(151, 37);
             this.btn_sair.TabIndex = 7;
@@ -74,7 +74,7 @@
             this.btn_créditos.Font = new System.Drawing.Font("MS PGothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btn_créditos.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.btn_créditos.Location = new System.Drawing.Point(694, 326);
-            this.btn_créditos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_créditos.Margin = new System.Windows.Forms.Padding(2);
             this.btn_créditos.Name = "btn_créditos";
             this.btn_créditos.Size = new System.Drawing.Size(151, 37);
             this.btn_créditos.TabIndex = 6;
@@ -87,12 +87,13 @@
             this.btn_opções.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_opções.AutoSize = true;
             this.btn_opções.BackColor = System.Drawing.Color.LightCyan;
-            this.btn_opções.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_opções.BackgroundImage = global::Pitico.Properties.Resources.Botão;
+            this.btn_opções.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_opções.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_opções.Font = new System.Drawing.Font("MS PGothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btn_opções.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.btn_opções.Location = new System.Drawing.Point(694, 277);
-            this.btn_opções.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_opções.Margin = new System.Windows.Forms.Padding(2);
             this.btn_opções.Name = "btn_opções";
             this.btn_opções.Size = new System.Drawing.Size(151, 37);
             this.btn_opções.TabIndex = 5;
@@ -104,13 +105,14 @@
             // 
             this.btn_iniciar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_iniciar.AutoSize = true;
-            this.btn_iniciar.BackColor = System.Drawing.Color.LightCyan;
-            this.btn_iniciar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_iniciar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_iniciar.BackgroundImage = global::Pitico.Properties.Resources.botãoo;
+            this.btn_iniciar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_iniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_iniciar.Font = new System.Drawing.Font("MS PGothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.btn_iniciar.Font = new System.Drawing.Font("MS PGothic", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_iniciar.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.btn_iniciar.Location = new System.Drawing.Point(694, 225);
-            this.btn_iniciar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_iniciar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_iniciar.Name = "btn_iniciar";
             this.btn_iniciar.Size = new System.Drawing.Size(151, 37);
             this.btn_iniciar.TabIndex = 1;
@@ -131,7 +133,7 @@
             this.Controls.Add(this.btn_iniciar);
             this.Controls.Add(this.lbl_título);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";

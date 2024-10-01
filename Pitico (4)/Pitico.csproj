@@ -572,5 +572,17 @@
   <ItemGroup>
     <None Include="Resources\pixel_cshar_2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Botão.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Botão1.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\falas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\botãoo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
