@@ -43,9 +43,9 @@
             this.lbl_título.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.lbl_título.Location = new System.Drawing.Point(175, 43);
             this.lbl_título.Name = "lbl_título";
-            this.lbl_título.Size = new System.Drawing.Size(646, 64);
+            this.lbl_título.Size = new System.Drawing.Size(661, 64);
             this.lbl_título.TabIndex = 0;
-            this.lbl_título.Text = "Segurança Confiscada";
+            this.lbl_título.Text = "Segurança Confiscada!";
             // 
             // btn_sair
             // 
@@ -118,7 +118,7 @@
             this.btn_iniciar.Name = "btn_iniciar";
             this.btn_iniciar.Size = new System.Drawing.Size(151, 37);
             this.btn_iniciar.TabIndex = 1;
-            this.btn_iniciar.Text = "Iniciar";
+            this.btn_iniciar.Text = "Play";
             this.btn_iniciar.UseVisualStyleBackColor = false;
             this.btn_iniciar.Click += new System.EventHandler(this.btn_iniciar_Click);
             // 
