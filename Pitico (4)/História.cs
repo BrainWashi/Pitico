@@ -66,9 +66,9 @@ namespace Pjt_Pitico
             telapreta1.SizeMode = PictureBoxSizeMode.StretchImage;
             telapreta2.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            lbl_legenda.Width = this.ClientSize.Width - 20;
-            lbl_legenda2.Width = this.ClientSize.Width;
-            lbl_legenda2.Dock = DockStyle.Bottom;
+            lbl_fala2.Width = this.ClientSize.Width - 20;
+            lbl_fala1.Width = this.ClientSize.Width;
+            lbl_fala1.Dock = DockStyle.Bottom;
 
             textBox1.Width = this.ClientSize.Width - 20;
             textBox1.Dock = DockStyle.Top;
@@ -83,7 +83,7 @@ namespace Pjt_Pitico
             if (this.WindowState == FormWindowState.Maximized)
             {
 
-                SetFullScreenVideo();
+                //SetFullScreenVideo();
             }
             else
             {
@@ -110,7 +110,7 @@ namespace Pjt_Pitico
 
 
             axWindowsMediaPlayer1.Location = new Point((this.ClientSize.Width - newWidth) / 2, (this.ClientSize.Height - newHeight) / 2);
-        }
+        } 
 
         private void AdjustVideoSize()
         {
@@ -122,18 +122,19 @@ namespace Pjt_Pitico
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             Form1_Resize(this, EventArgs.Empty);
 
             PlayVideoFromResources("video");
 
             if (Config.Leg == true)
             {
-                lbl_legenda.Visible = true;
+                lbl_fala2.Visible = true;
                 legendaTimer.Start(); 
             }
             else
             {
-                lbl_legenda.Visible = false;
+                lbl_fala2.Visible = false;
             }
 
             if (Config.Ling == true)
@@ -144,6 +145,7 @@ namespace Pjt_Pitico
             {
                 btn_avancar.Text = "NEXT";
             }
+
         }
 
         private void ExibirLegenda()
@@ -177,7 +179,7 @@ namespace Pjt_Pitico
                     break;
             }
 
-            lbl_legenda.Text = legendaAtual;
+            lbl_fala2.Text = legendaAtual;
         }
 
         private void LegendaTimer_Tick(object sender, EventArgs e)
@@ -196,7 +198,7 @@ namespace Pjt_Pitico
             }
             else
             {
-                lbl_legenda.Text = "";
+                lbl_fala2.Text = "";
             }
         }
 
@@ -208,7 +210,7 @@ namespace Pjt_Pitico
             {
                 case "video":
                     video = Pitico.Properties.Resources.cut1;
-                    lbl_legenda.Visible = false;
+                    lbl_fala2.Visible = false;
                     break;
                 case "cut2":
                     video = Pitico.Properties.Resources.cut2;
@@ -268,34 +270,34 @@ namespace Pjt_Pitico
             switch (sequenceStep)
             {
                 case 1:
- 
-                    lbl_legenda2.Visible = true;
+
+                    lbl_fala1.Visible = true;
                     pic_mae1.Visible = true;
-                    passar_mae1.Visible = true;
-                    lbl_legenda2.Text = "Oi filho, chegou cedo em casa hoje";
+                    btn_passar_mae1.Visible = true;
+                    lbl_fala1.Text = "Oi filho, chegou cedo em casa hoje!";
                     break;
                 case 2:
                     pic_mae1.Visible = false;
                     pitico_1.Visible = true;
-                    lbl_legenda2.Text = "Sim, o professor Ivaldo liberou a gente mais cedo hoje!";
-                    passar_pitico1.Visible = true;
+                    lbl_fala1.Text = "Sim, o professor liberou a gente mais cedo hoje.";
+                    btn_passar_pitico1.Visible = true;
                     break;
                 case 3:
                     pitico_1.Visible = false;
                     pic_mae2.Visible = true;
-                    lbl_legenda2.Text = "Que bom meu filho, mas cadê seu irmão?Ele não veio com você?";
-                    passar_mae2.Visible = true;
+                    lbl_fala1.Text = "Que bom meu filho. Cadê seu irmão, ele não veio com você?";
+                    btn_passar_mae2.Visible = true;
                     break;
                 case 4:
                     pic_mae2.Visible = false;
                     pitico_2.Visible = true;
-                    passar_pra_cutscene.Visible = true;
-                    lbl_legenda2.Text = "Ele disse que ia na casa de um amigo e depois iria voltar pra casa";
+                    btn_passar_pra_cutscene.Visible = true;
+                    lbl_fala1.Text = "Ele disse que ia na casa de um amigo e depois voltava pra casa";
                     break;
                 case 5:
 
                     pitico_2.Visible = false;
-                    passar_pra_cutscene.Visible = false;
+                    btn_passar_pra_cutscene.Visible = false;
                     PlayVideoFromResources("cut2");
                     break;
             }
@@ -341,18 +343,18 @@ namespace Pjt_Pitico
             telapreta2.Visible = false;
             btn_avancar.Visible = true;
             isFinalState = true;
-            passar_pra_cutscene.Visible = false;
+            btn_passar_pra_cutscene.Visible = false;
             pitico_2.Visible = false;
             pitico_1.Visible = false;
-            lbl_legenda2.Visible = false;
+            lbl_fala1.Visible = false;
         }
 
         private void passar_mae2_Click(object sender, EventArgs e)
         {
 
-            lbl_legenda2.Text = "Ele disse que ia na casa de um amigo e depois iria voltar pra casa";
+            lbl_fala1.Text = "Ele disse que ia na casa de um amigo e depois iria voltar pra casa";
             pic_mae2.Visible = false;
-            passar_mae2.Visible = false;
+            btn_passar_mae2.Visible = false;
             pitico_2.Visible = true;
             pitico_1.Visible = false;
             btn_telapreta1.Visible = true;
@@ -362,22 +364,22 @@ namespace Pjt_Pitico
 
         private void passar_pitico1_Click(object sender, EventArgs e)
         {
-            lbl_legenda2.Text = "Que bom meu filho, mas cadê seu irmão?Ele não veio com você?";
+            lbl_fala1.Text = "Que bom meu filho, mas cadê seu irmão?Ele não veio com você?";
             pitico_1.Visible = false;
-            passar_pitico1.Visible = false;
+            btn_passar_pitico1.Visible = false;
             pic_mae2.Visible = true;
-            passar_mae2.Visible = true;
+            btn_passar_mae2.Visible = true;
         }
 
         private void passar_mae1_Click(object sender, EventArgs e)
         {
-            if (passar_mae1.CanSelect) ;
+            if (btn_passar_mae1.CanSelect) ;
             {
-                lbl_legenda2.Text = "Sim, o professor Ivaldo liberou a gente mais cedo hoje!";
+                lbl_fala1.Text = "Sim, o professor Ivaldo liberou a gente mais cedo hoje!";
                 pic_mae1.Visible = false;
-                passar_mae1.Visible = false;
+                btn_passar_mae1.Visible = false;
                 pitico_1.Visible = true;
-                passar_pitico1.Visible = true;
+                btn_passar_pitico1.Visible = true;
             }
         }
 
@@ -388,21 +390,21 @@ namespace Pjt_Pitico
 
         private void btn_telapreta2_Click(object sender, EventArgs e)
         {
-            passar_pra_cutscene.Visible = true;
+            btn_passar_pra_cutscene.Visible = true;
             telapreta2.Visible = true;
             telapreta1.Visible = false;
             btn_telapreta2.Visible = false;
-            lbl_legenda2.Visible = true;
-            lbl_legenda2.Text = "““Pode deixar mãe,… vou mexer um pouco no computador agora tá? Obrigado pelo almoço.””";
+            lbl_fala1.Visible = true;
+            lbl_fala1.Text = "““Pode deixar mãe,… vou mexer um pouco no computador agora tá? Obrigado pelo almoço.””";
         }
 
         private void btn_telapreta1_Click(object sender, EventArgs e)
         {
             telapreta1.Visible = true;
             btn_telapreta2.Visible = true;
-            lbl_legenda2.Visible = true;
+            lbl_fala1.Visible = true;
             btn_telapreta1.Visible = false;
-            lbl_legenda2.Text = "“Ah ok, preste atenção nele. Seu irmão está meio…mal… Você deve cuidar dele, ta bom?”";
+            lbl_fala1.Text = "“Ah ok, preste atenção nele. Seu irmão está meio…mal… Você deve cuidar dele, ta bom?”";
         }
 
 
@@ -424,6 +426,17 @@ namespace Pjt_Pitico
         }
 
         private void lbl_legenda2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
+        private void pitico_2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_legenda_Click(object sender, EventArgs e)
         {
 
         }

@@ -204,6 +204,11 @@ namespace Pjt_Pitico
                 this.SelectNextControl((Control)sender, true, true, true, true);
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

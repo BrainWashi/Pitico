@@ -98,5 +98,10 @@ namespace Pitico
             proximoFormulario.Show(); // Mostra o próximo formulário
             this.Close(); // Fecha o Menu
         }
+
+        private void lbl_título_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

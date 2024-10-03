@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.lbl_titulo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_titulo
@@ -46,16 +47,16 @@
             this.lbl_titulo.TabIndex = 1;
             this.lbl_titulo.Text = "THE IFSP PRESENTS";
             // 
-            // label1
+            // pictureBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("MS PGothic", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(320, 414);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(368, 27);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "↵ Aperte enter pra continuar";
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::Pitico.Properties.Resources.enter_2;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(558, 338);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(136, 115);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // Inicio
             // 
@@ -64,7 +65,7 @@
             this.BackgroundImage = global::Pitico.Properties.Resources.Inicio;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(787, 510);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_titulo);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -73,6 +74,7 @@
             this.Text = "Inicio";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Inicio_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,6 +83,6 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_titulo;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

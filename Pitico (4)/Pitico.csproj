@@ -593,5 +593,26 @@
   <ItemGroup>
     <None Include="Resources\BalaoFala.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BalaoFalas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Balãodefalas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotãoPri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enter 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cifrão.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
