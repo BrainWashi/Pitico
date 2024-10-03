@@ -82,7 +82,7 @@
             // 
             // passar_pitico1
             // 
-            this.passar_pitico1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.passar_pitico1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.passar_pitico1.AutoSize = true;
             this.passar_pitico1.Location = new System.Drawing.Point(943, 562);
             this.passar_pitico1.Name = "passar_pitico1";

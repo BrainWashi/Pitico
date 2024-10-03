@@ -19,7 +19,7 @@ namespace Pitico
 
         private List<string> sequenciaVideos = new List<string> { "fase1_end", "fase1final2", "fase1final3", "fase1final4" };
         private int indiceVideoAtual = 0;
-
+        private double aspectRatio = 16.0 / 9.0;
 
         public Fase1()
         {
@@ -32,9 +32,127 @@ namespace Pitico
         }
 
 
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            int largura = this.ClientSize.Width;
+            int altura = (largura * 9) / 16;
+            this.ClientSize = new Size(largura, altura);
+
+
+           cenario_original.Width = this.ClientSize.Width;
+            cenario_original.Height = this.ClientSize.Height;
+            Cenario3.Height = this.ClientSize.Height;
+            Cenario3.Width = this.ClientSize.Width;
+            Cenario4.Height = this.ClientSize.Height;
+            Cenario4.Width = this.ClientSize.Width;
+            Cenario5.Height = this.ClientSize.Height;
+            Cenario5.Width = this.ClientSize.Width;
+            Cenario6perg2.Height = this.ClientSize.Height;
+            Cenario6perg2.Width = this.ClientSize.Width;
+            Cenario7perg3.Height = this.ClientSize.Height;
+            Cenario7perg3.Width = this.ClientSize.Width;
+            Cenario8perg4.Height = this.ClientSize.Height;
+            Cenario8perg4.Width = this.ClientSize.Width;
+            Cenario9.Height = this.ClientSize.Height;
+            Cenario9.Width = this.ClientSize.Width;
+            erroPerg2.Height = this.ClientSize.Height;
+            erroPerg2.Width = this.ClientSize.Width;
+            erroperg3.Height = this.ClientSize.Height;
+            erroperg3.Width = this.ClientSize.Width;
+            erroperg4.Height = this.ClientSize.Height;
+            erroperg4.Width = this.ClientSize.Width;
+            informativo1.Height = this.ClientSize.Height;
+            informativo1.Width = this.ClientSize.Width;
+            informativo2.Height = this.ClientSize.Height;
+            informativo2.Width = this.ClientSize.Width;
+
+
+            cenario_original.SizeMode = PictureBoxSizeMode.StretchImage;
+            Cenario3.SizeMode = PictureBoxSizeMode.StretchImage;
+            Cenario4.SizeMode = PictureBoxSizeMode.StretchImage;
+            Cenario5.SizeMode = PictureBoxSizeMode.StretchImage;
+            Cenario6perg2.SizeMode = PictureBoxSizeMode.StretchImage;
+            Cenario7perg3.SizeMode = PictureBoxSizeMode.StretchImage;
+            Cenario8perg4.SizeMode = PictureBoxSizeMode.StretchImage;
+            Cenario9.SizeMode = PictureBoxSizeMode.StretchImage;
+            erroPerg2.SizeMode = PictureBoxSizeMode.StretchImage;
+            erroperg3.SizeMode = PictureBoxSizeMode.StretchImage;
+            informativo1.SizeMode = PictureBoxSizeMode.StretchImage;
+            informativo2.SizeMode = PictureBoxSizeMode.StretchImage;
+            erroperg4.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            textBox_acertou.Dock = DockStyle.Bottom;
+            textBox_errado.Dock = DockStyle.Bottom;
+            textBoxperg1.Dock = DockStyle.Bottom;
+            textBoxperg2.Dock = DockStyle.Bottom;
+            textBoxperg3.Dock = DockStyle.Bottom;
+            textBoxperg4.Dock = DockStyle.Bottom;
+
+            cenario_original.Location = new Point(0, 0);
+            Cenario3.Location = new Point(0, 0);
+            Cenario4.Location = new Point(0, 0);
+            Cenario5.Location = new Point(0, 0);
+            Cenario6perg2.Location = new Point(0, 0);
+            Cenario7perg3.Location = new Point(0, 0);
+            Cenario8perg4.Location = new Point(0, 0);
+            Cenario9.Location = new Point(0, 0);
+            erroPerg2.Location = new Point(0, 0);
+            erroperg3.Location = new Point(0, 0);
+            erroperg4.Location = new Point(0, 0);
+            informativo1.Location = new Point(0, 0);
+            informativo2.Location = new Point(0, 0);
+
+            textBoxperg1.Width = this.ClientSize.Width - 20;
+            textBoxperg2.Width = this.ClientSize.Width - 20;
+            textBoxperg3.Width = this.ClientSize.Width - 20;
+            textBoxperg4.Width = this.ClientSize.Width - 20;
+            textBox_acertou.Width = this.ClientSize.Width - 20;
+            textBox_errado.Width = this.ClientSize.Width - 20;
+
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+
+                SetFullScreenVideo();
+            }
+            else
+            {
+
+                AdjustVideoSize();
+            }
+        }
+        private void SetFullScreenVideo()
+        {
+
+            int newWidth = this.ClientSize.Width;
+            int newHeight = (int)(newWidth / aspectRatio);
+
+            if (newHeight > this.ClientSize.Height)
+            {
+
+                newHeight = this.ClientSize.Height;
+                newWidth = (int)(newHeight * aspectRatio);
+            }
+
+
+            axWindowsMediaPlayer1.Width = newWidth;
+            axWindowsMediaPlayer1.Height = newHeight;
+
+
+            axWindowsMediaPlayer1.Location = new Point((this.ClientSize.Width - newWidth) / 2, (this.ClientSize.Height - newHeight) / 2);
+        }
+
+        private void AdjustVideoSize()
+        {
+
+            axWindowsMediaPlayer1.Width = this.ClientSize.Width;
+            axWindowsMediaPlayer1.Height = this.ClientSize.Height;
+
+        }
 
         private void Fase1_Load(object sender, EventArgs e)
         {
+            CenterButton();
+            Form1_Resize(this, EventArgs.Empty);
             btn_avanca.Visible = false;
             textBox_errado.Visible = false;
             textBox_acertou.Visible = false;
@@ -106,8 +224,100 @@ namespace Pitico
                 BotaoCenario4.Text = "Proceed";
                 BotaoCenario5.Text = "Proceed";
             }
-
         }
+        private void CenterButton()
+            {
+                // Posição do botão centralizado no formulário
+                LetraAperg1.Left = (this.ClientSize.Width - LetraAperg1.Width) / 2 ;
+                LetraAperg1.Top = (this.ClientSize.Height -     LetraAperg1.Height) / 2 ;
+
+            LetraBperg1.Left = (this.ClientSize.Width - LetraBperg1.Width) / 2;
+            LetraBperg1.Top = LetraAperg1.Top + LetraAperg1.Height + 20; // 20px de espaço entre os botões
+
+            // Botão 3 (logo abaixo do botão 2)
+            LetraCperg1.Left = (this.ClientSize.Width - LetraCperg1.Width) / 2;
+            LetraCperg1.Top = LetraBperg1.Top + LetraBperg1.Height + 20;
+
+            LetraAperg2.Left = (this.ClientSize.Width - LetraAperg2.Width) / 2;
+            LetraAperg2.Top = (this.ClientSize.Height - LetraAperg2.Height) / 2;
+
+            LetraBperg2.Left = (this.ClientSize.Width - LetraBperg2.Width) / 2;
+            LetraBperg2.Top = LetraAperg2.Top + LetraAperg2.Height + 20; // 20px de espaço entre os botões
+
+            // Botão 3 (logo abaixo do botão 2)
+            LetraCperg2.Left = (this.ClientSize.Width - LetraCperg2.Width) / 2;
+            LetraCperg2.Top = LetraBperg2.Top + LetraBperg2.Height + 20;
+
+
+            LetraAperg3.Left = (this.ClientSize.Width - LetraAperg3.Width) / 2;
+            LetraAperg3.Top = (this.ClientSize.Height - LetraAperg3.Height) / 2;
+
+            LetraBperg3.Left = (this.ClientSize.Width - LetraBperg3.Width) / 2;
+            LetraBperg3.Top = LetraAperg3.Top + LetraAperg3.Height + 20; // 20px de espaço entre os botões
+
+            // Botão 3 (logo abaixo do botão 2)
+            LetraCperg3.Left = (this.ClientSize.Width - LetraCperg3.Width) / 2;
+            LetraCperg3.Top = LetraBperg3.Top + LetraBperg3.Height + 20;
+
+
+            LetraAperg4.Left = (this.ClientSize.Width - LetraAperg4.Width) / 2;
+            LetraAperg4.Top = (this.ClientSize.Height - LetraAperg4.Height) / 2;
+
+            LetraBperg4.Left = (this.ClientSize.Width - LetraBperg4.Width) / 2;
+            LetraBperg4.Top = LetraAperg4.Top + LetraAperg4.Height + 20; // 20px de espaço entre os botões
+
+            prosseguir_fase2.Left = (this.ClientSize.Width - prosseguir_fase2.Width) / 2;
+            prosseguir_fase2.Top = (this.ClientSize.Height - prosseguir_fase2.Height) / 2;
+
+            button_tentardnv.Left = (this.ClientSize.Width - button_tentardnv.Width) / 2;
+            button_tentardnv.Top = prosseguir_fase2.Top + prosseguir_fase2.Height + 20; // 20px de espaço entre os botões
+
+            lbl_parabéns.Left = (this.ClientSize.Width - lbl_parabéns.Width) / 2;
+            lbl_parabéns.Top = (this.ClientSize.Height - lbl_parabéns.Height) / 2;
+            // Para garantir que o botão seja centralizado ao redimensionar a janela
+            this.Resize += (s, e) =>
+                {
+                    LetraAperg1.Left = (this.ClientSize.Width - LetraAperg1.Width) / 2;
+                    LetraAperg1.Top = (this.ClientSize.Height - LetraAperg1.Height) / 2;
+
+                    LetraBperg1.Left = (this.ClientSize.Width - LetraBperg1.Width) / 2;
+                    LetraBperg1.Top = LetraAperg1.Top + LetraAperg1.Height + 20; // 20px de espaço entre os botões
+
+                    // Botão 3 (logo abaixo do botão 2)
+                    LetraCperg1.Left = (this.ClientSize.Width - LetraCperg1.Width) / 2;
+                    LetraCperg1.Top = LetraBperg1.Top + LetraBperg1.Height + 20;
+
+                    LetraAperg2.Left = (this.ClientSize.Width - LetraAperg2.Width) / 2;
+                    LetraAperg2.Top = (this.ClientSize.Height - LetraAperg2.Height) / 2;
+
+                    LetraBperg2.Left = (this.ClientSize.Width - LetraBperg2.Width) / 2;
+                    LetraBperg2.Top = LetraAperg2.Top + LetraAperg2.Height + 20; // 20px de espaço entre os botões
+
+                    // Botão 3 (logo abaixo do botão 2)
+                    LetraCperg2.Left = (this.ClientSize.Width - LetraCperg2.Width) / 2;
+                    LetraCperg2.Top = LetraBperg2.Top + LetraBperg2.Height + 20;
+
+
+                    LetraAperg3.Left = (this.ClientSize.Width - LetraAperg3.Width) / 2;
+                    LetraAperg3.Top = (this.ClientSize.Height - LetraAperg3.Height) / 2;
+
+                    LetraBperg3.Left = (this.ClientSize.Width - LetraBperg3.Width) / 2;
+                    LetraBperg3.Top = LetraAperg3.Top + LetraAperg3.Height + 20; // 20px de espaço entre os botões
+
+                    // Botão 3 (logo abaixo do botão 2)
+                    LetraCperg3.Left = (this.ClientSize.Width - LetraCperg3.Width) / 2;
+                    LetraCperg3.Top = LetraBperg3.Top + LetraBperg3.Height + 20;
+
+
+                    LetraAperg4.Left = (this.ClientSize.Width - LetraAperg4.Width) / 2;
+                    LetraAperg4.Top = (this.ClientSize.Height - LetraAperg4.Height) / 2;
+
+                    LetraBperg4.Left = (this.ClientSize.Width - LetraBperg4.Width) / 2;
+                    LetraBperg4.Top = LetraAperg4.Top + LetraAperg4.Height + 20; // 20px de espaço entre os botões
+                };
+            }
+
+        
 
         private void button2_Click(object sender, EventArgs e)
         {

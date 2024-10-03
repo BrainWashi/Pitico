@@ -11,8 +11,8 @@ namespace Pjt_Pitico
     public partial class EscolhaFase : Form
     {
         private bool videoPlayed = false;
-        private int currentStage = 1; 
-
+        private int currentStage = 1;
+        private double aspectRatio = 16.0 / 9.0;
         public EscolhaFase()
         {
             InitializeComponent();
@@ -25,9 +25,77 @@ namespace Pjt_Pitico
                 control.KeyDown += new KeyEventHandler(Control_KeyDown);
             }
         }
-
-        private void EscolhaFase_Load(object sender, EventArgs e)
+        private void Form1_Resize(object sender, EventArgs e)
         {
+            int largura = this.ClientSize.Width;
+            int altura = (largura * 9) / 16;
+            this.ClientSize = new Size(largura, altura);
+
+
+            pictureBox1.Width = this.ClientSize.Width;
+            pictureBox1.Height = this.ClientSize.Height;
+            pictureBox2.Height = this.ClientSize.Height;
+            pictureBox2.Width = this.ClientSize.Width;   
+            pictureBox3.Width = this.ClientSize.Width;
+            pictureBox3.Height = this.ClientSize.Height;
+
+
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            textBox_Pype.Dock = DockStyle.Bottom;
+
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox2.Location = new Point(0, 0);
+            pictureBox3.Location = new Point(0, 0);
+    
+
+            textBox_Pype.Width = this.ClientSize.Width - 20;
+
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+
+                SetFullScreenVideo();
+            }
+            else
+            {
+
+                AdjustVideoSize();
+            }
+        }
+        private void SetFullScreenVideo()
+            {
+
+                int newWidth = this.ClientSize.Width;
+                int newHeight = (int)(newWidth / aspectRatio);
+
+                if (newHeight > this.ClientSize.Height)
+                {
+
+                    newHeight = this.ClientSize.Height;
+                    newWidth = (int)(newHeight * aspectRatio);
+                }
+
+
+                axWindowsMediaPlayer1.Width = newWidth;
+                axWindowsMediaPlayer1.Height = newHeight;
+
+
+                axWindowsMediaPlayer1.Location = new Point((this.ClientSize.Width - newWidth) / 2, (this.ClientSize.Height - newHeight) / 2);
+            }
+
+            private void AdjustVideoSize()
+            {
+
+                axWindowsMediaPlayer1.Width = this.ClientSize.Width;
+                axWindowsMediaPlayer1.Height = this.ClientSize.Height;
+
+            }
+    
+    private void EscolhaFase_Load(object sender, EventArgs e)
+        {
+            Form1_Resize(this, EventArgs.Empty);
             PlayVideoFromResources("video4");
 
             this.KeyPreview = true;

@@ -91,7 +91,7 @@
             // 
             this.LetraCperg1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LetraCperg1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LetraCperg1.ForeColor = System.Drawing.Color.Red;
+            this.LetraCperg1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.LetraCperg1.Location = new System.Drawing.Point(364, 272);
             this.LetraCperg1.Name = "LetraCperg1";
             this.LetraCperg1.Size = new System.Drawing.Size(381, 58);
@@ -104,7 +104,7 @@
             // 
             this.LetraBperg1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LetraBperg1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LetraBperg1.ForeColor = System.Drawing.Color.Red;
+            this.LetraBperg1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.LetraBperg1.Location = new System.Drawing.Point(364, 208);
             this.LetraBperg1.Name = "LetraBperg1";
             this.LetraBperg1.Size = new System.Drawing.Size(381, 58);
@@ -117,7 +117,7 @@
             // 
             this.LetraAperg1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LetraAperg1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LetraAperg1.ForeColor = System.Drawing.Color.Red;
+            this.LetraAperg1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.LetraAperg1.Location = new System.Drawing.Point(364, 144);
             this.LetraAperg1.Name = "LetraAperg1";
             this.LetraAperg1.Size = new System.Drawing.Size(381, 58);
@@ -128,11 +128,11 @@
             // 
             // textBoxperg1
             // 
-            this.textBoxperg1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxperg1.BackColor = System.Drawing.Color.Black;
             this.textBoxperg1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxperg1.Cursor = System.Windows.Forms.Cursors.No;
             this.textBoxperg1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxperg1.ForeColor = System.Drawing.Color.Red;
+            this.textBoxperg1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxperg1.ImeMode = System.Windows.Forms.ImeMode.On;
             this.textBoxperg1.Location = new System.Drawing.Point(156, 518);
             this.textBoxperg1.Multiline = true;
@@ -156,6 +156,7 @@
             // Cenario3
             // 
             this.Cenario3.BackgroundImage = global::Pitico.Properties.Resources.cenario32;
+            this.Cenario3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Cenario3.Location = new System.Drawing.Point(0, -7);
             this.Cenario3.Name = "Cenario3";
             this.Cenario3.Size = new System.Drawing.Size(1065, 667);
@@ -167,6 +168,7 @@
             // Cenario4
             // 
             this.Cenario4.BackgroundImage = global::Pitico.Properties.Resources.cenario4;
+            this.Cenario4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Cenario4.Location = new System.Drawing.Point(0, -7);
             this.Cenario4.Name = "Cenario4";
             this.Cenario4.Size = new System.Drawing.Size(1065, 667);
@@ -177,7 +179,8 @@
             // 
             // Cenario5
             // 
-            this.Cenario5.Image = global::Pitico.Properties.Resources.cenario5;
+            this.Cenario5.BackgroundImage = global::Pitico.Properties.Resources.cenario5;
+            this.Cenario5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Cenario5.Location = new System.Drawing.Point(0, -7);
             this.Cenario5.Name = "Cenario5";
             this.Cenario5.Size = new System.Drawing.Size(1065, 667);
@@ -222,6 +225,7 @@
             // Cenario6perg2
             // 
             this.Cenario6perg2.BackgroundImage = global::Pitico.Properties.Resources.cenario61;
+            this.Cenario6perg2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Cenario6perg2.Location = new System.Drawing.Point(0, -7);
             this.Cenario6perg2.Name = "Cenario6perg2";
             this.Cenario6perg2.Size = new System.Drawing.Size(1065, 667);
@@ -234,7 +238,7 @@
             // 
             this.LetraAperg2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LetraAperg2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LetraAperg2.ForeColor = System.Drawing.Color.Red;
+            this.LetraAperg2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.LetraAperg2.Location = new System.Drawing.Point(364, 144);
             this.LetraAperg2.Name = "LetraAperg2";
             this.LetraAperg2.Size = new System.Drawing.Size(381, 58);
@@ -248,7 +252,7 @@
             // 
             this.LetraBperg2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LetraBperg2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LetraBperg2.ForeColor = System.Drawing.Color.Red;
+            this.LetraBperg2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.LetraBperg2.Location = new System.Drawing.Point(364, 208);
             this.LetraBperg2.Name = "LetraBperg2";
             this.LetraBperg2.Size = new System.Drawing.Size(381, 58);
@@ -262,7 +266,7 @@
             // 
             this.LetraCperg2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LetraCperg2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LetraCperg2.ForeColor = System.Drawing.Color.Red;
+            this.LetraCperg2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.LetraCperg2.Location = new System.Drawing.Point(364, 272);
             this.LetraCperg2.Name = "LetraCperg2";
             this.LetraCperg2.Size = new System.Drawing.Size(381, 58);
@@ -275,8 +279,8 @@
             // textBoxperg2
             // 
             this.textBoxperg2.BackColor = System.Drawing.Color.Black;
-            this.textBoxperg2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxperg2.ForeColor = System.Drawing.Color.Red;
+            this.textBoxperg2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxperg2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxperg2.Location = new System.Drawing.Point(141, 482);
             this.textBoxperg2.Multiline = true;
             this.textBoxperg2.Name = "textBoxperg2";
@@ -288,6 +292,7 @@
             // erroPerg2
             // 
             this.erroPerg2.BackgroundImage = global::Pitico.Properties.Resources.gameoverfase1;
+            this.erroPerg2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.erroPerg2.Location = new System.Drawing.Point(0, -7);
             this.erroPerg2.Name = "erroPerg2";
             this.erroPerg2.Size = new System.Drawing.Size(1065, 667);
@@ -299,6 +304,7 @@
             // Cenario7perg3
             // 
             this.Cenario7perg3.BackgroundImage = global::Pitico.Properties.Resources.cenario71;
+            this.Cenario7perg3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Cenario7perg3.Location = new System.Drawing.Point(0, -7);
             this.Cenario7perg3.Name = "Cenario7perg3";
             this.Cenario7perg3.Size = new System.Drawing.Size(1065, 667);
@@ -311,7 +317,7 @@
             // 
             this.LetraAperg3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LetraAperg3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LetraAperg3.ForeColor = System.Drawing.Color.Red;
+            this.LetraAperg3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.LetraAperg3.Location = new System.Drawing.Point(364, 144);
             this.LetraAperg3.Name = "LetraAperg3";
             this.LetraAperg3.Size = new System.Drawing.Size(381, 58);
@@ -325,7 +331,7 @@
             // 
             this.LetraBperg3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LetraBperg3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LetraBperg3.ForeColor = System.Drawing.Color.Red;
+            this.LetraBperg3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.LetraBperg3.Location = new System.Drawing.Point(364, 208);
             this.LetraBperg3.Name = "LetraBperg3";
             this.LetraBperg3.Size = new System.Drawing.Size(381, 58);
@@ -340,7 +346,7 @@
             // 
             this.LetraCperg3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LetraCperg3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LetraCperg3.ForeColor = System.Drawing.Color.Red;
+            this.LetraCperg3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.LetraCperg3.Location = new System.Drawing.Point(364, 272);
             this.LetraCperg3.Name = "LetraCperg3";
             this.LetraCperg3.Size = new System.Drawing.Size(381, 58);
@@ -354,7 +360,7 @@
             // 
             this.textBoxperg3.BackColor = System.Drawing.Color.Black;
             this.textBoxperg3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxperg3.ForeColor = System.Drawing.Color.Red;
+            this.textBoxperg3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxperg3.Location = new System.Drawing.Point(141, 482);
             this.textBoxperg3.Multiline = true;
             this.textBoxperg3.Name = "textBoxperg3";
@@ -366,6 +372,7 @@
             // erroperg3
             // 
             this.erroperg3.BackgroundImage = global::Pitico.Properties.Resources.gameoverfase11;
+            this.erroperg3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.erroperg3.Location = new System.Drawing.Point(842, 229);
             this.erroperg3.Name = "erroperg3";
             this.erroperg3.Size = new System.Drawing.Size(1065, 667);
@@ -376,6 +383,7 @@
             // Cenario8perg4
             // 
             this.Cenario8perg4.BackgroundImage = global::Pitico.Properties.Resources.cenario9;
+            this.Cenario8perg4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Cenario8perg4.Location = new System.Drawing.Point(0, -7);
             this.Cenario8perg4.Name = "Cenario8perg4";
             this.Cenario8perg4.Size = new System.Drawing.Size(1065, 667);
@@ -388,7 +396,7 @@
             // 
             this.LetraBperg4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LetraBperg4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LetraBperg4.ForeColor = System.Drawing.Color.Red;
+            this.LetraBperg4.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.LetraBperg4.Location = new System.Drawing.Point(351, 272);
             this.LetraBperg4.Name = "LetraBperg4";
             this.LetraBperg4.Size = new System.Drawing.Size(381, 58);
@@ -402,7 +410,7 @@
             // 
             this.LetraAperg4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LetraAperg4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LetraAperg4.ForeColor = System.Drawing.Color.Red;
+            this.LetraAperg4.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.LetraAperg4.Location = new System.Drawing.Point(351, 192);
             this.LetraAperg4.Name = "LetraAperg4";
             this.LetraAperg4.Size = new System.Drawing.Size(381, 58);
@@ -416,7 +424,7 @@
             // 
             this.textBoxperg4.BackColor = System.Drawing.Color.Black;
             this.textBoxperg4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxperg4.ForeColor = System.Drawing.Color.Red;
+            this.textBoxperg4.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxperg4.Location = new System.Drawing.Point(141, 482);
             this.textBoxperg4.Multiline = true;
             this.textBoxperg4.Name = "textBoxperg4";
@@ -429,6 +437,7 @@
             // erroperg4
             // 
             this.erroperg4.BackgroundImage = global::Pitico.Properties.Resources.gameoverfase12;
+            this.erroperg4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.erroperg4.Location = new System.Drawing.Point(0, -7);
             this.erroperg4.Name = "erroperg4";
             this.erroperg4.Size = new System.Drawing.Size(1065, 667);
@@ -439,6 +448,7 @@
             // Cenario9
             // 
             this.Cenario9.BackgroundImage = global::Pitico.Properties.Resources.cenario91;
+            this.Cenario9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Cenario9.Location = new System.Drawing.Point(0, -7);
             this.Cenario9.Name = "Cenario9";
             this.Cenario9.Size = new System.Drawing.Size(1065, 667);
@@ -452,7 +462,7 @@
             this.lbl_parabéns.AutoSize = true;
             this.lbl_parabéns.BackColor = System.Drawing.Color.Black;
             this.lbl_parabéns.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_parabéns.ForeColor = System.Drawing.Color.Red;
+            this.lbl_parabéns.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_parabéns.Location = new System.Drawing.Point(238, 353);
             this.lbl_parabéns.Name = "lbl_parabéns";
             this.lbl_parabéns.Size = new System.Drawing.Size(568, 31);
@@ -463,7 +473,7 @@
             // button_tentardnv
             // 
             this.button_tentardnv.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button_tentardnv.ForeColor = System.Drawing.Color.Red;
+            this.button_tentardnv.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.button_tentardnv.Location = new System.Drawing.Point(23, 306);
             this.button_tentardnv.Name = "button_tentardnv";
             this.button_tentardnv.Size = new System.Drawing.Size(227, 73);
@@ -476,7 +486,7 @@
             // prosseguir_fase2
             // 
             this.prosseguir_fase2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.prosseguir_fase2.ForeColor = System.Drawing.Color.Red;
+            this.prosseguir_fase2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.prosseguir_fase2.Location = new System.Drawing.Point(579, 404);
             this.prosseguir_fase2.Name = "prosseguir_fase2";
             this.prosseguir_fase2.Size = new System.Drawing.Size(227, 126);
@@ -489,7 +499,7 @@
             // cenario_original
             // 
             this.cenario_original.BackgroundImage = global::Pitico.Properties.Resources.Captura_de_tela_2024_09_01_212603;
-            this.cenario_original.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cenario_original.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cenario_original.Location = new System.Drawing.Point(-15, -45);
             this.cenario_original.Name = "cenario_original";
             this.cenario_original.Size = new System.Drawing.Size(1065, 644);
@@ -502,7 +512,7 @@
             // btn_póspergunta2
             // 
             this.btn_póspergunta2.Location = new System.Drawing.Point(912, 521);
-            this.btn_póspergunta2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_póspergunta2.Margin = new System.Windows.Forms.Padding(2);
             this.btn_póspergunta2.Name = "btn_póspergunta2";
             this.btn_póspergunta2.Size = new System.Drawing.Size(73, 19);
             this.btn_póspergunta2.TabIndex = 42;
@@ -514,7 +524,7 @@
             // btn_Póspergunta3
             // 
             this.btn_Póspergunta3.Location = new System.Drawing.Point(912, 546);
-            this.btn_Póspergunta3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Póspergunta3.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Póspergunta3.Name = "btn_Póspergunta3";
             this.btn_Póspergunta3.Size = new System.Drawing.Size(73, 19);
             this.btn_Póspergunta3.TabIndex = 43;
@@ -531,7 +541,7 @@
             this.textBox_acertou.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_acertou.ForeColor = System.Drawing.Color.Red;
             this.textBox_acertou.Location = new System.Drawing.Point(22, 370);
-            this.textBox_acertou.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_acertou.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_acertou.Multiline = true;
             this.textBox_acertou.Name = "textBox_acertou";
             this.textBox_acertou.ReadOnly = true;
@@ -547,7 +557,7 @@
             this.textBox_errado.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_errado.ForeColor = System.Drawing.Color.Red;
             this.textBox_errado.Location = new System.Drawing.Point(0, 371);
-            this.textBox_errado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_errado.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_errado.Multiline = true;
             this.textBox_errado.Name = "textBox_errado";
             this.textBox_errado.ReadOnly = true;
@@ -559,7 +569,7 @@
             // 
             this.informativo1.Image = global::Pitico.Properties.Resources.fase1informativo;
             this.informativo1.Location = new System.Drawing.Point(0, -7);
-            this.informativo1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.informativo1.Margin = new System.Windows.Forms.Padding(2);
             this.informativo1.Name = "informativo1";
             this.informativo1.Size = new System.Drawing.Size(1050, 596);
             this.informativo1.TabIndex = 46;
@@ -569,7 +579,7 @@
             // 
             this.informativo2.Image = global::Pitico.Properties.Resources.informativofase1;
             this.informativo2.Location = new System.Drawing.Point(-1, -4);
-            this.informativo2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.informativo2.Margin = new System.Windows.Forms.Padding(2);
             this.informativo2.Name = "informativo2";
             this.informativo2.Size = new System.Drawing.Size(1050, 596);
             this.informativo2.TabIndex = 47;
@@ -578,7 +588,7 @@
             // btn_avanca
             // 
             this.btn_avanca.Location = new System.Drawing.Point(812, 490);
-            this.btn_avanca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_avanca.Margin = new System.Windows.Forms.Padding(2);
             this.btn_avanca.Name = "btn_avanca";
             this.btn_avanca.Size = new System.Drawing.Size(68, 23);
             this.btn_avanca.TabIndex = 48;
@@ -590,7 +600,7 @@
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(-158, -95);
-            this.axWindowsMediaPlayer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.axWindowsMediaPlayer1.Margin = new System.Windows.Forms.Padding(2);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1415, 812);
@@ -603,6 +613,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = global::Pitico.Properties.Resources.cenario11;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1049, 589);
             this.Controls.Add(this.btn_avanca);
             this.Controls.Add(this.informativo2);
@@ -649,6 +660,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fase1";
             this.TransparencyKey = System.Drawing.Color.Transparent;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Fase1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.erroPergunta1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cenario3)).EndInit();
