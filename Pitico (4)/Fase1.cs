@@ -227,14 +227,13 @@ namespace Pitico
         }
         private void CenterButton()
             {
-                // Posição do botão centralizado no formulário
+
                 LetraAperg1.Left = (this.ClientSize.Width - LetraAperg1.Width) / 2 ;
                 LetraAperg1.Top = (this.ClientSize.Height -     LetraAperg1.Height) / 2 ;
 
             LetraBperg1.Left = (this.ClientSize.Width - LetraBperg1.Width) / 2;
-            LetraBperg1.Top = LetraAperg1.Top + LetraAperg1.Height + 20; // 20px de espaço entre os botões
+            LetraBperg1.Top = LetraAperg1.Top + LetraAperg1.Height + 20; 
 
-            // Botão 3 (logo abaixo do botão 2)
             LetraCperg1.Left = (this.ClientSize.Width - LetraCperg1.Width) / 2;
             LetraCperg1.Top = LetraBperg1.Top + LetraBperg1.Height + 20;
 
@@ -242,9 +241,9 @@ namespace Pitico
             LetraAperg2.Top = (this.ClientSize.Height - LetraAperg2.Height) / 2;
 
             LetraBperg2.Left = (this.ClientSize.Width - LetraBperg2.Width) / 2;
-            LetraBperg2.Top = LetraAperg2.Top + LetraAperg2.Height + 20; // 20px de espaço entre os botões
+            LetraBperg2.Top = LetraAperg2.Top + LetraAperg2.Height + 20; 
 
-            // Botão 3 (logo abaixo do botão 2)
+      
             LetraCperg2.Left = (this.ClientSize.Width - LetraCperg2.Width) / 2;
             LetraCperg2.Top = LetraBperg2.Top + LetraBperg2.Height + 20;
 
@@ -253,9 +252,9 @@ namespace Pitico
             LetraAperg3.Top = (this.ClientSize.Height - LetraAperg3.Height) / 2;
 
             LetraBperg3.Left = (this.ClientSize.Width - LetraBperg3.Width) / 2;
-            LetraBperg3.Top = LetraAperg3.Top + LetraAperg3.Height + 20; // 20px de espaço entre os botões
+            LetraBperg3.Top = LetraAperg3.Top + LetraAperg3.Height + 20; 
 
-            // Botão 3 (logo abaixo do botão 2)
+      
             LetraCperg3.Left = (this.ClientSize.Width - LetraCperg3.Width) / 2;
             LetraCperg3.Top = LetraBperg3.Top + LetraBperg3.Height + 20;
 
@@ -264,26 +263,24 @@ namespace Pitico
             LetraAperg4.Top = (this.ClientSize.Height - LetraAperg4.Height) / 2;
 
             LetraBperg4.Left = (this.ClientSize.Width - LetraBperg4.Width) / 2;
-            LetraBperg4.Top = LetraAperg4.Top + LetraAperg4.Height + 20; // 20px de espaço entre os botões
+            LetraBperg4.Top = LetraAperg4.Top + LetraAperg4.Height + 20; 
 
             prosseguir_fase2.Left = (this.ClientSize.Width - prosseguir_fase2.Width) / 2;
             prosseguir_fase2.Top = (this.ClientSize.Height - prosseguir_fase2.Height) / 2;
 
             button_tentardnv.Left = (this.ClientSize.Width - button_tentardnv.Width) / 2;
-            button_tentardnv.Top = prosseguir_fase2.Top + prosseguir_fase2.Height + 20; // 20px de espaço entre os botões
-
+            button_tentardnv.Top = prosseguir_fase2.Top + prosseguir_fase2.Height + 20; 
             lbl_parabéns.Left = (this.ClientSize.Width - lbl_parabéns.Width) / 2;
             lbl_parabéns.Top = (this.ClientSize.Height - lbl_parabéns.Height) / 2;
-            // Para garantir que o botão seja centralizado ao redimensionar a janela
             this.Resize += (s, e) =>
                 {
                     LetraAperg1.Left = (this.ClientSize.Width - LetraAperg1.Width) / 2;
                     LetraAperg1.Top = (this.ClientSize.Height - LetraAperg1.Height) / 2;
 
                     LetraBperg1.Left = (this.ClientSize.Width - LetraBperg1.Width) / 2;
-                    LetraBperg1.Top = LetraAperg1.Top + LetraAperg1.Height + 20; // 20px de espaço entre os botões
+                    LetraBperg1.Top = LetraAperg1.Top + LetraAperg1.Height + 20; 
 
-                    // Botão 3 (logo abaixo do botão 2)
+               
                     LetraCperg1.Left = (this.ClientSize.Width - LetraCperg1.Width) / 2;
                     LetraCperg1.Top = LetraBperg1.Top + LetraBperg1.Height + 20;
 
@@ -291,9 +288,9 @@ namespace Pitico
                     LetraAperg2.Top = (this.ClientSize.Height - LetraAperg2.Height) / 2;
 
                     LetraBperg2.Left = (this.ClientSize.Width - LetraBperg2.Width) / 2;
-                    LetraBperg2.Top = LetraAperg2.Top + LetraAperg2.Height + 20; // 20px de espaço entre os botões
+                    LetraBperg2.Top = LetraAperg2.Top + LetraAperg2.Height + 20;
 
-                    // Botão 3 (logo abaixo do botão 2)
+            
                     LetraCperg2.Left = (this.ClientSize.Width - LetraCperg2.Width) / 2;
                     LetraCperg2.Top = LetraBperg2.Top + LetraBperg2.Height + 20;
 
@@ -302,9 +299,8 @@ namespace Pitico
                     LetraAperg3.Top = (this.ClientSize.Height - LetraAperg3.Height) / 2;
 
                     LetraBperg3.Left = (this.ClientSize.Width - LetraBperg3.Width) / 2;
-                    LetraBperg3.Top = LetraAperg3.Top + LetraAperg3.Height + 20; // 20px de espaço entre os botões
+                    LetraBperg3.Top = LetraAperg3.Top + LetraAperg3.Height + 20; 
 
-                    // Botão 3 (logo abaixo do botão 2)
                     LetraCperg3.Left = (this.ClientSize.Width - LetraCperg3.Width) / 2;
                     LetraCperg3.Top = LetraBperg3.Top + LetraBperg3.Height + 20;
 
@@ -313,7 +309,7 @@ namespace Pitico
                     LetraAperg4.Top = (this.ClientSize.Height - LetraAperg4.Height) / 2;
 
                     LetraBperg4.Left = (this.ClientSize.Width - LetraBperg4.Width) / 2;
-                    LetraBperg4.Top = LetraAperg4.Top + LetraAperg4.Height + 20; // 20px de espaço entre os botões
+                    LetraBperg4.Top = LetraAperg4.Top + LetraAperg4.Height + 20; 
                 };
             }
 
