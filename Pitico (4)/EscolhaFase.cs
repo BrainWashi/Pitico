@@ -44,13 +44,12 @@ namespace Pjt_Pitico
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            textBox_Pype.Dock = DockStyle.Bottom;
 
             pictureBox1.Location = new Point(0, 0);
             pictureBox2.Location = new Point(0, 0);
             pictureBox3.Location = new Point(0, 0);
-    
 
+            textBox_Pype.Dock = DockStyle.Bottom;
             textBox_Pype.Width = this.ClientSize.Width - 20;
 
             if (this.WindowState == FormWindowState.Maximized)
