@@ -17,9 +17,12 @@ namespace Pitico
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
-        private void lbl_titulo_Click(object sender, EventArgs e)
+   
+    
+    private void lbl_titulo_Click(object sender, EventArgs e)
         {
 
         }

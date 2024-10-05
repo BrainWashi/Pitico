@@ -15,7 +15,14 @@ namespace Pitico
 
         public Configurações()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); // Exibe a mensagem de erro
+            }
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -66,16 +73,15 @@ namespace Pitico
             Form form = new ConfigAudio();
             form.Closed += (s, args) => this.Close();
             form.Show();
-            this.Close();
+
         }
 
         private void Btn_video_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form form = new ConfigVideo();
-            form.Closed += (s, args) => this.Close();
             form.Show();
-            this.Close();
+     
         }
 
         private void Configurações_Load(object sender, EventArgs e)

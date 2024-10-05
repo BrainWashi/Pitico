@@ -14,7 +14,7 @@ namespace Pitico
             this.KeyDown += new KeyEventHandler(Menu_KeyDown);
             this.KeyPreview = true;
 
-            //testeandoooooo
+
 
             if (Config.Ling == true)
             {

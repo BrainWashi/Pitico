@@ -3,6 +3,7 @@ using Pitico;
 using System;
 using System.Drawing;
 using System.IO;
+using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
@@ -59,6 +60,8 @@ namespace Pjt_Pitico
           telapreta2.Width = this.ClientSize.Width;
             telapreta2.Height = this.ClientSize.Height;
 
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pic_mae1.SizeMode = PictureBoxSizeMode.StretchImage;
             pic_mae2.SizeMode = PictureBoxSizeMode.StretchImage;
             pitico_1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -68,8 +71,8 @@ namespace Pjt_Pitico
 
             lbl_fala2.Width = this.ClientSize.Width - 20;
             lbl_fala1.Width = this.ClientSize.Width;
-            lbl_fala1.Dock = DockStyle.Bottom;
-
+            pictureBox1.Dock = DockStyle.Bottom;
+            pictureBox2.Dock = DockStyle.Bottom;
             textBox1.Width = this.ClientSize.Width - 20;
             textBox1.Dock = DockStyle.Top;
             pic_mae1.Location = new Point(0, 0); 
@@ -83,7 +86,7 @@ namespace Pjt_Pitico
             if (this.WindowState == FormWindowState.Maximized)
             {
 
-                //SetFullScreenVideo();
+                SetFullScreenVideo();
             }
             else
             {
@@ -91,6 +94,65 @@ namespace Pjt_Pitico
                 AdjustVideoSize();
             }
         }
+        private void PositionLabelAtBottom()
+        {
+            pictureBox1.Controls.Add(lbl_fala1);
+            pictureBox1.Controls.Add(btn_passar_mae1);
+            pictureBox1.Controls.Add(btn_passar_pitico1);
+            pictureBox1.Controls.Add(btn_passar_mae2);
+            pictureBox1.Controls.Add(btn_passar_pra_cutscene);
+            pictureBox1.Controls.Add(btn_telapreta1);
+            pictureBox1.Controls.Add(btn_telapreta2);
+
+
+            int buttonWidth = 100;
+            int buttonHeight = 40;
+
+
+            int margemDireita = 10;
+            int alturaBotao = 20; 
+
+            foreach (Button btn in new Button[] { btn_passar_mae1, btn_passar_pitico1, btn_passar_mae2, btn_passar_pra_cutscene, btn_telapreta1, btn_telapreta2, })
+            {
+                btn.Size = new Size(buttonWidth, buttonHeight);
+                btn.Left = pictureBox1.Width - btn.Width - margemDireita;
+                btn.Top = pictureBox1.Height - buttonHeight - alturaBotao; 
+                                                  
+
+                btn_avancar.Size = new Size(buttonWidth, buttonHeight);
+                btn_avancar.Left = pictureBox1.Right - btn_avancar.Width - margemDireita; 
+                btn_avancar.Top = pictureBox1.Bottom - btn_avancar.Height - alturaBotao; 
+            }
+
+            int margemInferiorr= 10;
+
+
+            lbl_fala1.Left = (pictureBox1.Width - lbl_fala1.Width) / 2;
+            lbl_fala1.Top = (pictureBox1.Height - lbl_fala1.Height) / 2;
+
+
+            pictureBox1.Resize += (s, e) =>
+            {
+                foreach (Button btn in new Button[] { btn_passar_mae1, btn_passar_pitico1, btn_passar_mae2, btn_passar_pra_cutscene, btn_telapreta1, btn_telapreta2, btn_avancar })
+                {
+                    btn.Left = pictureBox1.Width - btn.Width - margemDireita;
+                    btn.Top = pictureBox1.Height - buttonHeight - alturaBotao;
+
+                    lbl_fala1.Left = (pictureBox1.Width - lbl_fala1.Width) / 2;
+                    lbl_fala1.Top = (pictureBox1.Height - lbl_fala1.Height) / 2;
+                    lbl_fala2.Left = (this.ClientSize.Width - lbl_fala2.Width) / 2;
+                    lbl_fala2.Top = this.ClientSize.Height - lbl_fala2.Height - margemInferiorr;
+
+                    pictureBox1.Left = (this.ClientSize.Width - pictureBox1.Width) / 2;
+                    pictureBox1.Top = this.ClientSize.Height - pictureBox1.Height - margemInferiorr;
+                    pictureBox2.Left = (this.ClientSize.Width - pictureBox2.Width) / 2;
+                    pictureBox2.Top = this.ClientSize.Height - pictureBox2.Height - margemInferiorr;
+          
+                };
+            };
+            }
+
+
         private void SetFullScreenVideo()
         {
 
@@ -122,7 +184,7 @@ namespace Pjt_Pitico
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            PositionLabelAtBottom();
             Form1_Resize(this, EventArgs.Empty);
 
             PlayVideoFromResources("video");
@@ -270,6 +332,7 @@ namespace Pjt_Pitico
             switch (sequenceStep)
             {
                 case 1:
+                    pictureBox1.Visible = true;
 
                     lbl_fala1.Visible = true;
                     pic_mae1.Visible = true;
@@ -277,6 +340,7 @@ namespace Pjt_Pitico
                     lbl_fala1.Text = "Oi filho, chegou cedo em casa hoje!";
                     break;
                 case 2:
+
                     pic_mae1.Visible = false;
                     pitico_1.Visible = true;
                     lbl_fala1.Text = "Sim, o professor liberou a gente mais cedo hoje.";
@@ -340,13 +404,15 @@ namespace Pjt_Pitico
         private void passar_pra_cutscene_Click(object sender, EventArgs e)
         {
             PlayVideoFromResources("cut2");  // Carrega e reproduz cut2
+            pictureBox1.Visible = false;
+            lbl_fala1.Visible = false;
             telapreta2.Visible = false;
             btn_avancar.Visible = true;
             isFinalState = true;
             btn_passar_pra_cutscene.Visible = false;
             pitico_2.Visible = false;
             pitico_1.Visible = false;
-            lbl_fala1.Visible = false;
+   
         }
 
         private void passar_mae2_Click(object sender, EventArgs e)
@@ -400,6 +466,7 @@ namespace Pjt_Pitico
 
         private void btn_telapreta1_Click(object sender, EventArgs e)
         {
+            pitico_2.Visible = false;
             telapreta1.Visible = true;
             btn_telapreta2.Visible = true;
             lbl_fala1.Visible = true;
@@ -437,6 +504,11 @@ namespace Pjt_Pitico
         }
 
         private void lbl_legenda_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }

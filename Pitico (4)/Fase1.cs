@@ -16,7 +16,6 @@ namespace Pitico
     public partial class Fase1 : Form
     {
         private string Atual;
-
         private List<string> sequenciaVideos = new List<string> { "fase1_end", "fase1final2", "fase1final3", "fase1final4" };
         private int indiceVideoAtual = 0;
         private double aspectRatio = 16.0 / 9.0;
@@ -29,10 +28,51 @@ namespace Pitico
 
             informativo1.Visible = false;
             informativo2.Visible = false;
+            PositionExistingButtons(); 
         }
 
+        private void PositionExistingButtons()
+        {
+    
+            int buttonWidth = 100;
+            int buttonHeight = 40;
+            int margemDireita = 10;
+            int alturaBotao = 150; 
 
-        private void Form1_Resize(object sender, EventArgs e)
+
+            Button[] botoesExistentes = {
+                BotaoCenario3,
+                BotaoCenario4,
+                BotaoCenario5,
+                btn_póspergunta2,
+                btn_Póspergunta3
+            };
+
+      
+            for (int i = 0; i < botoesExistentes.Length; i++)
+            {
+                Button btn = botoesExistentes[i];
+                btn.Size = new Size(buttonWidth, buttonHeight);
+                btn.Left = this.ClientSize.Width - btn.Width - margemDireita;
+
+  
+            }
+
+        
+            this.Resize += (s, e) =>
+            {
+                for (int i = 0; i < botoesExistentes.Length; i++)
+                {
+                    Button btn = botoesExistentes[i];
+                    btn.Left = this.ClientSize.Width - btn.Width - margemDireita; 
+
+                }
+            };
+        }
+    
+
+
+private void Form1_Resize(object sender, EventArgs e)
         {
             int largura = this.ClientSize.Width;
             int altura = (largura * 9) / 16;

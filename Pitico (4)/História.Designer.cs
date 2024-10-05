@@ -201,7 +201,7 @@
             this.pitico_1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pitico_1.BackgroundImage = global::Pitico.Properties.Resources.dialogo1;
             this.pitico_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pitico_1.Location = new System.Drawing.Point(0, -20);
+            this.pitico_1.Location = new System.Drawing.Point(12, 0);
             this.pitico_1.Name = "pitico_1";
             this.pitico_1.Size = new System.Drawing.Size(1067, 665);
             this.pitico_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -251,6 +251,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::Pitico.Properties.Resources.BalaoFala;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -260,26 +261,31 @@
             this.pictureBox1.Size = new System.Drawing.Size(1052, 156);
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // lbl_fala2
             // 
+            this.lbl_fala2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbl_fala2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lbl_fala2.Font = new System.Drawing.Font("Verdana", 12F);
-            this.lbl_fala2.Location = new System.Drawing.Point(39, 541);
+            this.lbl_fala2.Location = new System.Drawing.Point(43, 551);
             this.lbl_fala2.Name = "lbl_fala2";
             this.lbl_fala2.Size = new System.Drawing.Size(860, 59);
             this.lbl_fala2.TabIndex = 18;
             this.lbl_fala2.Text = ".";
+            this.lbl_fala2.Visible = false;
             // 
             // lbl_fala1
             // 
+            this.lbl_fala1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_fala1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lbl_fala1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_fala1.Location = new System.Drawing.Point(39, 541);
+            this.lbl_fala1.Location = new System.Drawing.Point(84, 543);
             this.lbl_fala1.Name = "lbl_fala1";
-            this.lbl_fala1.Size = new System.Drawing.Size(860, 59);
+            this.lbl_fala1.Size = new System.Drawing.Size(860, 48);
             this.lbl_fala1.TabIndex = 19;
             this.lbl_fala1.Text = "Olá filho, chegou cedo em casa hoje.";
+            this.lbl_fala1.Visible = false;
             // 
             // pictureBox2
             // 
@@ -291,20 +297,20 @@
             this.pictureBox2.Size = new System.Drawing.Size(1052, 156);
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // História
             // 
             this.ClientSize = new System.Drawing.Size(1049, 628);
+            this.Controls.Add(this.lbl_fala1);
             this.Controls.Add(this.btn_passar_pitico1);
             this.Controls.Add(this.btn_passar_mae2);
             this.Controls.Add(this.btn_passar_mae1);
             this.Controls.Add(this.btn_telapreta1);
             this.Controls.Add(this.btn_telapreta2);
             this.Controls.Add(this.btn_passar_pra_cutscene);
-            this.Controls.Add(this.lbl_fala1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.telapreta1);
-            this.Controls.Add(this.telapreta2);
             this.Controls.Add(this.btn_avancar);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbl_fala2);
@@ -314,6 +320,8 @@
             this.Controls.Add(this.pic_mae1);
             this.Controls.Add(this.pic_mae2);
             this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.telapreta1);
+            this.Controls.Add(this.telapreta2);
             this.Name = "História";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
