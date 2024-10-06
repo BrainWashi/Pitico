@@ -19,7 +19,7 @@ namespace Pitico
         private List<string> sequenciaVideos = new List<string> { "fase1_end", "fase1final2", "fase1final3", "fase1final4" };
         private int indiceVideoAtual = 0;
         private double aspectRatio = 16.0 / 9.0;
-
+        private TextBox textBoxOverlay;
         public Fase1()
         {
             InitializeComponent();
@@ -28,7 +28,18 @@ namespace Pitico
 
             informativo1.Visible = false;
             informativo2.Visible = false;
-            PositionExistingButtons(); 
+            PositionExistingButtons();
+
+            textBoxOverlay = new TextBox();
+            textBoxOverlay.Multiline = true;
+            textBoxOverlay.Dock = DockStyle.Bottom;
+            textBoxOverlay.Height = 50;
+            textBoxOverlay.BackColor = Color.Black;
+            textBoxOverlay.ForeColor = Color.White;
+            textBoxOverlay.BorderStyle = BorderStyle.None;
+            textBoxOverlay.TextAlign = HorizontalAlignment.Center;
+            this.Controls.Add(textBoxOverlay);
+            textBoxOverlay.BringToFront();
         }
 
         private void PositionExistingButtons()
@@ -650,6 +661,7 @@ private void Form1_Resize(object sender, EventArgs e)
             {
                 case "fase1_end":
                     video = Pitico.Properties.Resources.fase1_end;
+                    textBoxOverlay.Visible = true;
                     Atual = "fase1_end";
 
                     break;
@@ -836,6 +848,7 @@ private void Form1_Resize(object sender, EventArgs e)
 
             if (Atual == "Info1")
             {
+                textBoxOverlay.Visible = false;
                 informativo1.Visible = false;
                 informativo2.Visible = true;
                 btn_avanca.Visible = true;

@@ -45,7 +45,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(0, 0);
             this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "aaaaaaaaaaaaa";
             this.textBox1.Visible = false;
             // 
             // btn_passar_mae1

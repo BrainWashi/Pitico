@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace Pjt_Pitico
 {
@@ -13,6 +14,7 @@ namespace Pjt_Pitico
         private bool videoPlayed = false;
         private int currentStage = 1;
         private double aspectRatio = 16.0 / 9.0;
+        private TextBox textBoxOverlay;
         public EscolhaFase()
         {
             InitializeComponent();
@@ -24,6 +26,16 @@ namespace Pjt_Pitico
             {
                 control.KeyDown += new KeyEventHandler(Control_KeyDown);
             }
+            textBoxOverlay = new TextBox();
+            textBoxOverlay.Multiline = true;
+            textBoxOverlay.Dock = DockStyle.Bottom;
+            textBoxOverlay.Height = 50;
+            textBoxOverlay.BackColor = Color.Black;
+            textBoxOverlay.ForeColor = Color.White;
+            textBoxOverlay.BorderStyle = BorderStyle.None;
+            textBoxOverlay.TextAlign = HorizontalAlignment.Center;
+            this.Controls.Add(textBoxOverlay);
+            textBoxOverlay.BringToFront();
         }
         private void Form1_Resize(object sender, EventArgs e)
         {
@@ -122,6 +134,7 @@ namespace Pjt_Pitico
             {
                 case "video4":
                     video = Pitico.Properties.Resources.video4;
+                    textBoxOverlay.Visible = true;
                     break;
             }
 
@@ -166,7 +179,7 @@ namespace Pjt_Pitico
                     videoPlayed = true;
 
                     axWindowsMediaPlayer1.Visible = false;
-
+                    textBoxOverlay.Visible = false;
                     label1.Visible = true;
                     pictureBox1.Visible = true;
                 }

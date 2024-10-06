@@ -1,4 +1,5 @@
-﻿using Pjt_Pitico;
+﻿using AxWMPLib;
+using Pjt_Pitico;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,19 +19,85 @@ namespace Pitico
         private int vida = 5;
         private const int vidaMaxima = 5;
         private int vidaCshar = 5;
+        private double aspectRatio = 16.0 / 9.0;
 
-        private int videoAtual = 1; 
-        private bool modoJogoIniciado = false; 
-        private int videoSequenciaFinal = 1; 
+        private int videoAtual = 1;
+        private bool modoJogoIniciado = false;
+        private int videoSequenciaFinal = 1;
+        private TextBox textBoxOverlay;
 
         public Fase2()
         {
             InitializeComponent();
-        }
+
+            btn_xingar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_denunciar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_ajuda.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_ignorar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_block.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+
+            this.Resize += new EventHandler(Form1_Resize);
+            AjustarControles();
+        
+        textBoxOverlay = new TextBox();
+        textBoxOverlay.Multiline = true;
+            textBoxOverlay.Dock = DockStyle.Bottom;
+            textBoxOverlay.Height = 50; 
+            textBoxOverlay.BackColor = Color.Black; 
+            textBoxOverlay.ForeColor = Color.White; 
+            textBoxOverlay.BorderStyle = BorderStyle.None;
+            textBoxOverlay.TextAlign = HorizontalAlignment.Center;
+            this.Controls.Add(textBoxOverlay);
+            textBoxOverlay.BringToFront(); 
+                   }
+
+
+private void AjustarControles()
+            {
+      
+                int margemLateral = 10;
+                textBox1.Width = this.ClientSize.Width - 2 * margemLateral;
+                textBox1.Height = 100;
+                textBox1.Location = new Point(margemLateral, this.ClientSize.Height - textBox1.Height - 10); 
+
+            lbl_pergunta.AutoSize = true;
+            lbl_pergunta.Location = new Point(textBox1.Left, textBox1.Top - lbl_pergunta.Height - 5);
+  
+            int buttonWidth = 180;
+                int buttonHeight = 90;
+                int margemEntreBotoes = 10;
+
+               
+                int posicaoYBotoes = textBox1.Bottom - buttonHeight; 
+                int posicaoXBotoes = textBox1.Right - (buttonWidth * 5 + margemEntreBotoes * 4); 
+
+   
+                btn_ajuda.Size = new Size(buttonWidth, buttonHeight);
+                btn_ajuda.Location = new Point(posicaoXBotoes, posicaoYBotoes);
+
+     
+                btn_denunciar.Size = new Size(buttonWidth, buttonHeight);
+                btn_denunciar.Location = new Point(posicaoXBotoes + buttonWidth + margemEntreBotoes, posicaoYBotoes);
+
+        
+                btn_ignorar.Size = new Size(buttonWidth, buttonHeight);
+                btn_ignorar.Location = new Point(posicaoXBotoes + 2 * (buttonWidth + margemEntreBotoes), posicaoYBotoes);
+
+           
+                btn_block.Size = new Size(buttonWidth, buttonHeight);
+                btn_block.Location = new Point(posicaoXBotoes + 3 * (buttonWidth + margemEntreBotoes), posicaoYBotoes);
+
+            
+                btn_xingar.Size = new Size(buttonWidth, buttonHeight);
+                btn_xingar.Location = new Point(posicaoXBotoes + 4 * (buttonWidth + margemEntreBotoes), posicaoYBotoes);
+            }
+
+        
 
         private void Fase2_Load(object sender, EventArgs e)
         {
-
+            AjustarControles();
+            Form1_Resize(this, EventArgs.Empty);
             btn_next.Visible = false;
             Block.Visible = false;
             batalha.Visible = false;
@@ -37,13 +105,13 @@ namespace Pitico
 
             this.KeyDown += new KeyEventHandler(Fase2_KeyDown);
 
-  
+
             ReproduzirVideo("fase2intro1");
 
-      
+
             axWindowsMediaPlayer1.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(AxWindowsMediaPlayer1_PlayStateChange);
 
-  
+
             this.KeyDown += new KeyEventHandler(Fase2_KeyDown);
 
             btn_ajuda.Click += SelecionarOpcao;
@@ -54,11 +122,6 @@ namespace Pitico
 
             AtualizarCoracoes();
             AtualizarCoracoesAdversario();
-            
-            pitico_2.Visible = false;
-            pitico_3.Visible = false;
-            cshar_2.Visible = false;
-            cshar_3.Visible = false;
         }
 
         private void SelecionarOpcao(object sender, EventArgs e)
@@ -71,17 +134,18 @@ namespace Pitico
             {
 
                 vida++;
-                if (vida > vidaMaxima) vida = vidaMaxima; 
+                if (vida > vidaMaxima) vida = vidaMaxima;
             }
             else if (botao == btn_denunciar)
             {
 
                 vidaCshar--;
-                if (vidaCshar < 0) vidaCshar = 0; 
+                if (vidaCshar < 0) vidaCshar = 0;
+                MessageBox.Show("Você denunciou! O adversário perdeu um coração.");
             }
             else if (botao == btn_block)
             {
-        
+
                 vidaCshar--;
                 vida--;
                 if (vida < 0) vida = 0;
@@ -102,26 +166,24 @@ namespace Pitico
 
         private void AtualizarCoracoes()
         {
-         
+
             VidaPitico1.Visible = vida >= 1;
             VidaPitico2.Visible = vida >= 2;
             VidaPitico3.Visible = vida >= 3;
             VidaPitico4.Visible = vida >= 4;
             VidaPitico5.Visible = vida >= 5;
 
-            labelVida.Text = $"Vida: {vida}";
         }
 
         private void AtualizarCoracoesAdversario()
         {
-         
+
             VidaCshar1.Visible = vidaCshar >= 1;
             VidaCshar2.Visible = vidaCshar >= 2;
             VidaCshar3.Visible = vidaCshar >= 3;
             VidaCshar4.Visible = vidaCshar >= 4;
             VidaCshar5.Visible = vidaCshar >= 5;
 
-            labelVidaCshar.Text = $"Vida Adversário: {vidaCshar}";
         }
 
         private void VerificarGameOver()
@@ -165,8 +227,8 @@ namespace Pitico
                 MessageBox.Show("Game Over! O adversário perdeu.");
                 IniciarSequenciaFinal();
             }
-       
-    }
+
+        }
 
         private void IniciarSequenciaFinal()
         {
@@ -201,7 +263,7 @@ namespace Pitico
             label1.Visible = false;
             axWindowsMediaPlayer1.Visible = true;
 
- 
+
             btn_next.Visible = true;
 
             ReproduzirVideo("fase2final1");
@@ -215,7 +277,7 @@ namespace Pitico
 
         }
 
-        
+
 
         private void btn_block_Click(object sender, EventArgs e)
         {
@@ -227,10 +289,6 @@ namespace Pitico
             btn_denunciar.Visible = false;
             btn_xingar.Visible = false;
             btn_ignorar.Visible = false;
-            pitico_1.Visible = false;
-            cshar_1.Visible = false;
-            cshar_2.Visible = true;
-            pitico_3.Visible = true;
 
         }
 
@@ -251,10 +309,6 @@ namespace Pitico
             btn_denunciar.Visible = false;
             btn_xingar.Visible = false;
             btn_ignorar.Visible = false;
-            pitico_1.Visible = false;
-            cshar_1.Visible = false;
-            cshar_2.Visible = true;
-            pitico_2.Visible = true;
         }
 
         private void prosseguir2_Click(object sender, EventArgs e)
@@ -274,8 +328,6 @@ namespace Pitico
             btn_denunciar.Visible = false;
             btn_xingar.Visible = false;
             btn_ignorar.Visible = false;
-            pitico_1.Visible = false;
-            cshar_1.Visible = false;
         }
 
         private void prosseguir3_Click(object sender, EventArgs e)
@@ -296,10 +348,6 @@ namespace Pitico
             btn_denunciar.Visible = false;
             btn_xingar.Visible = false;
             btn_ignorar.Visible = false;
-            pitico_1.Visible = false;
-            cshar_1.Visible = false;
-            cshar_3.Visible = true;
-            pitico_2.Visible = true;
         }
 
         private void prosseguir4_Click(object sender, EventArgs e)
@@ -318,10 +366,6 @@ namespace Pitico
             btn_denunciar.Visible = false;
             btn_xingar.Visible = false;
             btn_ignorar.Visible = false;
-            pitico_1.Visible = false;
-            cshar_1.Visible = false;
-            pitico_3.Visible = true;
-            cshar_2.Visible = true;
         }
 
         private void prosseguir5_Click(object sender, EventArgs e)
@@ -340,12 +384,6 @@ namespace Pitico
             btn_denunciar.Visible = true;
             btn_xingar.Visible = true;
             btn_ignorar.Visible = true;
-            pitico_1.Visible = true;
-            pitico_2.Visible = false;
-            pitico_3.Visible = false;
-            cshar_1.Visible = true;
-            cshar_2.Visible = false;
-            cshar_3.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -387,10 +425,10 @@ namespace Pitico
         {
             if (e.newState == (int)WMPLib.WMPPlayState.wmppsStopped)
             {
- 
+
                 if (vidaCshar > 0 && videoAtual <= 8 && !modoJogoIniciado)
                 {
-                    btn_next.Visible = true; 
+                    btn_next.Visible = true;
                 }
                 else if (videoSequenciaFinal <= 5 && modoJogoIniciado)
                 {
@@ -404,12 +442,12 @@ namespace Pitico
 
         private void btn_next_Click(object sender, EventArgs e)
         {
-            btn_next.Visible = false; 
+            btn_next.Visible = false;
 
-   
+
             if (vidaCshar > 0)
             {
-       
+
                 switch (videoAtual)
                 {
                     case 1:
@@ -444,7 +482,9 @@ namespace Pitico
                         videoAtual++;
                         break;
                     case 8:
+                        textBoxOverlay.Visible = false;
                         IniciarJogo();
+      
                         break;
                 }
             }
@@ -455,6 +495,7 @@ namespace Pitico
                 {
                     case 1:
                         ReproduzirVideo("fase2final2");
+                        textBoxOverlay.Visible = true;
                         videoSequenciaFinal++;
                         break;
                     case 2:
@@ -470,7 +511,6 @@ namespace Pitico
                         MessageBox.Show("Parabéns! Você venceu a fase!");
                         Form proximoFormulario = new Fase3();
                         proximoFormulario.Show();
-                        this.Close();
                         break;
                 }
             }
@@ -480,7 +520,7 @@ namespace Pitico
 
         private void ReproduzirVideo(string videoNome)
         {
-        
+
             byte[] videoBytes = (byte[])Properties.Resources.ResourceManager.GetObject(videoNome);
 
             if (videoBytes != null)
@@ -497,7 +537,7 @@ namespace Pitico
                     File.Delete(videoTempPath);
                 }
 
-     
+
                 File.WriteAllBytes(videoTempPath, videoBytes);
 
 
@@ -508,7 +548,75 @@ namespace Pitico
 
 
 
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            int largura = this.ClientSize.Width;
+            int altura = (largura * 9) / 16;
+            this.ClientSize = new Size(largura, altura);
 
+        
+        pictureBox1.Width = this.ClientSize.Width;
+            pictureBox1.Height = this.ClientSize.Height;
+     
+            game_over.Width = this.ClientSize.Width;
+            game_over.Height = this.ClientSize.Height;
+            Block.Width = this.ClientSize.Width;
+            Block.Height = this.ClientSize.Height;
+            batalha.Width = this.ClientSize.Width;
+            batalha.Height = this.ClientSize.Height;
+
+
+            cshar_1.SizeMode = PictureBoxSizeMode.StretchImage;
+            cshar_2.SizeMode = PictureBoxSizeMode.StretchImage;
+            cshar_3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pitico_1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pitico_2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pitico_3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            game_over.SizeMode = PictureBoxSizeMode.StretchImage;
+            Block.SizeMode = PictureBoxSizeMode.StretchImage;
+            batalha.SizeMode = PictureBoxSizeMode.StretchImage;
+        
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+
+                SetFullScreenVideo();
+            }
+            else
+            {
+
+                AdjustVideoSize();
+            }
+            }
+        
+        private void SetFullScreenVideo()
+        {
+
+            int newWidth = this.ClientSize.Width;
+            int newHeight = (int)(newWidth / aspectRatio);
+
+            if (newHeight > this.ClientSize.Height)
+            {
+
+                newHeight = this.ClientSize.Height;
+                newWidth = (int)(newHeight * aspectRatio);
+            }
+
+
+            axWindowsMediaPlayer1.Width = newWidth;
+            axWindowsMediaPlayer1.Height = newHeight;
+
+
+            axWindowsMediaPlayer1.Location = new Point((this.ClientSize.Width - newWidth) / 2, (this.ClientSize.Height - newHeight) / 2);
+        }
+
+        private void AdjustVideoSize()
+        {
+
+            axWindowsMediaPlayer1.Width = this.ClientSize.Width;
+            axWindowsMediaPlayer1.Height = this.ClientSize.Height;
+
+        }
 
         private void IniciarJogo()
         {
@@ -530,7 +638,7 @@ namespace Pitico
 
         private void Fase2_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && videoAtual == 8) 
+            if (e.KeyCode == Keys.Enter && videoAtual == 8)
             {
                 IniciarJogo();
             }
@@ -538,7 +646,6 @@ namespace Pitico
 
         private void MostrarBotoesParaProssseguir()
         {
-
             btn_ajuda.Visible = true;
             btn_block.Visible = true;
             btn_denunciar.Visible = true;

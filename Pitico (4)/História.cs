@@ -18,7 +18,7 @@ namespace Pjt_Pitico
         private int sequenceStep = 0;
         private bool isFinalState = false;
         private double aspectRatio = 16.0 / 9.0;
-
+        private TextBox textBoxOverlay;
         public História()
         {
             InitializeComponent();
@@ -40,8 +40,19 @@ namespace Pjt_Pitico
             {
                 control.KeyDown += new KeyEventHandler(Control_KeyDown);
             }
+            textBoxOverlay = new TextBox();
+            textBoxOverlay.Multiline = true;
+            textBoxOverlay.Dock = DockStyle.Bottom;
+            textBoxOverlay.Height = 50; 
+            textBoxOverlay.BackColor = Color.Black; 
+            textBoxOverlay.ForeColor = Color.White; 
+            textBoxOverlay.BorderStyle = BorderStyle.None;
+            textBoxOverlay.TextAlign = HorizontalAlignment.Center;
+            this.Controls.Add(textBoxOverlay);
+            textBoxOverlay.BringToFront(); 
         }
-        private void Form1_Resize(object sender, EventArgs e)
+    
+    private void Form1_Resize(object sender, EventArgs e)
         {
             int largura = this.ClientSize.Width;
             int altura = (largura * 9) / 16;
@@ -93,16 +104,17 @@ namespace Pjt_Pitico
  
                 AdjustVideoSize();
             }
+            textBoxOverlay.Width = this.ClientSize.Width;
         }
         private void PositionLabelAtBottom()
         {
-            pictureBox1.Controls.Add(lbl_fala1);
-            pictureBox1.Controls.Add(btn_passar_mae1);
-            pictureBox1.Controls.Add(btn_passar_pitico1);
-            pictureBox1.Controls.Add(btn_passar_mae2);
-            pictureBox1.Controls.Add(btn_passar_pra_cutscene);
-            pictureBox1.Controls.Add(btn_telapreta1);
-            pictureBox1.Controls.Add(btn_telapreta2);
+                pictureBox1.Controls.Add(lbl_fala1);
+                pictureBox1.Controls.Add(btn_passar_mae1);
+                pictureBox1.Controls.Add(btn_passar_pitico1);
+                pictureBox1.Controls.Add(btn_passar_mae2);
+                pictureBox1.Controls.Add(btn_passar_pra_cutscene);
+                pictureBox1.Controls.Add(btn_telapreta1);
+                pictureBox1.Controls.Add(btn_telapreta2);
 
 
             int buttonWidth = 100;
@@ -180,6 +192,8 @@ namespace Pjt_Pitico
             axWindowsMediaPlayer1.Width = this.ClientSize.Width;
             axWindowsMediaPlayer1.Height = this.ClientSize.Height;
 
+            axWindowsMediaPlayer1.Width = this.ClientSize.Width;
+            axWindowsMediaPlayer1.Height = this.ClientSize.Height - textBoxOverlay.Height;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -272,6 +286,7 @@ namespace Pjt_Pitico
             {
                 case "video":
                     video = Pitico.Properties.Resources.cut1;
+      
                     lbl_fala2.Visible = false;
                     break;
                 case "cut2":
@@ -292,6 +307,7 @@ namespace Pjt_Pitico
                         fs.Write(video, 0, video.Length);
                     }
 
+                    axWindowsMediaPlayer1.uiMode = "none";
                     axWindowsMediaPlayer1.URL = tempFilePath;
                     axWindowsMediaPlayer1.Ctlcontrols.play();
                 }
@@ -307,7 +323,7 @@ namespace Pjt_Pitico
             if (e.newState == 8)
             {
 
-
+                textBoxOverlay.Visible = false;
                 sequenceStep++;
                 ControlFlow();
             }
@@ -317,6 +333,8 @@ namespace Pjt_Pitico
             {
                 if (axWindowsMediaPlayer1.URL.Contains("cut2.mp4"))
                 {
+                    axWindowsMediaPlayer1.uiMode = "none";
+                    textBoxOverlay.Visible = true;
                     btn_avancar.Visible = true;
                     axWindowsMediaPlayer1.Visible = false;
 
@@ -333,7 +351,6 @@ namespace Pjt_Pitico
             {
                 case 1:
                     pictureBox1.Visible = true;
-
                     lbl_fala1.Visible = true;
                     pic_mae1.Visible = true;
                     btn_passar_mae1.Visible = true;
@@ -363,6 +380,7 @@ namespace Pjt_Pitico
                     pitico_2.Visible = false;
                     btn_passar_pra_cutscene.Visible = false;
                     PlayVideoFromResources("cut2");
+                    textBoxOverlay.Visible = true;
                     break;
             }
         }
@@ -403,7 +421,8 @@ namespace Pjt_Pitico
 
         private void passar_pra_cutscene_Click(object sender, EventArgs e)
         {
-            PlayVideoFromResources("cut2");  // Carrega e reproduz cut2
+            PlayVideoFromResources("cut2"); 
+            textBoxOverlay.Visible = true;
             pictureBox1.Visible = false;
             lbl_fala1.Visible = false;
             telapreta2.Visible = false;
@@ -509,6 +528,16 @@ namespace Pjt_Pitico
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

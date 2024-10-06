@@ -66,12 +66,12 @@
             // 
             // btn_email
             // 
-            this.btn_email.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_email.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btn_email.BackColor = System.Drawing.Color.Transparent;
             this.btn_email.BackgroundImage = global::Pitico.Properties.Resources.email1;
             this.btn_email.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_email.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_email.Location = new System.Drawing.Point(96, 365);
+            this.btn_email.Location = new System.Drawing.Point(186, 299);
             this.btn_email.Margin = new System.Windows.Forms.Padding(2);
             this.btn_email.Name = "btn_email";
             this.btn_email.Size = new System.Drawing.Size(79, 78);
@@ -115,7 +115,7 @@
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox3.BackgroundImage = global::Pitico.Properties.Resources.erro;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Location = new System.Drawing.Point(-6, -6);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(1044, 623);

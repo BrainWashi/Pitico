@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace Pjt_Pitico
 {
@@ -12,6 +13,7 @@ namespace Pjt_Pitico
     {
         private bool video3Played = false;
         private double aspectRatio = 16.0 / 9.0;
+        private TextBox textBoxOverlay;
         public CutscenePiticoPuxado()
         {
             InitializeComponent();
@@ -27,8 +29,18 @@ namespace Pjt_Pitico
 
             this.Resize += new EventHandler(Form1_Resize);
 
-            // Associe o evento Load do formulário ao método que irá iniciar o vídeo
             this.Load += new EventHandler(CutscenePiticoPuxado_Load);
+
+            textBoxOverlay = new TextBox();
+            textBoxOverlay.Multiline = true;
+            textBoxOverlay.Dock = DockStyle.Bottom;
+            textBoxOverlay.Height = 50;
+            textBoxOverlay.BackColor = Color.Black;
+            textBoxOverlay.ForeColor = Color.White;
+            textBoxOverlay.BorderStyle = BorderStyle.None;
+            textBoxOverlay.TextAlign = HorizontalAlignment.Center;
+            this.Controls.Add(textBoxOverlay);
+            textBoxOverlay.BringToFront();
         }
 
         private void CutscenePiticoPuxado_Load(object sender, EventArgs e)
@@ -54,6 +66,7 @@ namespace Pjt_Pitico
 
                 AdjustVideoSize();
             }
+            textBoxOverlay.Width = this.ClientSize.Width;
         }
         private void SetFullScreenVideo()
         {
@@ -81,6 +94,9 @@ namespace Pjt_Pitico
 
             axWindowsMediaPlayer2.Width = this.ClientSize.Width;
             axWindowsMediaPlayer2.Height = this.ClientSize.Height;
+
+            axWindowsMediaPlayer2.Width = this.ClientSize.Width;
+            axWindowsMediaPlayer2.Height = this.ClientSize.Height - textBoxOverlay.Height;
 
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)

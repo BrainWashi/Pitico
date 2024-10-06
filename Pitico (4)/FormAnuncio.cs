@@ -57,9 +57,6 @@ namespace Pjt_Pitico
             }
         }
 
-
-
-
         private void BlinkTimer_Tick(object sender, EventArgs e)
         {
             if (!this.IsDisposed)

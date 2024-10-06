@@ -459,6 +459,7 @@
             // 
             // lbl_parabéns
             // 
+            this.lbl_parabéns.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_parabéns.AutoSize = true;
             this.lbl_parabéns.BackColor = System.Drawing.Color.Black;
             this.lbl_parabéns.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -587,6 +588,7 @@
             // 
             // btn_avanca
             // 
+            this.btn_avanca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_avanca.Location = new System.Drawing.Point(812, 490);
             this.btn_avanca.Margin = new System.Windows.Forms.Padding(2);
             this.btn_avanca.Name = "btn_avanca";
