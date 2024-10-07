@@ -284,6 +284,7 @@
             this.lbl_fala1.Size = new System.Drawing.Size(860, 48);
             this.lbl_fala1.TabIndex = 19;
             this.lbl_fala1.Text = "Olá filho, chegou cedo em casa hoje.";
+            this.lbl_fala1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_fala1.Visible = false;
             // 
             // pictureBox2

@@ -169,18 +169,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -363,9 +363,6 @@
     <None Include="Resources\avancar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fase 1 end.mp4" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\pitico_assustado-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
@@ -507,19 +504,7 @@
     <None Include="Resources\dialogo2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fase1final5.mp4" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fase1final4.mp4" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fase1final2.mp4" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\informativofase1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fase1final3.mp4" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fase1informativo.png" />
@@ -528,37 +513,10 @@
     <None Include="Resources\pixel_vs.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fase2intro6.mp4" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fase2intro5.mp4" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\fase2intro4block.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fase2intro4.mp4" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fase2intro3.mp4" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fase2intro2.mp4" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\fase2intro1.mp4" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fase2final4.mp4" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fase2final2.mp4" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\fase2final3.mp4" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fase2final1.mp4" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pixel_pitico_2.png" />
@@ -613,6 +571,78 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase1final6.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase1final5.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase1final4.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase1final3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase1final2.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase1final1.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase1final1_dub.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase1final2_dub.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase1final4_dub.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video4_dub.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase1final6_dub.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase1final5_dub.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase1final7_dub.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase1final8_dub.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase2intro5.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase2intro4.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase2intro3.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase2intro2.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase2intro1.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase1final8.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase1final7.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase2final2.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase2final1.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase2final4.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -458,7 +458,7 @@ namespace Pjt_Pitico
 
         private void passar_mae1_Click(object sender, EventArgs e)
         {
-            if (btn_passar_mae1.CanSelect) ;
+            if (btn_passar_mae1.CanSelect);
             {
                 lbl_fala1.Text = "Sim, o professor Ivaldo liberou a gente mais cedo hoje!";
                 pic_mae1.Visible = false;

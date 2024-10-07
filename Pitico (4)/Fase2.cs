@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -52,7 +53,7 @@ namespace Pitico
                    }
 
 
-private void AjustarControles()
+            private void AjustarControles()
             {
       
                 int margemLateral = 10;
@@ -132,20 +133,65 @@ private void AjustarControles()
 
             if (botao == btn_ajuda)
             {
-
+                VidaCshar1.BringToFront();
+                VidaCshar2.BringToFront();
+                VidaCshar3.BringToFront();
+                VidaCshar4.BringToFront();
+                VidaCshar5.BringToFront();
+                VidaPitico1.BringToFront();
+                VidaPitico2.BringToFront();
+                VidaPitico3.BringToFront();
+                VidaPitico4.BringToFront();
+                VidaPitico5.BringToFront();
+                label1.BringToFront();
                 vida++;
                 if (vida > vidaMaxima) vida = vidaMaxima;
             }
             else if (botao == btn_denunciar)
             {
-
+                pitico_1.Visible = false;
+                pitico_2.Visible = false;
+                pitico_3.Visible = true;
+                VidaCshar1.BringToFront();
+                VidaCshar2.BringToFront();
+                VidaCshar3.BringToFront();
+                VidaCshar4.BringToFront();
+                VidaCshar5.BringToFront();
+                VidaPitico1.BringToFront();
+                VidaPitico2.BringToFront();
+                VidaPitico3.BringToFront();
+                VidaPitico4.BringToFront();
+                VidaPitico5.BringToFront();
+                label1.BringToFront();
+                //pitico_3.BringToFront();
+                cshar_1.Visible = false;
+                cshar_2.Visible = true;
+                cshar_3.Visible = false;
+                //cshar_2.BringToFront();
                 vidaCshar--;
                 if (vidaCshar < 0) vidaCshar = 0;
-                MessageBox.Show("Você denunciou! O adversário perdeu um coração.");
             }
             else if (botao == btn_block)
             {
-
+                cshar_1.Visible = false;
+                cshar_2.Visible = true;
+                cshar_3.Visible = false;
+                //cshar_2.BringToFront();
+                pitico_1.Visible = false;
+                pitico_2.Visible = true;
+                pitico_3.Visible = false;
+                //pitico_2.BringToFront();
+                VidaCshar1.BringToFront();
+                VidaCshar2.BringToFront();
+                VidaCshar3.BringToFront();
+                VidaCshar4.BringToFront();
+                VidaCshar5.BringToFront();
+                VidaPitico1.BringToFront();
+                VidaPitico2.BringToFront();
+                VidaPitico3.BringToFront();
+                VidaPitico4.BringToFront();
+                VidaPitico5.BringToFront();
+                label1.BringToFront();
                 vidaCshar--;
                 vida--;
                 if (vida < 0) vida = 0;
@@ -153,7 +199,25 @@ private void AjustarControles()
             }
             else if (botao == btn_xingar || botao == btn_ignorar)
             {
-
+                cshar_1.Visible = false;
+                cshar_2.Visible = false;
+                cshar_3.Visible = true;
+                //cshar_3.BringToFront();
+                pitico_1.Visible = false;
+                pitico_2.Visible = true;
+                pitico_3.Visible = false;
+                // pitico_2.BringToFront();
+                VidaCshar1.BringToFront();
+                VidaCshar2.BringToFront();
+                VidaCshar3.BringToFront();
+                VidaCshar4.BringToFront();
+                VidaCshar5.BringToFront();
+                VidaPitico1.BringToFront();
+                VidaPitico2.BringToFront();
+                VidaPitico3.BringToFront();
+                VidaPitico4.BringToFront();
+                VidaPitico5.BringToFront();
+                label1.BringToFront();
                 vida--;
                 if (vida < 0) vida = 0;
             }
@@ -225,6 +289,12 @@ private void AjustarControles()
             else if (vidaCshar <= 0)
             {
                 MessageBox.Show("Game Over! O adversário perdeu.");
+                pitico_1.Visible = false;
+                pitico_2.Visible = false;
+                pitico_3.Visible = false;
+                cshar_1.Visible = false;
+                cshar_2.Visible = false;
+                cshar_3.Visible = false;
                 IniciarSequenciaFinal();
             }
 
@@ -289,7 +359,6 @@ private void AjustarControles()
             btn_denunciar.Visible = false;
             btn_xingar.Visible = false;
             btn_ignorar.Visible = false;
-
         }
 
         private void prosseguir1_Click(object sender, EventArgs e)
@@ -297,6 +366,12 @@ private void AjustarControles()
             lbl_pergunta.Text = "Cria fake news sobre pitico, dizendo que ele não toma banho! -1 coração do pitico. ";
             btn_cont.Visible = true;
             prosseguir1.Visible = false;
+            pitico_3.Visible = false;
+            pitico_2.Visible = false;
+            pitico_1.Visible = true;
+            cshar_3.Visible = false;
+            cshar_2.Visible = false;
+            cshar_1.Visible = true;
         }
 
         private void btn_xingar_Click(object sender, EventArgs e)
@@ -317,6 +392,12 @@ private void AjustarControles()
                 " \n ainda é crime! Pitico deve levar suas questões contra seus inimigos para o Tribunal e não usando agressão.  ";
             btn_cont.Visible = true;
             prosseguir2.Visible = false;
+            pitico_3.Visible = false;
+            pitico_2.Visible = false;
+            pitico_1.Visible = true;
+            cshar_3.Visible = false;
+            cshar_2.Visible = false;
+            cshar_1.Visible = true;
         }
 
         private void btn_ajuda_Click(object sender, EventArgs e)
@@ -335,6 +416,12 @@ private void AjustarControles()
             lbl_pergunta.Text = "Cshar fica irritado e começa a juntar bots para ficar mais forte.";
             btn_cont.Visible = true;
             prosseguir3.Visible = false;
+            pitico_3.Visible = false;
+            pitico_2.Visible = false;
+            pitico_1.Visible = true;
+            cshar_3.Visible = false;
+            cshar_2.Visible = false;
+            cshar_1.Visible = true;
         }
 
         private void btn_ignorar_Click(object sender, EventArgs e)
@@ -348,6 +435,8 @@ private void AjustarControles()
             btn_denunciar.Visible = false;
             btn_xingar.Visible = false;
             btn_ignorar.Visible = false;
+            pitico_2.Visible = false;
+            cshar_3.Visible = false;
         }
 
         private void prosseguir4_Click(object sender, EventArgs e)
@@ -355,6 +444,12 @@ private void AjustarControles()
             lbl_pergunta.Text = "Cshar continua xingando pitico, mandando mensagens de como ele é feio!-1 coração para pitico";
             btn_cont.Visible = true;
             prosseguir4.Visible = false;
+            pitico_3.Visible = false;
+            pitico_2.Visible = false;
+            pitico_1.Visible = true;
+            cshar_3.Visible = false;
+            cshar_2.Visible = false;
+            cshar_1.Visible = true;
         }
 
         private void btn_denunciar_Click(object sender, EventArgs e)
@@ -373,6 +468,13 @@ private void AjustarControles()
             lbl_pergunta.Text = "Cshar -1 coração. Ele gasta esse turno criando uma conta nova!";
             btn_cont.Visible = true;
             prosseguir5.Visible = false;
+            pitico_3.Visible = false;
+            pitico_2.Visible = false;
+            pitico_1.Visible = true;
+            cshar_3.Visible = false;
+            cshar_2.Visible = false;
+            cshar_1.Visible = true;
+
         }
 
         private void btn_cont_Click(object sender, EventArgs e)
@@ -455,36 +557,31 @@ private void AjustarControles()
                         videoAtual++;
                         break;
                     case 2:
-                        ReproduzirVideo("fase2intro3");
-                        videoAtual++;
-                        break;
-                    case 3:
-                        ReproduzirVideo("fase2intro4");
-                        videoAtual++;
-                        break;
-                    case 4:
                         Block.Visible = true;
                         MostrarBotoesParaProssseguir();
                         videoAtual++;
                         break;
-                    case 5:
+                    case 3:
                         Block.Visible = false;
+                        ReproduzirVideo("fase2intro3");
+                        videoAtual++;
+                        break;
+                    case 4:
+                        ReproduzirVideo("fase2intro4");
+                        videoAtual++;
+                        break;
+                    case 5:
                         ReproduzirVideo("fase2intro5");
                         videoAtual++;
                         break;
                     case 6:
-                        ReproduzirVideo("fase2intro6");
-                        videoAtual++;
-                        break;
-                    case 7:
                         batalha.Visible = true;
                         MostrarBotoesParaProssseguir();
                         videoAtual++;
                         break;
-                    case 8:
+                    case 7:
                         textBoxOverlay.Visible = false;
                         IniciarJogo();
-      
                         break;
                 }
             }
@@ -507,7 +604,6 @@ private void AjustarControles()
                         videoSequenciaFinal++;
                         break;
                     case 4:
-                        // Final da sequência
                         MessageBox.Show("Parabéns! Você venceu a fase!");
                         Form proximoFormulario = new Fase3();
                         proximoFormulario.Show();
@@ -651,8 +747,6 @@ private void AjustarControles()
             btn_denunciar.Visible = true;
             btn_xingar.Visible = true;
             btn_ignorar.Visible = true;
-
-
             btn_next.Visible = true;
         }
 

@@ -643,9 +643,19 @@ namespace Pitico.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Byte[].
         /// </summary>
-        internal static byte[] fase1_end {
+        internal static byte[] fase1final1 {
             get {
-                object obj = ResourceManager.GetObject("fase1_end", resourceCulture);
+                object obj = ResourceManager.GetObject("fase1final1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] fase1final1_dub {
+            get {
+                object obj = ResourceManager.GetObject("fase1final1_dub", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -663,10 +673,20 @@ namespace Pitico.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Byte[].
         /// </summary>
-        internal static byte[] fase1final3 {
+        internal static byte[] fase1final2_dub {
             get {
-                object obj = ResourceManager.GetObject("fase1final3", resourceCulture);
+                object obj = ResourceManager.GetObject("fase1final2_dub", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fase1final31 {
+            get {
+                object obj = ResourceManager.GetObject("fase1final31", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -683,9 +703,89 @@ namespace Pitico.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Byte[].
         /// </summary>
+        internal static byte[] fase1final4_dub {
+            get {
+                object obj = ResourceManager.GetObject("fase1final4_dub", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
         internal static byte[] fase1final5 {
             get {
                 object obj = ResourceManager.GetObject("fase1final5", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] fase1final5_dub {
+            get {
+                object obj = ResourceManager.GetObject("fase1final5_dub", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] fase1final6 {
+            get {
+                object obj = ResourceManager.GetObject("fase1final6", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] fase1final6_dub {
+            get {
+                object obj = ResourceManager.GetObject("fase1final6_dub", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] fase1final7 {
+            get {
+                object obj = ResourceManager.GetObject("fase1final7", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] fase1final7_dub {
+            get {
+                object obj = ResourceManager.GetObject("fase1final7_dub", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] fase1final8 {
+            get {
+                object obj = ResourceManager.GetObject("fase1final8", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] fase1final8_dub {
+            get {
+                object obj = ResourceManager.GetObject("fase1final8_dub", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -816,16 +916,6 @@ namespace Pitico.Properties {
         internal static byte[] fase2intro5 {
             get {
                 object obj = ResourceManager.GetObject("fase2intro5", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Byte[].
-        /// </summary>
-        internal static byte[] fase2intro6 {
-            get {
-                object obj = ResourceManager.GetObject("fase2intro6", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1326,6 +1416,16 @@ namespace Pitico.Properties {
         internal static byte[] video4 {
             get {
                 object obj = ResourceManager.GetObject("video4", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] video4_dub {
+            get {
+                object obj = ResourceManager.GetObject("video4_dub", resourceCulture);
                 return ((byte[])(obj));
             }
         }

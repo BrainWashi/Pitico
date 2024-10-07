@@ -1,9 +1,11 @@
 ﻿using AxWMPLib;
+using Pitico.Properties;
 using Pjt_Pitico;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -16,8 +18,10 @@ namespace Pitico
     public partial class Fase1 : Form
     {
         private string Atual;
-        private List<string> sequenciaVideos = new List<string> { "fase1_end", "fase1final2", "fase1final3", "fase1final4" };
+        private List<string> sequenciaVideos = new List<string> { "fase1final1", "fase1final2", "fase1final4", "fase1final5", "fase1final6", "fase1final7", "fase1final8" };
+        private List<string> sequenciaVideosDub = new List<string> { "fase1final1_dub", "fase1final2_dub", "fase1final4_dub", "fase1final5_dub", "fase1final6_dub", "fase1final7_dub", "fase1final8_dub" };
         private int indiceVideoAtual = 0;
+        private int indiceVideoAtualDub = 0;
         private double aspectRatio = 16.0 / 9.0;
         private TextBox textBoxOverlay;
         public Fase1()
@@ -26,8 +30,7 @@ namespace Pitico
             this.StartPosition = FormStartPosition.CenterScreen;
             axWindowsMediaPlayer1.PlayStateChange += axWindowsMediaPlayer1_PlayStateChange;
 
-            informativo1.Visible = false;
-            informativo2.Visible = false;
+            informativo.Visible = false;
             PositionExistingButtons();
 
             textBoxOverlay = new TextBox();
@@ -112,10 +115,8 @@ private void Form1_Resize(object sender, EventArgs e)
             erroperg3.Width = this.ClientSize.Width;
             erroperg4.Height = this.ClientSize.Height;
             erroperg4.Width = this.ClientSize.Width;
-            informativo1.Height = this.ClientSize.Height;
-            informativo1.Width = this.ClientSize.Width;
-            informativo2.Height = this.ClientSize.Height;
-            informativo2.Width = this.ClientSize.Width;
+            informativo.Height = this.ClientSize.Height;
+            informativo.Width = this.ClientSize.Width;
 
 
             cenario_original.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -128,8 +129,7 @@ private void Form1_Resize(object sender, EventArgs e)
             Cenario9.SizeMode = PictureBoxSizeMode.StretchImage;
             erroPerg2.SizeMode = PictureBoxSizeMode.StretchImage;
             erroperg3.SizeMode = PictureBoxSizeMode.StretchImage;
-            informativo1.SizeMode = PictureBoxSizeMode.StretchImage;
-            informativo2.SizeMode = PictureBoxSizeMode.StretchImage;
+            informativo.SizeMode = PictureBoxSizeMode.StretchImage;
             erroperg4.SizeMode = PictureBoxSizeMode.StretchImage;
 
             textBox_acertou.Dock = DockStyle.Bottom;
@@ -150,8 +150,7 @@ private void Form1_Resize(object sender, EventArgs e)
             erroPerg2.Location = new Point(0, 0);
             erroperg3.Location = new Point(0, 0);
             erroperg4.Location = new Point(0, 0);
-            informativo1.Location = new Point(0, 0);
-            informativo2.Location = new Point(0, 0);
+            informativo.Location = new Point(0, 0);
 
             textBoxperg1.Width = this.ClientSize.Width - 20;
             textBoxperg2.Width = this.ClientSize.Width - 20;
@@ -645,7 +644,14 @@ private void Form1_Resize(object sender, EventArgs e)
 
         private void prosseguir_fase2_Click(object sender, EventArgs e)
         {
-            if (prosseguir_fase2.CanSelect)
+            if (prosseguir_fase2.CanSelect & Config.Dub == true)
+            {
+                button_tentardnv.Visible = false;
+                axWindowsMediaPlayer1.Visible = true;
+                CarregarVideo(sequenciaVideosDub[indiceVideoAtualDub]);
+            }
+
+            else if(prosseguir_fase2.CanSelect & Config.Dub == false)
             {
                 button_tentardnv.Visible = false;
                 axWindowsMediaPlayer1.Visible = true;
@@ -655,47 +661,119 @@ private void Form1_Resize(object sender, EventArgs e)
 
         private void CarregarVideo(string videoName)
         {
-            byte[] video = null;
-
-            switch (videoName)
+            if (Config.Dub == true)
             {
-                case "fase1_end":
-                    video = Pitico.Properties.Resources.fase1_end;
-                    textBoxOverlay.Visible = true;
-                    Atual = "fase1_end";
 
-                    break;
-                case "fase1final2":
-                    video = Pitico.Properties.Resources.fase1final2;
-                    Atual = "fase1final2";
-                    break;
-                case "fase1final3":
-                    video = Pitico.Properties.Resources.fase1final3;
-                    Atual = "fase1final3";
-                    break;
-                case "fase1final4":
-                    video = Pitico.Properties.Resources.fase1final4;
-                    Atual = "fase1final4";
-                    break;
+                byte[] video = null;
 
-                default:
-                    MessageBox.Show("Vídeo não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+
+                switch (videoName)
+                {
+                    case "fase1final1_dub":
+                        video = Pitico.Properties.Resources.fase1final1_dub;
+                        textBoxOverlay.Visible = true;
+                        Atual = "fase1final1_dub";
+                        break;
+                    case "fase1final2_dub":
+                        video = Pitico.Properties.Resources.fase1final2_dub;
+                        Atual = "fase1final2_dub";
+                        break;
+                    case "fase1final4_dub":
+                        video = Pitico.Properties.Resources.fase1final4_dub;
+                        Atual = "fase1final4_dub";
+                        break;
+                    case "fase1final5_dub":
+                        video = Pitico.Properties.Resources.fase1final5_dub;
+                        Atual = "fase1final5_dub";
+                        break;
+                    case "fase1final6_dub":
+                        video = Pitico.Properties.Resources.fase1final6_dub;
+                        Atual = "fase1final6_dub";
+                        break;
+                    case "fase1final7_dub":
+                        video = Pitico.Properties.Resources.fase1final7_dub;
+                        Atual = "fase1final7_dub";
+                        break;
+                    case "fase1final8_dub":
+                        video = Pitico.Properties.Resources.fase1final8_dub;
+                        Atual = "fase1final8_dub";
+                        break;
+
+                    default:
+                        MessageBox.Show("Vídeo não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                }
+
+                string tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.mp4");
+
+                using (var fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
+                {
+                    fs.Write(video, 0, video.Length);
+                }
+
+                axWindowsMediaPlayer1.URL = tempFilePath;
+                axWindowsMediaPlayer1.Ctlcontrols.play();
+                btn_avanca.Enabled = false;
             }
-
-            string tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.mp4");
-
-            using (var fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
+            else if (Config.Dub == false) 
             {
-                fs.Write(video, 0, video.Length);
-            }
+                byte[] video = null;
 
-            axWindowsMediaPlayer1.URL = tempFilePath;
-            axWindowsMediaPlayer1.Ctlcontrols.play();
-            btn_avanca.Enabled = false;
+
+                switch (videoName)
+                {
+                    case "fase1final1":
+                        video = Pitico.Properties.Resources.fase1final1;
+                        textBoxOverlay.Visible = true;
+                        Atual = "fase1final1";
+
+                        break;
+                    case "fase1final2":
+                        video = Pitico.Properties.Resources.fase1final2;
+                        Atual = "fase1final2";
+                        break;
+                    case "fase1final4":
+                        video = Pitico.Properties.Resources.fase1final4;
+                        Atual = "fase1final4";
+                        break;
+                    case "fase1final5":
+                        video = Pitico.Properties.Resources.fase1final5;
+                        Atual = "fase1final5";
+                        break;
+                    case "fase1final6":
+                        video = Pitico.Properties.Resources.fase1final6;
+                        Atual = "fase1final6";
+                        break;
+                    case "fase1final7":
+                        video = Pitico.Properties.Resources.fase1final7;
+                        Atual = "fase1final7";
+                        break;
+                    case "fase1final8":
+                        video = Pitico.Properties.Resources.fase1final8;
+                        Atual = "fase1final8";
+                        break;
+
+                    default:
+                        MessageBox.Show("Vídeo não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                }
+
+                string tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.mp4");
+
+                using (var fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
+                {
+                    fs.Write(video, 0, video.Length);
+                }
+
+                axWindowsMediaPlayer1.URL = tempFilePath;
+                axWindowsMediaPlayer1.Ctlcontrols.play();
+                btn_avanca.Enabled = false;
+            }
         }
 
-
+        
+       
+        
 
 
 
@@ -711,11 +789,10 @@ private void Form1_Resize(object sender, EventArgs e)
                 btn_avanca.Visible = true;
                 btn_avanca.Enabled = true;
 
-                if (Atual == "fase1final4")
+                if (Atual == "fase1final2_dub" || Atual == "fase1final2" )
                 {
-                    Atual = "Info1";
-                    informativo1.Visible = true;
-                    informativo2.Visible = false;
+                    Atual = "Info";
+                    informativo.Visible = true;
                 }
             }
         }
@@ -798,73 +875,69 @@ private void Form1_Resize(object sender, EventArgs e)
 
         }
 
+
         private void btn_avanca_Click(object sender, EventArgs e)
         {
-
-            if (indiceVideoAtual < sequenciaVideos.Count - 1)
+            if (informativo.Visible)
             {
-                indiceVideoAtual++;
-                CarregarVideo(sequenciaVideos[indiceVideoAtual]);
+                informativo.Visible = false; 
+            }
+
+            
+            if (VerificarUltimoVideo())
+            {
+      
+                Form proximoFormulario = new Fase2(); 
+                proximoFormulario.Show();
+                this.Close();
+                return; 
+            }
+
+           if (Config.Dub == true)
+            {
+                if (indiceVideoAtualDub < sequenciaVideosDub.Count - 1)
+                {
+                    indiceVideoAtualDub++; 
+                    CarregarVideo(sequenciaVideosDub[indiceVideoAtualDub]);
+                }
+                else
+                {
+                    btn_avanca.Enabled = false;
+                    btn_avanca.Visible = false;
+                }
             }
             else
             {
-                btn_avanca.Enabled = false;
-                btn_avanca.Visible = false;
-            }
-
-
-            if (Atual == "Info1")
-            {
-                informativo1.Visible = false;
-                informativo2.Visible = true;
-                btn_avanca.Visible = true;
-                btn_avanca.Enabled = true;
-                Atual = "Info2";
-            }
-            else if (Atual == "Info2")
-            {
-                btn_avanca.Visible = true;
-                btn_avanca.Enabled = true;
-
-                Form proximoFormulario = new Fase2();
-                proximoFormulario.Show();
-                this.Close();
+                if (indiceVideoAtual < sequenciaVideos.Count - 1)
+                {
+                    indiceVideoAtual++;
+                    CarregarVideo(sequenciaVideos[indiceVideoAtual]);
+                }
+                else
+                {
+                    btn_avanca.Enabled = false;
+                    btn_avanca.Visible = false;
+                }
             }
         }
 
-        private void btn_avanca_Click_1(object sender, EventArgs e)
+       private bool VerificarUltimoVideo()
         {
-            if (indiceVideoAtual < sequenciaVideos.Count - 1)
+           if (Config.Dub == true && Atual == "fase1final8_dub")
             {
-                indiceVideoAtual++;
-                CarregarVideo(sequenciaVideos[indiceVideoAtual]);
-            }
-            else
-            {
-                btn_avanca.Enabled = false;
-                btn_avanca.Visible = false;
+                return true;
             }
 
-
-            if (Atual == "Info1")
+            if (Config.Dub == false && Atual == "fase1final8")
             {
-                textBoxOverlay.Visible = false;
-                informativo1.Visible = false;
-                informativo2.Visible = true;
-                btn_avanca.Visible = true;
-                btn_avanca.Enabled = true;
-                Atual = "Info2";
+                return true;
             }
-            else if (Atual == "Info2")
-            {
-                btn_avanca.Visible = true;
-                btn_avanca.Enabled = true;
 
-                Form proximoFormulario = new Fase2();
-                proximoFormulario.Show();
-                this.Close();
-            }
+            return false;
         }
+
     }
+
 }
+
 

@@ -154,9 +154,6 @@
   <data name="pitico_falando_neutramente_removebg_preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pitico_falando_neutramente-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fase2intro1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fase2intro1.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="pype_sério" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pype sério.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -169,17 +166,11 @@
   <data name="22" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\22.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fase1final3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fase1final3.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="WhatsApp Image 2024-07-06 at 16.37.59" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhatsApp Image 2024-07-06 at 16.37.59.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fase2bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fase2bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fase2intro4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fase2intro4.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="video2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\video2.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -346,23 +337,14 @@
   <data name="desktop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\desktop.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fase2intro6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fase2intro6.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="pitico_sorrindo_de_olhos_fechados_removebg_preview__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pitico_sorrindo_de_olhos_fechados-removebg-preview (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="erro1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\erro1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fase2intro3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fase2intro3.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="pixel_pitico_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pixel_pitico_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fase1_end" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fase 1 end.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="fase1final5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fase1final5.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -372,9 +354,6 @@
   </data>
   <data name="Inicio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Inicio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fase2intro5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fase2intro5.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="depositphotos_477128234-stock-illustration-pixel-game-life-bar-bit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\depositphotos_477128234-stock-illustration-pixel-game-life-bar-bit.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -433,17 +412,11 @@
   <data name="pixel_cshar_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pixel_cshar_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fase2final2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fase2final2.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="cenario3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cenario3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pitico_assustado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pitico_assustado-removebg-preview (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fase2final1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fase2final1.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="pype_neutro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pype neutro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -468,9 +441,6 @@
   </data>
   <data name="erro2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\erro2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fase2final4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fase2final4.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="botãoo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\botãoo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -505,9 +475,6 @@
   <data name="pixel_vs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pixel_vs.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fase2intro2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fase2intro2.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="pixel_pitico_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pixel_pitico_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -522,5 +489,68 @@
   </data>
   <data name="email1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\email.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fase1final1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase1final1.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase1final1_dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase1final1_dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase1final31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase1final3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fase1final6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase1final6.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase1final2_dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase1final2_dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase1final4_dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase1final4_dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="video4_dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\video4_dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase1final5_dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase1final5_dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase1final6_dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase1final6_dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase1final7_dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase1final7_dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase1final8_dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase1final8_dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase1final7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase1final7.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase1final8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase1final8.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2intro1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2intro1.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2intro2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2intro2.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2intro3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2intro3.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2intro4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2intro4.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2intro5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2intro5.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2final1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2final1.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2final2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2final2.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2final4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2final4.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

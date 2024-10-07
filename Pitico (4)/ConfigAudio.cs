@@ -53,7 +53,7 @@ namespace Pitico
 
         private void ConfigAudio_Load(object sender, EventArgs e)
         {
-            if (Config.Ling & Config.Dub & Config.DescAudi == true)
+            if (Config.Ling == true)
             {
                 lbl_titulo.Text = "Opções de Áudio";
                 lbl_narracao.Text = "Descrição de áudio (narração):";
@@ -65,8 +65,6 @@ namespace Pitico
                 Rdb_DesligarDublagem.Text = "Desligar";
                 Rdb_DesligarNarração.Text = "Desligar";
                 Rdb_ligarNar.Text = "Ligar";
-                Rdb_ligarNar.Checked = true;
-                Rdb_LigarDublagem.Checked = true;
             }
             else
             {
@@ -80,8 +78,6 @@ namespace Pitico
                 Rdb_DesligarDublagem.Text = "Off";
                 Rdb_DesligarNarração.Text = "Off";
                 Rdb_ligarNar.Text = "On";
-                Rdb_LigarDublagem.Checked = false;
-                Rdb_DesligarNarração.Checked = false;
             }
         }
 

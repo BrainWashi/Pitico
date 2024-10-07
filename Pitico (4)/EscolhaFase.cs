@@ -128,45 +128,93 @@ namespace Pjt_Pitico
 
         private void PlayVideoFromResources(string videoName)
         {
-            byte[] video = null;
-
-            switch (videoName)
+            if (Config.Dub == true)
             {
-                case "video4":
-                    video = Pitico.Properties.Resources.video4;
-                    textBoxOverlay.Visible = true;
-                    break;
-            }
 
-            if (video != null)
-            {
-                string tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.mp4");
+                byte[] video = null;
 
-                try
+                switch (videoName)
                 {
-                    using (var fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
-                    {
-                        fs.Write(video, 0, video.Length);
-                    }
+                    case "video4":
+                        video = Pitico.Properties.Resources.video4_dub;
+                        textBoxOverlay.Visible = true;
+                        break;
+                }
 
-                    if (File.Exists(tempFilePath))
+                if (video != null)
+                {
+                    string tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.mp4");
+
+                    try
                     {
-                        axWindowsMediaPlayer1.URL = tempFilePath;
-                        axWindowsMediaPlayer1.Ctlcontrols.play();
+                        using (var fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
+                        {
+                            fs.Write(video, 0, video.Length);
+                        }
+
+                        if (File.Exists(tempFilePath))
+                        {
+                            axWindowsMediaPlayer1.URL = tempFilePath;
+                            axWindowsMediaPlayer1.Ctlcontrols.play();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro ao criar o arquivo temporário.");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Erro ao criar o arquivo temporário.");
+                        MessageBox.Show($"Erro ao tentar reproduzir o vídeo: {ex.Message}");
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show($"Erro ao tentar reproduzir o vídeo: {ex.Message}");
+                    MessageBox.Show("Vídeo não encontrado nos recursos.");
                 }
             }
+
             else
             {
-                MessageBox.Show("Vídeo não encontrado nos recursos.");
+                byte[] video = null;
+
+                switch (videoName)
+                {
+                    case "video4":
+                        video = Pitico.Properties.Resources.video4;
+                        textBoxOverlay.Visible = true;
+                        break;
+                }
+
+                if (video != null)
+                {
+                    string tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.mp4");
+
+                    try
+                    {
+                        using (var fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
+                        {
+                            fs.Write(video, 0, video.Length);
+                        }
+
+                        if (File.Exists(tempFilePath))
+                        {
+                            axWindowsMediaPlayer1.URL = tempFilePath;
+                            axWindowsMediaPlayer1.Ctlcontrols.play();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro ao criar o arquivo temporário.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao tentar reproduzir o vídeo: {ex.Message}");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vídeo não encontrado nos recursos.");
+                }
             }
         }
 

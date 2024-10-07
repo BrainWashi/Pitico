@@ -32,7 +32,7 @@ namespace Pitico
             Form form = new Menu();
             form.Closed += (s, args) => this.Close();
             form.Show();
-            this.Close();
+            //this.Close();
         }
 
         private void Rdb_português_CheckedChanged(object sender, EventArgs e)
