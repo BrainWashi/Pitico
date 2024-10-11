@@ -333,9 +333,9 @@ namespace Pitico.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cenario6 {
+        internal static System.Drawing.Bitmap cenario61 {
             get {
-                object obj = ResourceManager.GetObject("cenario6", resourceCulture);
+                object obj = ResourceManager.GetObject("cenario61", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,9 +343,9 @@ namespace Pitico.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cenario61 {
+        internal static System.Drawing.Bitmap Cenario6perg2 {
             get {
-                object obj = ResourceManager.GetObject("cenario61", resourceCulture);
+                object obj = ResourceManager.GetObject("Cenario6perg2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

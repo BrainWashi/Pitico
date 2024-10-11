@@ -46,7 +46,7 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
@@ -63,7 +63,7 @@
             this.BOTAO.BackColor = System.Drawing.Color.Transparent;
             this.BOTAO.ForeColor = System.Drawing.Color.IndianRed;
             this.BOTAO.Location = new System.Drawing.Point(358, 234);
-            this.BOTAO.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BOTAO.Margin = new System.Windows.Forms.Padding(2);
             this.BOTAO.Name = "BOTAO";
             this.BOTAO.Size = new System.Drawing.Size(70, 35);
             this.BOTAO.TabIndex = 4;
@@ -90,7 +90,7 @@
             this.pictureBox2.BackgroundImage = global::Pitico.Properties.Resources.cenario2;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(-1, -28);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(1065, 667);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -103,7 +103,7 @@
             this.pictureBox1.BackgroundImage = global::Pitico.Properties.Resources.cenario1;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(-1, -28);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1065, 667);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -118,7 +118,7 @@
             this.textBox_Pype.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Pype.ForeColor = System.Drawing.Color.Red;
             this.textBox_Pype.Location = new System.Drawing.Point(23, 417);
-            this.textBox_Pype.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_Pype.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_Pype.Multiline = true;
             this.textBox_Pype.Name = "textBox_Pype";
             this.textBox_Pype.ReadOnly = true;
@@ -150,7 +150,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BOTAO);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EscolhaFase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EscolhaFase";

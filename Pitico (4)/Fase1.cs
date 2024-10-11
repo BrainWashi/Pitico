@@ -30,6 +30,8 @@ namespace Pitico
             this.StartPosition = FormStartPosition.CenterScreen;
             axWindowsMediaPlayer1.PlayStateChange += axWindowsMediaPlayer1_PlayStateChange;
 
+
+      
             informativo.Visible = false;
             PositionExistingButtons();
 
@@ -320,8 +322,7 @@ private void Form1_Resize(object sender, EventArgs e)
 
             button_tentardnv.Left = (this.ClientSize.Width - button_tentardnv.Width) / 2;
             button_tentardnv.Top = prosseguir_fase2.Top + prosseguir_fase2.Height + 20; 
-            lbl_parabéns.Left = (this.ClientSize.Width - lbl_parabéns.Width) / 2;
-            lbl_parabéns.Top = (this.ClientSize.Height - lbl_parabéns.Height) / 2;
+
             this.Resize += (s, e) =>
                 {
                     LetraAperg1.Left = (this.ClientSize.Width - LetraAperg1.Width) / 2;
@@ -444,8 +445,8 @@ private void Form1_Resize(object sender, EventArgs e)
 
         private void BotaoCenario5_Click(object sender, EventArgs e)
         {
-            if (BotaoCenario5.CanSelect)
-            {
+            this.BackgroundImage = Pitico.Properties.Resources.Cenario6perg2;
+        
                 LetraAperg2.Visible = true;
                 LetraBperg2.Visible = true;
                 LetraCperg2.Visible = true;
@@ -455,8 +456,7 @@ private void Form1_Resize(object sender, EventArgs e)
                 BotaoCenario5.Visible = false;
                 Cenario5.Visible = false;
             }
-        }
-
+        
         private void LetraAperg2_Click(object sender, EventArgs e)
         {
             if (LetraAperg2.CanSelect)

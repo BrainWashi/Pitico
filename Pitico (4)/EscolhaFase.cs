@@ -44,6 +44,12 @@ namespace Pjt_Pitico
             this.ClientSize = new Size(largura, altura);
 
 
+            int x = (this.ClientSize.Width - label1.Width) / 2;
+            int y = (this.ClientSize.Height - label1.Height) / 2;
+
+            label1.Left = x;
+            label1.Top = y;
+
             pictureBox1.Width = this.ClientSize.Width;
             pictureBox1.Height = this.ClientSize.Height;
             pictureBox2.Height = this.ClientSize.Height;
@@ -62,7 +68,7 @@ namespace Pjt_Pitico
             pictureBox3.Location = new Point(0, 0);
 
             textBox_Pype.Dock = DockStyle.Bottom;
-            textBox_Pype.Width = this.ClientSize.Width - 20;
+            textBox_Pype.Width = this.ClientSize.Width - 10;
 
             if (this.WindowState == FormWindowState.Maximized)
             {
