@@ -644,5 +644,14 @@
   <ItemGroup>
     <None Include="Resources\fase2final4.mp4" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cutintro2_dub.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cutintro1_dub.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cutintro3_dub.mp4" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

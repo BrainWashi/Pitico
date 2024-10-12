@@ -24,6 +24,7 @@ namespace Pitico
         private int indiceVideoAtualDub = 0;
         private double aspectRatio = 16.0 / 9.0;
         private TextBox textBoxOverlay;
+        
         public Fase1()
         {
             InitializeComponent();
@@ -203,6 +204,8 @@ private void Form1_Resize(object sender, EventArgs e)
 
         private void Fase1_Load(object sender, EventArgs e)
         {
+            this.KeyPreview = true; // Permite que o formulário receba eventos de tecla
+            this.KeyDown += new KeyEventHandler(Form_KeyDown);
             CenterButton();
             Form1_Resize(this, EventArgs.Empty);
             btn_avanca.Visible = false;
@@ -786,7 +789,7 @@ private void Form1_Resize(object sender, EventArgs e)
 
             if (e.newState == (int)WMPLib.WMPPlayState.wmppsMediaEnded)
             {
-                btn_avanca.Visible = true;
+                btn_avanca.Visible = false;
                 btn_avanca.Enabled = true;
 
                 if (Atual == "fase1final2_dub" || Atual == "fase1final2" )
@@ -934,6 +937,16 @@ private void Form1_Resize(object sender, EventArgs e)
             }
 
             return false;
+        }
+
+
+        private void Form_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_avanca_Click(this, EventArgs.Empty); // Chama a mesma lógica do botão
+                e.Handled = true; // Impede o tratamento padrão da tecla
+            }
         }
 
     }

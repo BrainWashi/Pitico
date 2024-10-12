@@ -553,4 +553,13 @@
   <data name="fase2final4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fase2final4.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="cutintro1_dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cutintro1_dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cutintro2_dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cutintro2_dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cutintro3_dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cutintro3_dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

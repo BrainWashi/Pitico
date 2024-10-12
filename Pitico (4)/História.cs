@@ -280,40 +280,84 @@ namespace Pjt_Pitico
 
         private void PlayVideoFromResources(string videoName)
         {
-            byte[] video = null;
 
-            switch (videoName)
+            if (Config.Dub == false)
             {
-                case "video":
-                    video = Pitico.Properties.Resources.cut1;
-      
-                    lbl_fala2.Visible = false;
-                    break;
-                case "cut2":
-                    video = Pitico.Properties.Resources.cut2;
-                    break;
-                default:
-                    throw new ArgumentException("Nome do vídeo inválido");
+                byte[] video = null;
+
+                switch (videoName)
+                {
+                    case "video":
+                        video = Pitico.Properties.Resources.cut1;
+
+                        lbl_fala2.Visible = false;
+                        break;
+                    case "cut2":
+                        video = Pitico.Properties.Resources.cut2;
+                        break;
+                    default:
+                        throw new ArgumentException("Nome do vídeo inválido");
+                }
+
+                if (video != null)
+                {
+                    try
+                    {
+                        string tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.mp4");
+
+                        using (var fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
+                        {
+                            fs.Write(video, 0, video.Length);
+                        }
+
+                        axWindowsMediaPlayer1.uiMode = "none";
+                        axWindowsMediaPlayer1.URL = tempFilePath;
+                        axWindowsMediaPlayer1.Ctlcontrols.play();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao reproduzir o vídeo: {ex.Message}");
+                    }
+                }
             }
 
-            if (video != null)
+            else if(Config.Dub == true) 
             {
-                try
+                byte[] video = null;
+
+                switch (videoName)
                 {
-                    string tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.mp4");
+                    case "video":
+                        video = Pitico.Properties.Resources.cutintro1_dub;
 
-                    using (var fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
-                    {
-                        fs.Write(video, 0, video.Length);
-                    }
-
-                    axWindowsMediaPlayer1.uiMode = "none";
-                    axWindowsMediaPlayer1.URL = tempFilePath;
-                    axWindowsMediaPlayer1.Ctlcontrols.play();
+                        lbl_fala2.Visible = false;
+                        break;
+                    case "cut2":
+                        video = Pitico.Properties.Resources.cutintro2_dub;
+                        break;
+                    default:
+                        throw new ArgumentException("Nome do vídeo inválido");
                 }
-                catch (Exception ex)
+
+                if (video != null)
                 {
-                    MessageBox.Show($"Erro ao reproduzir o vídeo: {ex.Message}");
+                    try
+                    {
+                        string tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.mp4");
+
+                        using (var fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
+                        {
+                            fs.Write(video, 0, video.Length);
+                        }
+
+                        axWindowsMediaPlayer1.uiMode = "none";
+                        axWindowsMediaPlayer1.URL = tempFilePath;
+                        axWindowsMediaPlayer1.Ctlcontrols.play();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao reproduzir o vídeo: {ex.Message}");
+                    }
                 }
             }
         }

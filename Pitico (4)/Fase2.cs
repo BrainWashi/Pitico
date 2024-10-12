@@ -39,61 +39,61 @@ namespace Pitico
 
             this.Resize += new EventHandler(Form1_Resize);
             AjustarControles();
-        
-        textBoxOverlay = new TextBox();
-        textBoxOverlay.Multiline = true;
+
+            textBoxOverlay = new TextBox();
+            textBoxOverlay.Multiline = true;
             textBoxOverlay.Dock = DockStyle.Bottom;
-            textBoxOverlay.Height = 50; 
-            textBoxOverlay.BackColor = Color.Black; 
-            textBoxOverlay.ForeColor = Color.White; 
+            textBoxOverlay.Height = 50;
+            textBoxOverlay.BackColor = Color.Black;
+            textBoxOverlay.ForeColor = Color.White;
             textBoxOverlay.BorderStyle = BorderStyle.None;
             textBoxOverlay.TextAlign = HorizontalAlignment.Center;
             this.Controls.Add(textBoxOverlay);
-            textBoxOverlay.BringToFront(); 
-                   }
+            textBoxOverlay.BringToFront();
+        }
 
 
-            private void AjustarControles()
-            {
-      
-                int margemLateral = 10;
-                textBox1.Width = this.ClientSize.Width - 2 * margemLateral;
-                textBox1.Height = 100;
-                textBox1.Location = new Point(margemLateral, this.ClientSize.Height - textBox1.Height - 10); 
+        private void AjustarControles()
+        {
+
+            int margemLateral = 10;
+            textBox1.Width = this.ClientSize.Width - 2 * margemLateral;
+            textBox1.Height = 100;
+            textBox1.Location = new Point(margemLateral, this.ClientSize.Height - textBox1.Height - 10);
 
             lbl_pergunta.AutoSize = true;
             lbl_pergunta.Location = new Point(textBox1.Left, textBox1.Top - lbl_pergunta.Height - 5);
-  
+
             int buttonWidth = 180;
-                int buttonHeight = 90;
-                int margemEntreBotoes = 10;
+            int buttonHeight = 90;
+            int margemEntreBotoes = 10;
 
-               
-                int posicaoYBotoes = textBox1.Bottom - buttonHeight; 
-                int posicaoXBotoes = textBox1.Right - (buttonWidth * 5 + margemEntreBotoes * 4); 
 
-   
-                btn_ajuda.Size = new Size(buttonWidth, buttonHeight);
-                btn_ajuda.Location = new Point(posicaoXBotoes, posicaoYBotoes);
+            int posicaoYBotoes = textBox1.Bottom - buttonHeight;
+            int posicaoXBotoes = textBox1.Right - (buttonWidth * 5 + margemEntreBotoes * 4);
 
-     
-                btn_denunciar.Size = new Size(buttonWidth, buttonHeight);
-                btn_denunciar.Location = new Point(posicaoXBotoes + buttonWidth + margemEntreBotoes, posicaoYBotoes);
 
-        
-                btn_ignorar.Size = new Size(buttonWidth, buttonHeight);
-                btn_ignorar.Location = new Point(posicaoXBotoes + 2 * (buttonWidth + margemEntreBotoes), posicaoYBotoes);
+            btn_ajuda.Size = new Size(buttonWidth, buttonHeight);
+            btn_ajuda.Location = new Point(posicaoXBotoes, posicaoYBotoes);
 
-           
-                btn_block.Size = new Size(buttonWidth, buttonHeight);
-                btn_block.Location = new Point(posicaoXBotoes + 3 * (buttonWidth + margemEntreBotoes), posicaoYBotoes);
 
-            
-                btn_xingar.Size = new Size(buttonWidth, buttonHeight);
-                btn_xingar.Location = new Point(posicaoXBotoes + 4 * (buttonWidth + margemEntreBotoes), posicaoYBotoes);
-            }
+            btn_denunciar.Size = new Size(buttonWidth, buttonHeight);
+            btn_denunciar.Location = new Point(posicaoXBotoes + buttonWidth + margemEntreBotoes, posicaoYBotoes);
 
-        
+
+            btn_ignorar.Size = new Size(buttonWidth, buttonHeight);
+            btn_ignorar.Location = new Point(posicaoXBotoes + 2 * (buttonWidth + margemEntreBotoes), posicaoYBotoes);
+
+
+            btn_block.Size = new Size(buttonWidth, buttonHeight);
+            btn_block.Location = new Point(posicaoXBotoes + 3 * (buttonWidth + margemEntreBotoes), posicaoYBotoes);
+
+
+            btn_xingar.Size = new Size(buttonWidth, buttonHeight);
+            btn_xingar.Location = new Point(posicaoXBotoes + 4 * (buttonWidth + margemEntreBotoes), posicaoYBotoes);
+        }
+
+
 
         private void Fase2_Load(object sender, EventArgs e)
         {
@@ -104,6 +104,8 @@ namespace Pitico
             batalha.Visible = false;
             this.KeyPreview = true;
 
+            this.KeyPreview = true; // Permite que o formulário receba eventos de tecla
+            this.KeyDown += new KeyEventHandler(Faase2_KeyDown);
             this.KeyDown += new KeyEventHandler(Fase2_KeyDown);
 
 
@@ -650,10 +652,10 @@ namespace Pitico
             int altura = (largura * 9) / 16;
             this.ClientSize = new Size(largura, altura);
 
-        
-        pictureBox1.Width = this.ClientSize.Width;
+
+            pictureBox1.Width = this.ClientSize.Width;
             pictureBox1.Height = this.ClientSize.Height;
-     
+
             game_over.Width = this.ClientSize.Width;
             game_over.Height = this.ClientSize.Height;
             Block.Width = this.ClientSize.Width;
@@ -672,7 +674,7 @@ namespace Pitico
             game_over.SizeMode = PictureBoxSizeMode.StretchImage;
             Block.SizeMode = PictureBoxSizeMode.StretchImage;
             batalha.SizeMode = PictureBoxSizeMode.StretchImage;
-        
+
             if (this.WindowState == FormWindowState.Maximized)
             {
 
@@ -683,8 +685,8 @@ namespace Pitico
 
                 AdjustVideoSize();
             }
-            }
-        
+        }
+
         private void SetFullScreenVideo()
         {
 
@@ -755,8 +757,16 @@ namespace Pitico
 
 
         }
+
+        private void Faase2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_next_Click(this, EventArgs.Empty); // Chama a mesma lógica do botão
+                e.Handled = true; // Impede o tratamento padrão da tecla
+            }
+        }
     }
 
 }
-
 

@@ -471,6 +471,36 @@ namespace Pitico.Properties {
         }
         
         /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] cutintro1_dub {
+            get {
+                object obj = ResourceManager.GetObject("cutintro1_dub", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] cutintro2_dub {
+            get {
+                object obj = ResourceManager.GetObject("cutintro2_dub", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] cutintro3_dub {
+            get {
+                object obj = ResourceManager.GetObject("cutintro3_dub", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap depositphotos_477128234_stock_illustration_pixel_game_life_bar_bit {

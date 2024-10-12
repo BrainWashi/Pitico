@@ -1,4 +1,5 @@
-﻿namespace Pitico
+﻿
+namespace Pitico
 {
     partial class Fase2
     {
