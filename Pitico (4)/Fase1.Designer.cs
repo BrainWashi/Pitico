@@ -69,6 +69,7 @@
             this.informativo = new System.Windows.Forms.PictureBox();
             this.btn_avanca = new System.Windows.Forms.Button();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.lbl_pressione = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.erroPergunta1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cenario3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cenario4)).BeginInit();
@@ -463,7 +464,7 @@
             this.lbl_parabéns.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_parabéns.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_parabéns.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_parabéns.Location = new System.Drawing.Point(600, 100);
+            this.lbl_parabéns.Location = new System.Drawing.Point(454, 80);
             this.lbl_parabéns.Name = "lbl_parabéns";
             this.lbl_parabéns.Size = new System.Drawing.Size(568, 31);
             this.lbl_parabéns.TabIndex = 32;
@@ -512,7 +513,7 @@
             // btn_póspergunta2
             // 
             this.btn_póspergunta2.Location = new System.Drawing.Point(912, 521);
-            this.btn_póspergunta2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_póspergunta2.Margin = new System.Windows.Forms.Padding(2);
             this.btn_póspergunta2.Name = "btn_póspergunta2";
             this.btn_póspergunta2.Size = new System.Drawing.Size(73, 19);
             this.btn_póspergunta2.TabIndex = 42;
@@ -524,7 +525,7 @@
             // btn_Póspergunta3
             // 
             this.btn_Póspergunta3.Location = new System.Drawing.Point(912, 546);
-            this.btn_Póspergunta3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Póspergunta3.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Póspergunta3.Name = "btn_Póspergunta3";
             this.btn_Póspergunta3.Size = new System.Drawing.Size(73, 19);
             this.btn_Póspergunta3.TabIndex = 43;
@@ -540,8 +541,8 @@
             this.textBox_acertou.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox_acertou.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_acertou.ForeColor = System.Drawing.Color.Red;
-            this.textBox_acertou.Location = new System.Drawing.Point(22, 370);
-            this.textBox_acertou.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_acertou.Location = new System.Drawing.Point(-9, 281);
+            this.textBox_acertou.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_acertou.Multiline = true;
             this.textBox_acertou.Name = "textBox_acertou";
             this.textBox_acertou.ReadOnly = true;
@@ -556,8 +557,8 @@
             this.textBox_errado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox_errado.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_errado.ForeColor = System.Drawing.Color.Red;
-            this.textBox_errado.Location = new System.Drawing.Point(0, 371);
-            this.textBox_errado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_errado.Location = new System.Drawing.Point(-26, 282);
+            this.textBox_errado.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_errado.Multiline = true;
             this.textBox_errado.Name = "textBox_errado";
             this.textBox_errado.ReadOnly = true;
@@ -569,7 +570,7 @@
             // 
             this.informativo.Image = global::Pitico.Properties.Resources.informativofase1;
             this.informativo.Location = new System.Drawing.Point(0, -7);
-            this.informativo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.informativo.Margin = new System.Windows.Forms.Padding(2);
             this.informativo.Name = "informativo";
             this.informativo.Size = new System.Drawing.Size(1050, 596);
             this.informativo.TabIndex = 47;
@@ -577,26 +578,42 @@
             // 
             // btn_avanca
             // 
-            this.btn_avanca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_avanca.Location = new System.Drawing.Point(812, 490);
-            this.btn_avanca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_avanca.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_avanca.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_avanca.Enabled = false;
+            this.btn_avanca.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_avanca.ForeColor = System.Drawing.Color.Red;
+            this.btn_avanca.Location = new System.Drawing.Point(446, 272);
+            this.btn_avanca.Margin = new System.Windows.Forms.Padding(2);
             this.btn_avanca.Name = "btn_avanca";
-            this.btn_avanca.Size = new System.Drawing.Size(68, 23);
+            this.btn_avanca.Size = new System.Drawing.Size(199, 45);
             this.btn_avanca.TabIndex = 48;
-            this.btn_avanca.Text = "PRÓXIMO";
-            this.btn_avanca.UseVisualStyleBackColor = true;
-            this.btn_avanca.Click += new System.EventHandler(this.btn_avanca_Click);
+            this.btn_avanca.Text = "PRESSIONE ENTER PARA CONTINUAR";
+            this.btn_avanca.UseVisualStyleBackColor = false;
             // 
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(-158, -95);
-            this.axWindowsMediaPlayer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.axWindowsMediaPlayer1.Margin = new System.Windows.Forms.Padding(2);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1415, 812);
             this.axWindowsMediaPlayer1.TabIndex = 35;
             this.axWindowsMediaPlayer1.Visible = false;
+            // 
+            // lbl_pressione
+            // 
+            this.lbl_pressione.AutoSize = true;
+            this.lbl_pressione.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_pressione.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_pressione.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl_pressione.Location = new System.Drawing.Point(375, 292);
+            this.lbl_pressione.Name = "lbl_pressione";
+            this.lbl_pressione.Size = new System.Drawing.Size(314, 18);
+            this.lbl_pressione.TabIndex = 49;
+            this.lbl_pressione.Text = "PRESSIONE ENTER PARA CONTINUAR";
+            this.lbl_pressione.Visible = false;
             // 
             // Fase1
             // 
@@ -606,7 +623,7 @@
             this.BackgroundImage = global::Pitico.Properties.Resources.cenario11;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1049, 589);
-            this.Controls.Add(this.btn_avanca);
+            this.Controls.Add(this.lbl_pressione);
             this.Controls.Add(this.informativo);
             this.Controls.Add(this.textBox_errado);
             this.Controls.Add(this.textBox_acertou);
@@ -646,6 +663,7 @@
             this.Controls.Add(this.LetraBperg1);
             this.Controls.Add(this.LetraCperg1);
             this.Controls.Add(this.erroPergunta1);
+            this.Controls.Add(this.btn_avanca);
             this.Name = "Fase1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fase1";
@@ -712,5 +730,6 @@
         private System.Windows.Forms.TextBox textBox_errado;
         private System.Windows.Forms.PictureBox informativo;
         private System.Windows.Forms.Button btn_avanca;
+        private System.Windows.Forms.Label lbl_pressione;
     }
 }

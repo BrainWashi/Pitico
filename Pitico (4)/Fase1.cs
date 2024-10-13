@@ -24,15 +24,15 @@ namespace Pitico
         private int indiceVideoAtualDub = 0;
         private double aspectRatio = 16.0 / 9.0;
         private TextBox textBoxOverlay;
-        
+
         public Fase1()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             axWindowsMediaPlayer1.PlayStateChange += axWindowsMediaPlayer1_PlayStateChange;
 
+            btn_avanca.Enabled = false;
 
-      
             informativo.Visible = false;
             PositionExistingButtons();
 
@@ -50,11 +50,11 @@ namespace Pitico
 
         private void PositionExistingButtons()
         {
-    
+
             int buttonWidth = 100;
             int buttonHeight = 40;
             int margemDireita = 10;
-            int alturaBotao = 150; 
+            int alturaBotao = 150;
 
 
             Button[] botoesExistentes = {
@@ -65,38 +65,38 @@ namespace Pitico
                 btn_Póspergunta3
             };
 
-      
+
             for (int i = 0; i < botoesExistentes.Length; i++)
             {
                 Button btn = botoesExistentes[i];
                 btn.Size = new Size(buttonWidth, buttonHeight);
                 btn.Left = this.ClientSize.Width - btn.Width - margemDireita;
 
-  
+
             }
 
-        
+
             this.Resize += (s, e) =>
             {
                 for (int i = 0; i < botoesExistentes.Length; i++)
                 {
                     Button btn = botoesExistentes[i];
-                    btn.Left = this.ClientSize.Width - btn.Width - margemDireita; 
+                    btn.Left = this.ClientSize.Width - btn.Width - margemDireita;
 
                 }
             };
         }
-    
 
 
-private void Form1_Resize(object sender, EventArgs e)
+
+        private void Form1_Resize(object sender, EventArgs e)
         {
             int largura = this.ClientSize.Width;
             int altura = (largura * 9) / 16;
             this.ClientSize = new Size(largura, altura);
 
 
-           cenario_original.Width = this.ClientSize.Width;
+            cenario_original.Width = this.ClientSize.Width;
             cenario_original.Height = this.ClientSize.Height;
             Cenario3.Height = this.ClientSize.Height;
             Cenario3.Width = this.ClientSize.Width;
@@ -281,13 +281,13 @@ private void Form1_Resize(object sender, EventArgs e)
             }
         }
         private void CenterButton()
-            {
+        {
 
-                LetraAperg1.Left = (this.ClientSize.Width - LetraAperg1.Width) / 2 ;
-                LetraAperg1.Top = (this.ClientSize.Height -     LetraAperg1.Height) / 2 ;
+            LetraAperg1.Left = (this.ClientSize.Width - LetraAperg1.Width) / 2;
+            LetraAperg1.Top = (this.ClientSize.Height - LetraAperg1.Height) / 2;
 
             LetraBperg1.Left = (this.ClientSize.Width - LetraBperg1.Width) / 2;
-            LetraBperg1.Top = LetraAperg1.Top + LetraAperg1.Height + 20; 
+            LetraBperg1.Top = LetraAperg1.Top + LetraAperg1.Height + 20;
 
             LetraCperg1.Left = (this.ClientSize.Width - LetraCperg1.Width) / 2;
             LetraCperg1.Top = LetraBperg1.Top + LetraBperg1.Height + 20;
@@ -296,9 +296,9 @@ private void Form1_Resize(object sender, EventArgs e)
             LetraAperg2.Top = (this.ClientSize.Height - LetraAperg2.Height) / 2;
 
             LetraBperg2.Left = (this.ClientSize.Width - LetraBperg2.Width) / 2;
-            LetraBperg2.Top = LetraAperg2.Top + LetraAperg2.Height + 20; 
+            LetraBperg2.Top = LetraAperg2.Top + LetraAperg2.Height + 20;
 
-      
+
             LetraCperg2.Left = (this.ClientSize.Width - LetraCperg2.Width) / 2;
             LetraCperg2.Top = LetraBperg2.Top + LetraBperg2.Height + 20;
 
@@ -307,9 +307,9 @@ private void Form1_Resize(object sender, EventArgs e)
             LetraAperg3.Top = (this.ClientSize.Height - LetraAperg3.Height) / 2;
 
             LetraBperg3.Left = (this.ClientSize.Width - LetraBperg3.Width) / 2;
-            LetraBperg3.Top = LetraAperg3.Top + LetraAperg3.Height + 20; 
+            LetraBperg3.Top = LetraAperg3.Top + LetraAperg3.Height + 20;
 
-      
+
             LetraCperg3.Left = (this.ClientSize.Width - LetraCperg3.Width) / 2;
             LetraCperg3.Top = LetraBperg3.Top + LetraBperg3.Height + 20;
 
@@ -318,56 +318,56 @@ private void Form1_Resize(object sender, EventArgs e)
             LetraAperg4.Top = (this.ClientSize.Height - LetraAperg4.Height) / 2;
 
             LetraBperg4.Left = (this.ClientSize.Width - LetraBperg4.Width) / 2;
-            LetraBperg4.Top = LetraAperg4.Top + LetraAperg4.Height + 20; 
+            LetraBperg4.Top = LetraAperg4.Top + LetraAperg4.Height + 20;
 
             prosseguir_fase2.Left = (this.ClientSize.Width - prosseguir_fase2.Width) / 2;
             prosseguir_fase2.Top = (this.ClientSize.Height - prosseguir_fase2.Height) / 2;
 
             button_tentardnv.Left = (this.ClientSize.Width - button_tentardnv.Width) / 2;
-            button_tentardnv.Top = prosseguir_fase2.Top + prosseguir_fase2.Height + 20; 
+            button_tentardnv.Top = prosseguir_fase2.Top + prosseguir_fase2.Height + 20;
 
             this.Resize += (s, e) =>
-                {
-                    LetraAperg1.Left = (this.ClientSize.Width - LetraAperg1.Width) / 2;
-                    LetraAperg1.Top = (this.ClientSize.Height - LetraAperg1.Height) / 2;
+            {
+                LetraAperg1.Left = (this.ClientSize.Width - LetraAperg1.Width) / 2;
+                LetraAperg1.Top = (this.ClientSize.Height - LetraAperg1.Height) / 2;
 
-                    LetraBperg1.Left = (this.ClientSize.Width - LetraBperg1.Width) / 2;
-                    LetraBperg1.Top = LetraAperg1.Top + LetraAperg1.Height + 20; 
-
-               
-                    LetraCperg1.Left = (this.ClientSize.Width - LetraCperg1.Width) / 2;
-                    LetraCperg1.Top = LetraBperg1.Top + LetraBperg1.Height + 20;
-
-                    LetraAperg2.Left = (this.ClientSize.Width - LetraAperg2.Width) / 2;
-                    LetraAperg2.Top = (this.ClientSize.Height - LetraAperg2.Height) / 2;
-
-                    LetraBperg2.Left = (this.ClientSize.Width - LetraBperg2.Width) / 2;
-                    LetraBperg2.Top = LetraAperg2.Top + LetraAperg2.Height + 20;
-
-            
-                    LetraCperg2.Left = (this.ClientSize.Width - LetraCperg2.Width) / 2;
-                    LetraCperg2.Top = LetraBperg2.Top + LetraBperg2.Height + 20;
+                LetraBperg1.Left = (this.ClientSize.Width - LetraBperg1.Width) / 2;
+                LetraBperg1.Top = LetraAperg1.Top + LetraAperg1.Height + 20;
 
 
-                    LetraAperg3.Left = (this.ClientSize.Width - LetraAperg3.Width) / 2;
-                    LetraAperg3.Top = (this.ClientSize.Height - LetraAperg3.Height) / 2;
+                LetraCperg1.Left = (this.ClientSize.Width - LetraCperg1.Width) / 2;
+                LetraCperg1.Top = LetraBperg1.Top + LetraBperg1.Height + 20;
 
-                    LetraBperg3.Left = (this.ClientSize.Width - LetraBperg3.Width) / 2;
-                    LetraBperg3.Top = LetraAperg3.Top + LetraAperg3.Height + 20; 
+                LetraAperg2.Left = (this.ClientSize.Width - LetraAperg2.Width) / 2;
+                LetraAperg2.Top = (this.ClientSize.Height - LetraAperg2.Height) / 2;
 
-                    LetraCperg3.Left = (this.ClientSize.Width - LetraCperg3.Width) / 2;
-                    LetraCperg3.Top = LetraBperg3.Top + LetraBperg3.Height + 20;
+                LetraBperg2.Left = (this.ClientSize.Width - LetraBperg2.Width) / 2;
+                LetraBperg2.Top = LetraAperg2.Top + LetraAperg2.Height + 20;
 
 
-                    LetraAperg4.Left = (this.ClientSize.Width - LetraAperg4.Width) / 2;
-                    LetraAperg4.Top = (this.ClientSize.Height - LetraAperg4.Height) / 2;
+                LetraCperg2.Left = (this.ClientSize.Width - LetraCperg2.Width) / 2;
+                LetraCperg2.Top = LetraBperg2.Top + LetraBperg2.Height + 20;
 
-                    LetraBperg4.Left = (this.ClientSize.Width - LetraBperg4.Width) / 2;
-                    LetraBperg4.Top = LetraAperg4.Top + LetraAperg4.Height + 20; 
-                };
-            }
 
-        
+                LetraAperg3.Left = (this.ClientSize.Width - LetraAperg3.Width) / 2;
+                LetraAperg3.Top = (this.ClientSize.Height - LetraAperg3.Height) / 2;
+
+                LetraBperg3.Left = (this.ClientSize.Width - LetraBperg3.Width) / 2;
+                LetraBperg3.Top = LetraAperg3.Top + LetraAperg3.Height + 20;
+
+                LetraCperg3.Left = (this.ClientSize.Width - LetraCperg3.Width) / 2;
+                LetraCperg3.Top = LetraBperg3.Top + LetraBperg3.Height + 20;
+
+
+                LetraAperg4.Left = (this.ClientSize.Width - LetraAperg4.Width) / 2;
+                LetraAperg4.Top = (this.ClientSize.Height - LetraAperg4.Height) / 2;
+
+                LetraBperg4.Left = (this.ClientSize.Width - LetraBperg4.Width) / 2;
+                LetraBperg4.Top = LetraAperg4.Top + LetraAperg4.Height + 20;
+            };
+        }
+
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -449,17 +449,17 @@ private void Form1_Resize(object sender, EventArgs e)
         private void BotaoCenario5_Click(object sender, EventArgs e)
         {
             this.BackgroundImage = Pitico.Properties.Resources.Cenario6perg2;
-        
-                LetraAperg2.Visible = true;
-                LetraBperg2.Visible = true;
-                LetraCperg2.Visible = true;
-                textBoxperg2.Visible = true;
-                Cenario6perg2.Visible = true;
 
-                BotaoCenario5.Visible = false;
-                Cenario5.Visible = false;
-            }
-        
+            LetraAperg2.Visible = true;
+            LetraBperg2.Visible = true;
+            LetraCperg2.Visible = true;
+            textBoxperg2.Visible = true;
+            Cenario6perg2.Visible = true;
+
+            BotaoCenario5.Visible = false;
+            Cenario5.Visible = false;
+        }
+
         private void LetraAperg2_Click(object sender, EventArgs e)
         {
             if (LetraAperg2.CanSelect)
@@ -624,7 +624,7 @@ private void Form1_Resize(object sender, EventArgs e)
 
             foreach (Control control in this.Controls)
             {
-    
+
                 if (controlsToHide.Contains(control))
                 {
                     control.Visible = false;
@@ -638,7 +638,7 @@ private void Form1_Resize(object sender, EventArgs e)
             LetraBperg1.Visible = true;
             LetraCperg1.Visible = true;
             textBoxperg1.Visible = true;
-            BackgroundImage = Properties.Resources.cenario1;
+            BackgroundImage = Resources.cenario1;
             button_tentardnv.Visible = false;
             prosseguir_fase2.Visible = false;
             SetSpecificControlsInvisible();
@@ -654,7 +654,7 @@ private void Form1_Resize(object sender, EventArgs e)
                 CarregarVideo(sequenciaVideosDub[indiceVideoAtualDub]);
             }
 
-            else if(prosseguir_fase2.CanSelect & Config.Dub == false)
+            else if (prosseguir_fase2.CanSelect & Config.Dub == false)
             {
                 button_tentardnv.Visible = false;
                 axWindowsMediaPlayer1.Visible = true;
@@ -673,32 +673,32 @@ private void Form1_Resize(object sender, EventArgs e)
                 switch (videoName)
                 {
                     case "fase1final1_dub":
-                        video = Pitico.Properties.Resources.fase1final1_dub;
+                        video = Resources.fase1final1_dub;
                         textBoxOverlay.Visible = true;
                         Atual = "fase1final1_dub";
                         break;
                     case "fase1final2_dub":
-                        video = Pitico.Properties.Resources.fase1final2_dub;
+                        video = Resources.fase1final2_dub;
                         Atual = "fase1final2_dub";
                         break;
                     case "fase1final4_dub":
-                        video = Pitico.Properties.Resources.fase1final4_dub;
+                        video = Resources.fase1final4_dub;
                         Atual = "fase1final4_dub";
                         break;
                     case "fase1final5_dub":
-                        video = Pitico.Properties.Resources.fase1final5_dub;
+                        video = Resources.fase1final5_dub;
                         Atual = "fase1final5_dub";
                         break;
                     case "fase1final6_dub":
-                        video = Pitico.Properties.Resources.fase1final6_dub;
+                        video = Resources.fase1final6_dub;
                         Atual = "fase1final6_dub";
                         break;
                     case "fase1final7_dub":
-                        video = Pitico.Properties.Resources.fase1final7_dub;
+                        video = Resources.fase1final7_dub;
                         Atual = "fase1final7_dub";
                         break;
                     case "fase1final8_dub":
-                        video = Pitico.Properties.Resources.fase1final8_dub;
+                        video = Resources.fase1final8_dub;
                         Atual = "fase1final8_dub";
                         break;
 
@@ -717,8 +717,9 @@ private void Form1_Resize(object sender, EventArgs e)
                 axWindowsMediaPlayer1.URL = tempFilePath;
                 axWindowsMediaPlayer1.Ctlcontrols.play();
                 btn_avanca.Enabled = false;
+                lbl_pressione.Visible = true;
             }
-            else if (Config.Dub == false) 
+            else if (Config.Dub == false)
             {
                 byte[] video = null;
 
@@ -726,33 +727,33 @@ private void Form1_Resize(object sender, EventArgs e)
                 switch (videoName)
                 {
                     case "fase1final1":
-                        video = Pitico.Properties.Resources.fase1final1;
+                        video = Resources.fase1final1;
                         textBoxOverlay.Visible = true;
                         Atual = "fase1final1";
 
                         break;
                     case "fase1final2":
-                        video = Pitico.Properties.Resources.fase1final2;
+                        video = Resources.fase1final2;
                         Atual = "fase1final2";
                         break;
                     case "fase1final4":
-                        video = Pitico.Properties.Resources.fase1final4;
+                        video = Resources.fase1final4;
                         Atual = "fase1final4";
                         break;
                     case "fase1final5":
-                        video = Pitico.Properties.Resources.fase1final5;
+                        video = Resources.fase1final5;
                         Atual = "fase1final5";
                         break;
                     case "fase1final6":
-                        video = Pitico.Properties.Resources.fase1final6;
+                        video = Resources.fase1final6;
                         Atual = "fase1final6";
                         break;
                     case "fase1final7":
-                        video = Pitico.Properties.Resources.fase1final7;
+                        video = Resources.fase1final7;
                         Atual = "fase1final7";
                         break;
                     case "fase1final8":
-                        video = Pitico.Properties.Resources.fase1final8;
+                        video = Resources.fase1final8;
                         Atual = "fase1final8";
                         break;
 
@@ -770,13 +771,14 @@ private void Form1_Resize(object sender, EventArgs e)
 
                 axWindowsMediaPlayer1.URL = tempFilePath;
                 axWindowsMediaPlayer1.Ctlcontrols.play();
+                lbl_pressione.Visible = true;
                 btn_avanca.Enabled = false;
             }
         }
 
-        
-       
-        
+
+
+
 
 
 
@@ -785,23 +787,30 @@ private void Form1_Resize(object sender, EventArgs e)
             if (e.newState == (int)WMPLib.WMPPlayState.wmppsPlaying)
             {
                 btn_avanca.Visible = false;
+                lbl_pressione.Visible = false;
             }
 
             if (e.newState == (int)WMPLib.WMPPlayState.wmppsMediaEnded)
             {
                 btn_avanca.Visible = false;
                 btn_avanca.Enabled = true;
+                lbl_pressione.Visible = true;
+       
 
                 if (Atual == "fase1final2_dub" || Atual == "fase1final2" )
                 {
                     Atual = "Info";
                     informativo.Visible = true;
                 }
+                else
+                {
+
+                    AdvanceVideo();
+              
+        
+        }
             }
         }
-
-
-
 
         private void Cenario9_Click(object sender, EventArgs e)
         {
@@ -879,38 +888,38 @@ private void Form1_Resize(object sender, EventArgs e)
         }
 
 
-        private void btn_avanca_Click(object sender, EventArgs e)
+        private void AdvanceVideo()
         {
-            if (informativo.Visible)
-            {
-                informativo.Visible = false; 
-            }
 
-            
+            btn_avanca.Enabled = false;
+            informativo.Visible = false;
+
+
             if (VerificarUltimoVideo())
             {
-      
-                Form proximoFormulario = new Fase2(); 
+
+                Form proximoFormulario = new Fase2();
                 proximoFormulario.Show();
                 this.Close();
-                return; 
+                return;
             }
 
-           if (Config.Dub == true)
+            if (Config.Dub == true)
             {
                 if (indiceVideoAtualDub < sequenciaVideosDub.Count - 1)
                 {
-                    indiceVideoAtualDub++; 
+                    indiceVideoAtualDub++;
                     CarregarVideo(sequenciaVideosDub[indiceVideoAtualDub]);
                 }
                 else
                 {
-                    btn_avanca.Enabled = false;
-                    btn_avanca.Visible = false;
+
+                    lbl_pressione.Visible = true;
                 }
             }
             else
             {
+       
                 if (indiceVideoAtual < sequenciaVideos.Count - 1)
                 {
                     indiceVideoAtual++;
@@ -919,14 +928,17 @@ private void Form1_Resize(object sender, EventArgs e)
                 else
                 {
                     btn_avanca.Enabled = false;
-                    btn_avanca.Visible = false;
+                    lbl_pressione.Visible = true;
                 }
             }
         }
 
-       private bool VerificarUltimoVideo()
+
+
+
+        private bool VerificarUltimoVideo()
         {
-           if (Config.Dub == true && Atual == "fase1final8_dub")
+            if (Config.Dub == true && Atual == "fase1final8_dub")
             {
                 return true;
             }
@@ -944,7 +956,7 @@ private void Form1_Resize(object sender, EventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btn_avanca_Click(this, EventArgs.Empty); // Chama a mesma lógica do botão
+                AdvanceVideo();
                 e.Handled = true; // Impede o tratamento padrão da tecla
             }
         }

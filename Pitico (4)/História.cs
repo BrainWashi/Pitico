@@ -19,6 +19,7 @@ namespace Pjt_Pitico
         private bool isFinalState = false;
         private double aspectRatio = 16.0 / 9.0;
         private TextBox textBoxOverlay;
+
         public História()
         {
             InitializeComponent();
@@ -155,6 +156,7 @@ namespace Pjt_Pitico
                     lbl_fala2.Left = (this.ClientSize.Width - lbl_fala2.Width) / 2;
                     lbl_fala2.Top = this.ClientSize.Height - lbl_fala2.Height - margemInferiorr;
 
+
                     pictureBox1.Left = (this.ClientSize.Width - pictureBox1.Width) / 2;
                     pictureBox1.Top = this.ClientSize.Height - pictureBox1.Height - margemInferiorr;
                     pictureBox2.Left = (this.ClientSize.Width - pictureBox2.Width) / 2;
@@ -251,16 +253,20 @@ namespace Pjt_Pitico
                     break;
 
                 default:
-                    legendaAtual = "";
+       
                     break;
             }
 
             lbl_fala2.Text = legendaAtual;
         }
 
+
         private void LegendaTimer_Tick(object sender, EventArgs e)
         {
-            double currentTime = axWindowsMediaPlayer1.Ctlcontrols.currentPosition;
+            if (axWindowsMediaPlayer1 != null && !axWindowsMediaPlayer1.IsDisposed)
+            {
+
+                double currentTime = axWindowsMediaPlayer1.Ctlcontrols.currentPosition;
 
             if (currentTime >= 0 && currentTime < 18)
             {
@@ -272,10 +278,7 @@ namespace Pjt_Pitico
                 legendaIndex = 1;
                 ExibirLegenda();
             }
-            else
-            {
-                lbl_fala2.Text = "";
-            }
+               }
         }
 
         private void PlayVideoFromResources(string videoName)
@@ -289,12 +292,16 @@ namespace Pjt_Pitico
                 {
                     case "video":
                         video = Pitico.Properties.Resources.cut1;
-
                         lbl_fala2.Visible = false;
                         break;
                     case "cut2":
                         video = Pitico.Properties.Resources.cut2;
+ 
+                        legendaIndex = 1;
+
+               
                         break;
+               
                     default:
                         throw new ArgumentException("Nome do vídeo inválido");
                 }
@@ -358,18 +365,22 @@ namespace Pjt_Pitico
                     {
                         MessageBox.Show($"Erro ao reproduzir o vídeo: {ex.Message}");
                     }
+
+                    }
                 }
             }
-        }
+        
+
 
         private void axWindowsMediaPlayer1_PlayStateChange(object sender, _WMPOCXEvents_PlayStateChangeEvent e)
         {
             if (e.newState == 8)
             {
-
+                legendaIndex = 1;
                 textBoxOverlay.Visible = false;
                 sequenceStep++;
                 ControlFlow();
+
             }
 
 
@@ -377,6 +388,7 @@ namespace Pjt_Pitico
             {
                 if (axWindowsMediaPlayer1.URL.Contains("cut2.mp4"))
                 {
+             
                     axWindowsMediaPlayer1.uiMode = "none";
                     textBoxOverlay.Visible = true;
                     btn_avancar.Visible = true;
@@ -399,6 +411,7 @@ namespace Pjt_Pitico
                     pic_mae1.Visible = true;
                     btn_passar_mae1.Visible = true;
                     lbl_fala1.Text = "Oi filho, chegou cedo em casa hoje!";
+                    lbl_fala2.Visible = false;
                     break;
                 case 2:
 
@@ -420,11 +433,12 @@ namespace Pjt_Pitico
                     lbl_fala1.Text = "Ele disse que ia na casa de um amigo e depois voltava pra casa";
                     break;
                 case 5:
-
                     pitico_2.Visible = false;
                     btn_passar_pra_cutscene.Visible = false;
                     PlayVideoFromResources("cut2");
                     textBoxOverlay.Visible = true;
+                 
+         
                     break;
             }
         }
@@ -465,7 +479,7 @@ namespace Pjt_Pitico
 
         private void passar_pra_cutscene_Click(object sender, EventArgs e)
         {
-            PlayVideoFromResources("cut2"); 
+            PlayVideoFromResources("cut2");
             textBoxOverlay.Visible = true;
             pictureBox1.Visible = false;
             lbl_fala1.Visible = false;
@@ -475,7 +489,7 @@ namespace Pjt_Pitico
             btn_passar_pra_cutscene.Visible = false;
             pitico_2.Visible = false;
             pitico_1.Visible = false;
-   
+
         }
 
         private void passar_mae2_Click(object sender, EventArgs e)
