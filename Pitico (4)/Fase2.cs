@@ -532,11 +532,13 @@ namespace Pitico
 
                 if (vidaCshar > 0 && videoAtual <= 8 && !modoJogoIniciado)
                 {
-                    btn_next.Visible = true;
+                    lbl_pressione.Visible = true;
+                    btn_next.Visible = false;
                 }
                 else if (videoSequenciaFinal <= 5 && modoJogoIniciado)
                 {
-                    btn_next.Visible = true;
+                    lbl_pressione.Visible = true;
+                    btn_next.Visible = false;
                 }
             }
         }
@@ -544,7 +546,7 @@ namespace Pitico
 
 
 
-        private void btn_next_Click(object sender, EventArgs e)
+        private void AdvanceVideo()
         {
             btn_next.Visible = false;
 
@@ -762,7 +764,7 @@ namespace Pitico
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btn_next_Click(this, EventArgs.Empty); // Chama a mesma lógica do botão
+                AdvanceVideo();
                 e.Handled = true; // Impede o tratamento padrão da tecla
             }
         }

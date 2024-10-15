@@ -264,12 +264,12 @@
             // 
             // lbl_fala2
             // 
-            this.lbl_fala2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbl_fala2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lbl_fala2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lbl_fala2.Font = new System.Drawing.Font("Verdana", 12F);
-            this.lbl_fala2.Location = new System.Drawing.Point(43, 551);
+            this.lbl_fala2.Location = new System.Drawing.Point(0, 569);
             this.lbl_fala2.Name = "lbl_fala2";
-            this.lbl_fala2.Size = new System.Drawing.Size(860, 59);
+            this.lbl_fala2.Size = new System.Drawing.Size(1049, 59);
             this.lbl_fala2.TabIndex = 18;
             this.lbl_fala2.Text = ".";
             this.lbl_fala2.Visible = false;

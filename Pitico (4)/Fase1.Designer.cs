@@ -70,6 +70,7 @@
             this.btn_avanca = new System.Windows.Forms.Button();
             this.lbl_infoWal = new System.Windows.Forms.Label();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.lbl_pressione = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.erroPergunta1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cenario3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cenario4)).BeginInit();
@@ -617,9 +618,8 @@
             this.btn_avanca.Name = "btn_avanca";
             this.btn_avanca.Size = new System.Drawing.Size(91, 28);
             this.btn_avanca.TabIndex = 48;
-            this.btn_avanca.Text = "PRÓXIMO";
-            this.btn_avanca.UseVisualStyleBackColor = true;
-            this.btn_avanca.Click += new System.EventHandler(this.btn_avanca_Click);
+            this.btn_avanca.Text = "PRESSIONE ENTER PARA CONTINUAR";
+            this.btn_avanca.UseVisualStyleBackColor = false;
             // 
             // lbl_infoWal
             // 
@@ -642,6 +642,19 @@
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1415, 812);
             this.axWindowsMediaPlayer1.TabIndex = 35;
             this.axWindowsMediaPlayer1.Visible = false;
+            // 
+            // lbl_pressione
+            // 
+            this.lbl_pressione.AutoSize = true;
+            this.lbl_pressione.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_pressione.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_pressione.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl_pressione.Location = new System.Drawing.Point(375, 292);
+            this.lbl_pressione.Name = "lbl_pressione";
+            this.lbl_pressione.Size = new System.Drawing.Size(314, 18);
+            this.lbl_pressione.TabIndex = 49;
+            this.lbl_pressione.Text = "PRESSIONE ENTER PARA CONTINUAR";
+            this.lbl_pressione.Visible = false;
             // 
             // Fase1
             // 

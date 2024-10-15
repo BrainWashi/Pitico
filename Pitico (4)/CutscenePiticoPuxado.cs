@@ -110,73 +110,35 @@ namespace Pjt_Pitico
 
         private void PlayVideoFromResources(string videoName)
         {
-            if (Config.Dub == true)
+            byte[] video = null;
+
+            switch (videoName)
             {
-                byte[] video = null;
-
-                switch (videoName)
-                {
-                    case "video3":
-                        video = Pitico.Properties.Resources.cutintro3_dub;
-                        break;
-                    default:
-                        throw new ArgumentException("Nome do vídeo inválido");
-                }
-
-                if (video == null || video.Length == 0)
-                {
-                    MessageBox.Show("Erro: O vídeo não foi encontrado nos recursos.");
-                    return;
-                }
-
-                // Gere um nome de arquivo temporário único
-                string tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.mp4");
-
-                // Escreva o vídeo dos recursos para o arquivo temporário
-                using (var fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
-                {
-                    fs.Write(video, 0, video.Length);
-                }
-
-                // Configure o AxWindowsMediaPlayer para reproduzir o vídeo
-                axWindowsMediaPlayer2.URL = tempFilePath;
-                axWindowsMediaPlayer2.Ctlcontrols.play();
+                case "video3":
+                    video = Pitico.Properties.Resources.video3;
+                    break;
+                default:
+                    throw new ArgumentException("Nome do vídeo inválido");
             }
-            else
+
+            if (video == null || video.Length == 0)
             {
-                if (Config.Dub == true)
-                {
-                    byte[] video = null;
-
-                    switch (videoName)
-                    {
-                        case "video3":
-                            video = Pitico.Properties.Resources.video3;
-                            break;
-                        default:
-                            throw new ArgumentException("Nome do vídeo inválido");
-                    }
-
-                    if (video == null || video.Length == 0)
-                    {
-                        MessageBox.Show("Erro: O vídeo não foi encontrado nos recursos.");
-                        return;
-                    }
-
-                    // Gere um nome de arquivo temporário único
-                    string tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.mp4");
-
-                    // Escreva o vídeo dos recursos para o arquivo temporário
-                    using (var fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
-                    {
-                        fs.Write(video, 0, video.Length);
-                    }
-
-                    // Configure o AxWindowsMediaPlayer para reproduzir o vídeo
-                    axWindowsMediaPlayer2.URL = tempFilePath;
-                    axWindowsMediaPlayer2.Ctlcontrols.play();
-                }
+                MessageBox.Show("Erro: O vídeo não foi encontrado nos recursos.");
+                return;
             }
+
+            // Gere um nome de arquivo temporário único
+            string tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.mp4");
+
+            // Escreva o vídeo dos recursos para o arquivo temporário
+            using (var fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
+            {
+                fs.Write(video, 0, video.Length);
+            }
+
+            // Configure o AxWindowsMediaPlayer para reproduzir o vídeo
+            axWindowsMediaPlayer2.URL = tempFilePath;
+            axWindowsMediaPlayer2.Ctlcontrols.play();
         }
 
         // Verifique se o estado é 'MediaEnded'
