@@ -1021,12 +1021,32 @@ namespace Pitico.Properties {
         }
         
         /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] mãe1 {
+            get {
+                object obj = ResourceManager.GetObject("mãe1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap mãe2 {
             get {
                 object obj = ResourceManager.GetObject("mãe2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] mãe21 {
+            get {
+                object obj = ResourceManager.GetObject("mãe21", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

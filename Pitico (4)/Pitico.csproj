@@ -653,5 +653,17 @@
   <ItemGroup>
     <None Include="Resources\cutintro3_dub.mp4" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Audios\mãe2.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Audios\mãe1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mãe2.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mãe1.mp3" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

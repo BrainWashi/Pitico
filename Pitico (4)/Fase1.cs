@@ -32,7 +32,7 @@ namespace Pitico
             axWindowsMediaPlayer1.PlayStateChange += axWindowsMediaPlayer1_PlayStateChange;
 
 
-      
+            lbl_infoWal.Visible = false;
             informativo.Visible = false;
             PositionExistingButtons();
 
@@ -774,28 +774,34 @@ private void Form1_Resize(object sender, EventArgs e)
             }
         }
 
-        
-       
-        
 
 
+
+
+
+
+        private bool videoConcluido = false; // Variável para controlar se o vídeo foi concluído
 
         private void axWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
         {
             if (e.newState == (int)WMPLib.WMPPlayState.wmppsPlaying)
             {
                 btn_avanca.Visible = false;
+                videoConcluido = false; // Resetar quando o vídeo começa a tocar
             }
 
             if (e.newState == (int)WMPLib.WMPPlayState.wmppsMediaEnded)
             {
-                btn_avanca.Visible = false;
+                btn_avanca.Visible = true; // Torna o botão visível ao término do vídeo
                 btn_avanca.Enabled = true;
+                videoConcluido = true; // Marcar que o vídeo foi concluído
 
-                if (Atual == "fase1final2_dub" || Atual == "fase1final2" )
+                if (Atual == "fase1final2_dub" || Atual == "fase1final2")
                 {
                     Atual = "Info";
                     informativo.Visible = true;
+                    lbl_infoWal.Visible = true;
+                    lbl_infoWal.BringToFront();
                 }
             }
         }
@@ -883,48 +889,53 @@ private void Form1_Resize(object sender, EventArgs e)
         {
             if (informativo.Visible)
             {
-                informativo.Visible = false; 
+                informativo.Visible = false;
+                lbl_infoWal.Visible = false;
             }
 
-            
-            if (VerificarUltimoVideo())
+            // Se o vídeo foi concluído, avança
+            if (videoConcluido)
             {
-      
-                Form proximoFormulario = new Fase2(); 
-                proximoFormulario.Show();
-                this.Close();
-                return; 
-            }
-
-           if (Config.Dub == true)
-            {
-                if (indiceVideoAtualDub < sequenciaVideosDub.Count - 1)
+                // Verificar se é o último vídeo
+                if (VerificarUltimoVideo())
                 {
-                    indiceVideoAtualDub++; 
-                    CarregarVideo(sequenciaVideosDub[indiceVideoAtualDub]);
+                    Form proximoFormulario = new Fase2();
+                    proximoFormulario.Show();
+                    this.Close();
+                    return;
+                }
+
+                // Carregar o próximo vídeo com base na configuração de dublagem
+                if (Config.Dub)
+                {
+                    if (indiceVideoAtualDub < sequenciaVideosDub.Count - 1)
+                    {
+                        indiceVideoAtualDub++;
+                        CarregarVideo(sequenciaVideosDub[indiceVideoAtualDub]);
+                    }
+                    else
+                    {
+                        btn_avanca.Enabled = false;
+                        btn_avanca.Visible = false;
+                    }
                 }
                 else
                 {
-                    btn_avanca.Enabled = false;
-                    btn_avanca.Visible = false;
-                }
-            }
-            else
-            {
-                if (indiceVideoAtual < sequenciaVideos.Count - 1)
-                {
-                    indiceVideoAtual++;
-                    CarregarVideo(sequenciaVideos[indiceVideoAtual]);
-                }
-                else
-                {
-                    btn_avanca.Enabled = false;
-                    btn_avanca.Visible = false;
+                    if (indiceVideoAtual < sequenciaVideos.Count - 1)
+                    {
+                        indiceVideoAtual++;
+                        CarregarVideo(sequenciaVideos[indiceVideoAtual]);
+                    }
+                    else
+                    {
+                        btn_avanca.Enabled = false;
+                        btn_avanca.Visible = false;
+                    }
                 }
             }
         }
 
-       private bool VerificarUltimoVideo()
+        private bool VerificarUltimoVideo()
         {
            if (Config.Dub == true && Atual == "fase1final8_dub")
             {

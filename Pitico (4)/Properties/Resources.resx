@@ -562,4 +562,10 @@
   <data name="cutintro3_dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cutintro3_dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="mãe1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mãe1.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mãe21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mãe2.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

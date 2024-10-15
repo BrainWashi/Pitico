@@ -3,9 +3,12 @@ using Pitico;
 using System;
 using System.Drawing;
 using System.IO;
+using System.Media;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
+using WMPLib;
+using Pitico.Properties;
 
 namespace Pjt_Pitico
 {
@@ -19,6 +22,8 @@ namespace Pjt_Pitico
         private bool isFinalState = false;
         private double aspectRatio = 16.0 / 9.0;
         private TextBox textBoxOverlay;
+        private WindowsMediaPlayer player = new WindowsMediaPlayer(); // Instância do player
+
         public História()
         {
             InitializeComponent();
@@ -373,18 +378,26 @@ namespace Pjt_Pitico
             }
 
 
-            if (e.newState == 8)
-            {
-                if (axWindowsMediaPlayer1.URL.Contains("cut2.mp4"))
-                {
-                    axWindowsMediaPlayer1.uiMode = "none";
-                    textBoxOverlay.Visible = true;
-                    btn_avancar.Visible = true;
-                    axWindowsMediaPlayer1.Visible = false;
+             // Verificar se o vídeo terminou (estado 8) e se é o "cut2"
+                    if (e.newState == 8 && axWindowsMediaPlayer1.URL.Contains("cut2"))
+                        {
+                            textBoxOverlay.Visible = true;
+                            btn_avancar.Visible = false; // Desabilita o botão avançar
+                            axWindowsMediaPlayer1.Visible = false; // Esconde o player
 
+                            // Permite que o Enter agora leve para o próximo formulário
+                            isFinalState = true;  // Flag que será usada no KeyDown para mudar de form
+                        }
+                
+        }
 
-                }
-            }
+        private void ReproduzirAudioMp3(string filePath)
+        {
+            string fullPath = Path.Combine(Application.StartupPath, filePath); // Caminho completo do arquivo
+
+            // Configura o player para o caminho do arquivo e toca o áudio
+            player.URL = fullPath;
+            player.controls.play();
         }
 
         private void ControlFlow()
@@ -408,6 +421,7 @@ namespace Pjt_Pitico
                     btn_passar_pitico1.Visible = true;
                     break;
                 case 3:
+                    ReproduzirAudioMp3("Audios/mãe1.mp3");
                     pitico_1.Visible = false;
                     pic_mae2.Visible = true;
                     lbl_fala1.Text = "Que bom meu filho. Cadê seu irmão, ele não veio com você?";
@@ -417,7 +431,7 @@ namespace Pjt_Pitico
                     pic_mae2.Visible = false;
                     pitico_2.Visible = true;
                     btn_passar_pra_cutscene.Visible = true;
-                    lbl_fala1.Text = "Ele disse que ia na casa de um amigo e depois voltava pra casa";
+                    lbl_fala1.Text = "Ele disse que ia na casa de um amigo dele e depois voltava pra casa";
                     break;
                 case 5:
 
@@ -428,18 +442,25 @@ namespace Pjt_Pitico
                     break;
             }
         }
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (Config.Leg == true && legendaIndex < 2)
+                // Se o vídeo terminou (isFinalState) vai para o próximo formulário
+                if (isFinalState)
+                {
+                    this.Hide(); // Esconde o formulário atual
+                    Form proximoForm = new FormAnuncio(); // Troca pelo próximo formulário
+                    proximoForm.Show(); // Mostra o próximo formulário
+                }
+                else if (Config.Leg == true && legendaIndex < 2) // Continua a troca de legendas apenas se o vídeo não terminou
                 {
                     legendaIndex++;
                     ExibirLegenda();
                 }
             }
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -481,7 +502,7 @@ namespace Pjt_Pitico
         private void passar_mae2_Click(object sender, EventArgs e)
         {
 
-            lbl_fala1.Text = "Ele disse que ia na casa de um amigo e depois iria voltar pra casa";
+            lbl_fala1.Text = "Ele disse que ia na casa de um amigo dele e depois iria voltar pra casa";
             pic_mae2.Visible = false;
             btn_passar_mae2.Visible = false;
             pitico_2.Visible = true;
@@ -493,6 +514,8 @@ namespace Pjt_Pitico
 
         private void passar_pitico1_Click(object sender, EventArgs e)
         {
+
+            ReproduzirAudioMp3("Audios/mãe1.mp3");
             lbl_fala1.Text = "Que bom meu filho, mas cadê seu irmão?Ele não veio com você?";
             pitico_1.Visible = false;
             btn_passar_pitico1.Visible = false;
@@ -524,17 +547,19 @@ namespace Pjt_Pitico
             telapreta1.Visible = false;
             btn_telapreta2.Visible = false;
             lbl_fala1.Visible = true;
-            lbl_fala1.Text = "““Pode deixar mãe,… vou mexer um pouco no computador agora tá? Obrigado pelo almoço.””";
+            lbl_fala1.Text = "Pode deixar mãe,… vou mexer um pouco no computador agora tá? Obrigado pelo almoço.";
         }
 
         private void btn_telapreta1_Click(object sender, EventArgs e)
         {
+
+            ReproduzirAudioMp3("Audios/mãe2.mp3");
             pitico_2.Visible = false;
             telapreta1.Visible = true;
             btn_telapreta2.Visible = true;
             lbl_fala1.Visible = true;
             btn_telapreta1.Visible = false;
-            lbl_fala1.Text = "“Ah ok, preste atenção nele. Seu irmão está meio…mal… Você deve cuidar dele, ta bom?”";
+            lbl_fala1.Text = "Ah ok, preste atenção nele. Seu irmão está meio…mal… Você deve cuidar dele, ta bom?";
         }
 
 
