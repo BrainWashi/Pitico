@@ -35,7 +35,6 @@ namespace Pitico
 
             lbl_infoWal.Visible = false;
             informativo.Visible = false;
-            PositionExistingButtons();
 
             textBoxOverlay = new TextBox();
             textBoxOverlay.Multiline = true;
@@ -47,46 +46,61 @@ namespace Pitico
             textBoxOverlay.TextAlign = HorizontalAlignment.Center;
             this.Controls.Add(textBoxOverlay);
             textBoxOverlay.BringToFront();
+
+            BotaoCenario3.BringToFront();
+            BotaoCenario4.BringToFront();
+            BotaoCenario5.BringToFront();
+            btn_póspergunta2.BringToFront();
+            btn_Póspergunta3.BringToFront();
+            PositionButtonsAtBottomRight();
+
         }
 
-        private void PositionExistingButtons()
+
+        private void PositionButtonsAtBottomRight()
         {
 
-            int buttonWidth = 100;
-            int buttonHeight = 40;
+            PB_botoes.Controls.Add(BotaoCenario3);
+            PB_botoes.Controls.Add(BotaoCenario4);
+            PB_botoes.Controls.Add(BotaoCenario5);
+            PB_botoes.Controls.Add(btn_póspergunta2);
+            PB_botoes.Controls.Add(btn_Póspergunta3);
+
+            BotaoCenario3.BringToFront();
+            BotaoCenario4.BringToFront();
+            BotaoCenario5.BringToFront();
+            btn_póspergunta2.BringToFront();
+            btn_Póspergunta3.BringToFront();
+            int buttonWidth = 90;
+            int buttonHeight = 30;
             int margemDireita = 10;
-            int alturaBotao = 150;
+            int alturaBotao = 10;
+            int margemInferior = 10;
 
 
-            Button[] botoesExistentes = {
-                BotaoCenario3,
-                BotaoCenario4,
-                BotaoCenario5,
-                btn_póspergunta2,
-                btn_Póspergunta3
-            };
-
-
-            for (int i = 0; i < botoesExistentes.Length; i++)
+         
+            foreach (Button btn in new Button[] { BotaoCenario3, BotaoCenario4, BotaoCenario5, btn_póspergunta2, btn_Póspergunta3 })
             {
-                Button btn = botoesExistentes[i];
                 btn.Size = new Size(buttonWidth, buttonHeight);
-                btn.Left = this.ClientSize.Width - btn.Width - margemDireita;
-
-
+                btn.Left = PB_botoes.Width - btn.Width - margemDireita;
+                btn.Top = PB_botoes.Height - buttonHeight - alturaBotao;
             }
 
 
-            this.Resize += (s, e) =>
-            {
-                for (int i = 0; i < botoesExistentes.Length; i++)
+           PB_botoes.Resize += (s, e) =>
                 {
-                    Button btn = botoesExistentes[i];
-                    btn.Left = this.ClientSize.Width - btn.Width - margemDireita;
+                    foreach (Button btn in new Button[] { BotaoCenario3, BotaoCenario4, BotaoCenario5, btn_póspergunta2, btn_Póspergunta3 })
 
-                }
-            };
-        }
+                    {
+                        btn.Size = new Size(buttonWidth, buttonHeight);
+                        btn.Left = PB_botoes.Width - btn.Width - margemDireita;
+                        btn.Top = PB_botoes.Height - buttonHeight - alturaBotao;
+                    }
+
+                };
+               }
+
+
 
 
 
@@ -379,6 +393,7 @@ namespace Pitico
         {
             if (LetraAperg1.CanSelect)
             {
+                PB_botoes.Visible = true;
                 BotaoCenario3.Visible = true;
                 Cenario3.Visible = true;
                 LetraAperg1.Visible = false;
@@ -451,6 +466,7 @@ namespace Pitico
         {
             this.BackgroundImage = Pitico.Properties.Resources.Cenario6perg2;
 
+            PB_botoes.Visible = false;
             LetraAperg2.Visible = true;
             LetraBperg2.Visible = true;
             LetraCperg2.Visible = true;
@@ -718,7 +734,7 @@ namespace Pitico
                 axWindowsMediaPlayer1.URL = tempFilePath;
                 axWindowsMediaPlayer1.Ctlcontrols.play();
                 btn_avanca.Enabled = false;
-                lbl_pressione.Visible = true;
+        
             }
             else if (Config.Dub == false)
             {
@@ -772,7 +788,7 @@ namespace Pitico
 
                 axWindowsMediaPlayer1.URL = tempFilePath;
                 axWindowsMediaPlayer1.Ctlcontrols.play();
-                lbl_pressione.Visible = true;
+          
                 btn_avanca.Enabled = false;
             }
         }
@@ -809,10 +825,10 @@ namespace Pitico
                 else
                 {
 
-                    AdvanceVideo();
-              
         
-        }
+
+
+                }
             }
         }
 
@@ -962,7 +978,7 @@ namespace Pitico
         {
             if (e.KeyCode == Keys.Enter)
             {
-                AdvanceVideo();
+
                 e.Handled = true; // Impede o tratamento padrão da tecla
             }
         }
@@ -970,5 +986,4 @@ namespace Pitico
     }
 
 }
-
 

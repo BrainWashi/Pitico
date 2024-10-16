@@ -16,6 +16,7 @@ namespace Pjt_Pitico
     {
         private bool videoPlayed = false;
         private string legendaAtual = "";
+        private string videoAtivo;
         private int legendaIndex = 0;
         private Timer legendaTimer;
         private int sequenceStep = 0;
@@ -113,65 +114,85 @@ namespace Pjt_Pitico
         }
         private void PositionLabelAtBottom()
         {
-                pictureBox1.Controls.Add(lbl_fala1);
-                pictureBox1.Controls.Add(btn_passar_mae1);
-                pictureBox1.Controls.Add(btn_passar_pitico1);
-                pictureBox1.Controls.Add(btn_passar_mae2);
-                pictureBox1.Controls.Add(btn_passar_pra_cutscene);
-                pictureBox1.Controls.Add(btn_telapreta1);
-                pictureBox1.Controls.Add(btn_telapreta2);
-
+            pictureBox1.Controls.Add(lbl_fala1);
+            pictureBox1.Controls.Add(btn_passar_mae1);
+            pictureBox1.Controls.Add(btn_passar_pitico1);
+            pictureBox1.Controls.Add(btn_passar_mae2);
+            pictureBox1.Controls.Add(btn_passar_pra_cutscene);
+            pictureBox1.Controls.Add(btn_telapreta1);
+            pictureBox1.Controls.Add(btn_telapreta2);
+            lbl_fala2.Controls.Add(btn_avancar);
 
             int buttonWidth = 100;
             int buttonHeight = 40;
-
-
             int margemDireita = 10;
-            int alturaBotao = 20; 
+            int alturaBotao = 20;
+            int margemInferior = 10;
 
-            foreach (Button btn in new Button[] { btn_passar_mae1, btn_passar_pitico1, btn_passar_mae2, btn_passar_pra_cutscene, btn_telapreta1, btn_telapreta2, })
+
+
+
+            foreach (Button btn in new Button[] { btn_passar_mae1, btn_passar_pitico1, btn_passar_mae2, btn_passar_pra_cutscene, btn_telapreta1, btn_telapreta2 })
             {
                 btn.Size = new Size(buttonWidth, buttonHeight);
                 btn.Left = pictureBox1.Width - btn.Width - margemDireita;
-                btn.Top = pictureBox1.Height - buttonHeight - alturaBotao; 
-                                                  
-
-                btn_avancar.Size = new Size(buttonWidth, buttonHeight);
-                btn_avancar.Left = pictureBox1.Right - btn_avancar.Width - margemDireita; 
-                btn_avancar.Top = pictureBox1.Bottom - btn_avancar.Height - alturaBotao; 
+                btn.Top = pictureBox1.Height - buttonHeight - alturaBotao;
             }
 
-            int margemInferiorr= 10;
+            foreach (Button btn in new Button[] { btn_avancar })
+            {
+                btn_avancar.Size = new Size(buttonWidth, buttonHeight);
+                btn.Left = lbl_fala2.Width - btn.Width - margemDireita;
+                btn.Top = lbl_fala2.Height - buttonHeight - alturaBotao;
+            }
+            lbl_fala2.Resize += (s, e) =>
+            {
+                foreach (Button btn in new Button[] { btn_avancar })
+                {
+                    btn_avancar.Size = new Size(buttonWidth, buttonHeight);
+                    btn.Left = lbl_fala2.Width - btn.Width - margemDireita;
+                    btn.Top = lbl_fala2.Height - buttonHeight - alturaBotao;
+                }
+            };
 
 
-            lbl_fala1.Left = (pictureBox1.Width - lbl_fala1.Width) / 2;
+
+
+                lbl_fala1.Left = (pictureBox1.Width - lbl_fala1.Width) / 2;
             lbl_fala1.Top = (pictureBox1.Height - lbl_fala1.Height) / 2;
 
-
+    
             pictureBox1.Resize += (s, e) =>
             {
-                foreach (Button btn in new Button[] { btn_passar_mae1, btn_passar_pitico1, btn_passar_mae2, btn_passar_pra_cutscene, btn_telapreta1, btn_telapreta2, btn_avancar })
+                foreach (Button btn in new Button[] { btn_passar_mae1, btn_passar_pitico1, btn_passar_mae2, btn_passar_pra_cutscene, btn_telapreta1, btn_telapreta2 })
                 {
                     btn.Left = pictureBox1.Width - btn.Width - margemDireita;
                     btn.Top = pictureBox1.Height - buttonHeight - alturaBotao;
-
-                    lbl_fala1.Left = (pictureBox1.Width - lbl_fala1.Width) / 2;
-                    lbl_fala1.Top = (pictureBox1.Height - lbl_fala1.Height) / 2;
-                    lbl_fala2.Left = (this.ClientSize.Width - lbl_fala2.Width) / 2;
-                    lbl_fala2.Top = this.ClientSize.Height - lbl_fala2.Height - margemInferiorr;
+                }
 
 
-                    pictureBox1.Left = (this.ClientSize.Width - pictureBox1.Width) / 2;
-                    pictureBox1.Top = this.ClientSize.Height - pictureBox1.Height - margemInferiorr;
-                    pictureBox2.Left = (this.ClientSize.Width - pictureBox2.Width) / 2;
-                    pictureBox2.Top = this.ClientSize.Height - pictureBox2.Height - margemInferiorr;
-          
-                };
-            };
-            }
+                lbl_fala1.Left = (pictureBox1.Width - lbl_fala1.Width) / 2;
+                lbl_fala1.Top = (pictureBox1.Height - lbl_fala1.Height) / 2;
+
+                lbl_fala2.Left = (this.ClientSize.Width - lbl_fala2.Width) / 2;
+                lbl_fala2.Top = this.ClientSize.Height - lbl_fala2.Height - margemInferior;
+
+ 
+                pictureBox1.Left = (this.ClientSize.Width - pictureBox1.Width) / 2;
+                pictureBox1.Top = this.ClientSize.Height - pictureBox1.Height - margemInferior;
+
+                pictureBox2.Left = (this.ClientSize.Width - pictureBox2.Width) / 2;
+                pictureBox2.Top = this.ClientSize.Height - pictureBox2.Height - margemInferior;
 
 
-        private void SetFullScreenVideo()
+
+
+            }; 
+    }
+
+
+
+private void SetFullScreenVideo()
         {
 
             int newWidth = this.ClientSize.Width;
@@ -234,7 +255,7 @@ namespace Pjt_Pitico
         {
             switch (legendaIndex)
             {
-                case 0:
+                case 0:  
                     if (Config.Ling == true)
                     {
                         legendaAtual = "Pitico chega em casa cansado depois de um longo dia estudando e vai direto à cozinha conversar com sua mãe que está preparando o almoço";
@@ -245,7 +266,7 @@ namespace Pjt_Pitico
                     }
                     break;
 
-                case 1:
+                case 1:  
                     if (Config.Ling == true)
                     {
                         legendaAtual = "Após o almoço, Pitico se dirige ao seu quarto, deixando suas coisas ao lado de sua cama e indo ligar seu computador, logo abre suas redes sociais para conversar com seus amigos";
@@ -257,36 +278,41 @@ namespace Pjt_Pitico
                     break;
 
                 default:
-       
                     break;
             }
 
-            lbl_fala2.Text = legendaAtual;
+            lbl_fala2.Text = legendaAtual; 
         }
-
 
         private void LegendaTimer_Tick(object sender, EventArgs e)
         {
             if (axWindowsMediaPlayer1 != null && !axWindowsMediaPlayer1.IsDisposed)
             {
-
                 double currentTime = axWindowsMediaPlayer1.Ctlcontrols.currentPosition;
 
-            if (currentTime >= 0 && currentTime < 18)
-            {
-                legendaIndex = 0;
-                ExibirLegenda();
+                
+                if (videoAtivo == "video")
+                {
+                    if (currentTime >= 0 && currentTime < 12)  
+                    {
+                        legendaIndex = 0;  
+                        ExibirLegenda();
+                    }
+                }
+                else if (videoAtivo == "cut2")
+                {
+                    if (currentTime >= 0 && currentTime < 12)  
+                    {
+                        legendaIndex = 1;  
+                        ExibirLegenda();
+                    }
+                }
             }
-            else if (currentTime >= 18 && currentTime < 40)
-            {
-                legendaIndex = 1;
-                ExibirLegenda();
-            }
-               }
         }
 
         private void PlayVideoFromResources(string videoName)
         {
+            videoAtivo = videoName;
 
             if (Config.Dub == false)
             {
@@ -295,12 +321,13 @@ namespace Pjt_Pitico
                 switch (videoName)
                 {
                     case "video":
-                        video = Pitico.Properties.Resources.cut1;
-                        lbl_fala2.Visible = false;
+                        video = Resources.cut1;
+                        lbl_fala2.Visible = true;
+                        legendaIndex = 0;
                         break;
                     case "cut2":
-                        video = Pitico.Properties.Resources.cut2;
- 
+                        video = Resources.cut2;
+                        lbl_fala2.Visible = true;
                         legendaIndex = 1;
 
                
@@ -339,12 +366,14 @@ namespace Pjt_Pitico
                 switch (videoName)
                 {
                     case "video":
-                        video = Pitico.Properties.Resources.cutintro1_dub;
-
-                        lbl_fala2.Visible = false;
+                        video = Resources.cutintro1_dub;
+                        lbl_fala2.Visible = true;
+                        legendaIndex = 0;
                         break;
                     case "cut2":
-                        video = Pitico.Properties.Resources.cutintro2_dub;
+                        video = Resources.cutintro2_dub;
+                        lbl_fala2.Visible = true;
+                        legendaIndex = 1;
                         break;
                     default:
                         throw new ArgumentException("Nome do vídeo inválido");
@@ -400,10 +429,13 @@ namespace Pjt_Pitico
                             // Permite que o Enter agora leve para o próximo formulário
                             isFinalState = true;  // Flag que será usada no KeyDown para mudar de form
                         }
-                
-        }
 
-        private void ReproduzirAudioMp3(string filePath)
+            }
+        }
+    
+
+
+    private void ReproduzirAudioMp3(string filePath)
         {
             string fullPath = Path.Combine(Application.StartupPath, filePath); // Caminho completo do arquivo
 
@@ -411,8 +443,9 @@ namespace Pjt_Pitico
             player.URL = fullPath;
             player.controls.play();
         }
+    
 
-        private void ControlFlow()
+private void ControlFlow()
         {
             if (isFinalState) return;
 
@@ -456,6 +489,7 @@ namespace Pjt_Pitico
                     break;
             }
         }
+        
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -491,9 +525,11 @@ namespace Pjt_Pitico
         
             Form proximoFormulario = new FormAnuncio();
             proximoFormulario.Show();
-        }
-
-        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        
+}
+   
+    
+    private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
         {
 
         }
@@ -511,8 +547,8 @@ namespace Pjt_Pitico
             pitico_2.Visible = false;
             pitico_1.Visible = false;
 
-        }
-
+}
+   
         private void passar_mae2_Click(object sender, EventArgs e)
         {
 
