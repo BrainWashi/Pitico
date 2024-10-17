@@ -10,6 +10,8 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -95,12 +97,17 @@ namespace Pitico
             btn_xingar.Location = new Point(posicaoXBotoes + 4 * (buttonWidth + margemEntreBotoes), posicaoYBotoes);
         }
 
-
+        private void CenterButton()
+        {
+            lbl_pressione.Left = (this.ClientSize.Width - lbl_pressione.Width) / 2;
+            lbl_pressione.Top = (this.ClientSize.Height - lbl_pressione.Height) / 2;
+        }
 
         private void Fase2_Load(object sender, EventArgs e)
         {
             AjustarControles();
             Form1_Resize(this, EventArgs.Empty);
+            CenterButton();
             btn_next.Visible = false;
             Block.Visible = false;
             batalha.Visible = false;
@@ -112,14 +119,42 @@ namespace Pitico
 
             if (Config.Dub == true)
             {
-                ReproduzirVideo("fase2intro1");
+                ReproduzirVideo("fase2intro1Dub");
             }
 
             else
             {
-                ReproduzirVideo("fase2intro1Dub");
+                ReproduzirVideo("fase2intro1");
             }
 
+            if (Config.Ling == true)
+            {
+                lbl_pergunta.Text = "O QUE O PITICO FARÁ?";
+                lbl_pressione.Text = "PRESSIONE ENTER PARA CONTINUAR";
+                btn_ajuda.Text = "Pedir Ajuda";
+                btn_block.Text = "Bloquear";
+                btn_denunciar.Text = "Denunciar";
+                btn_ignorar.Text = "Ignorar";
+                btn_xingar.Text = "Xingar";
+                btn_recomeçar.Text = "RECOMEÇAR";
+                label1.Text = "FASE 2";
+                btn_cont.Text = "continuar";
+                btn_continuarfase.Text = "Continuar";
+            }
+            else
+            {
+                lbl_pergunta.Text = "WHAT PITICO WILL DO";
+                lbl_pressione.Text = "PRESS ENTER TO CONTINUE";
+                btn_ajuda.Text = "Ask for help";
+                btn_block.Text = "Block";
+                btn_denunciar.Text = "Report";
+                btn_ignorar.Text = "Ignore";
+                btn_xingar.Text = "To curse";
+                btn_recomeçar.Text = "RESTART";
+                label1.Text = "PHASE 2";
+                btn_cont.Text = "continue";
+                btn_continuarfase.Text = "Continue";
+            }
             axWindowsMediaPlayer1.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(AxWindowsMediaPlayer1_PlayStateChange);
 
 
@@ -264,7 +299,14 @@ namespace Pitico
         {
             if (vida <= 0)
             {
-                MessageBox.Show("Game Over! Pitico perdeu.");
+                if (Config.Ling == true)
+                {
+                    MessageBox.Show("Game Over! Pitico perdeu.");
+                }
+                else
+                {
+                    MessageBox.Show("Game Over! Pitico lost.");
+                }
                 btn_recomeçar.Visible = true;
                 btn_continuarfase.Visible = true;
                 game_over.Visible = true;
@@ -294,11 +336,24 @@ namespace Pitico
                 prosseguir5.Visible = false;
                 btn_cont.Visible = false;
                 pictureBox1.Visible = false;
+                pitico_1.Visible = false;
+                pitico_2.Visible = false;
+                pitico_3.Visible = false;
+                cshar_1.Visible = false;
+                cshar_2.Visible = false;
+                cshar_3.Visible = false;
 
             }
             else if (vidaCshar <= 0)
             {
-                MessageBox.Show("Game Over! O adversário perdeu.");
+                if (Config.Ling == true)
+                {
+                    MessageBox.Show("Game Over! O adversário perdeu");
+                }
+                else
+                {
+                    MessageBox.Show("Game Over! The Opponente lost.");
+                }
                 pitico_1.Visible = false;
                 pitico_2.Visible = false;
                 pitico_3.Visible = false;
@@ -344,7 +399,8 @@ namespace Pitico
             axWindowsMediaPlayer1.Visible = true;
 
 
-            btn_next.Visible = true;
+            btn_next.Visible = false;
+
             if (Config.Dub == true)
             {
                 ReproduzirVideo("fase2final1Dub");
@@ -367,8 +423,17 @@ namespace Pitico
 
         private void btn_block_Click(object sender, EventArgs e)
         {
-            lbl_pergunta.Text = "Toma essa! Aquela baranga finalmente foi bloqueada" +
+            if (Config.Ling == true)
+            {
+                lbl_pergunta.Text = "Toma essa! Aquela baranga finalmente foi bloqueada" +
                 ", \n fazendo com que Pitico pudesse ter pelo menos um pequeno descanso e paz. Cshar -1 coração ";
+
+            }
+            else
+            {
+                lbl_pergunta.Text = "Take this! That shit was finally blocked" +
+                    ", \n allowing Pitico to have at least a little rest and peace. Cshar -1 heart";
+            }
             prosseguir1.Visible = true;
             btn_ajuda.Visible = false;
             btn_block.Visible = false;
@@ -379,7 +444,14 @@ namespace Pitico
 
         private void prosseguir1_Click(object sender, EventArgs e)
         {
-            lbl_pergunta.Text = "Cria fake news sobre pitico, dizendo que ele não toma banho! -1 coração do pitico. ";
+            if (Config.Ling == true)
+            {
+                lbl_pergunta.Text = "Cshar Cria fake news sobre pitico, dizendo que ele não toma banho! -1 coração do pitico. ";
+            }
+            else
+            {
+                lbl_pergunta.Text = "Cshar creates fake news about Pitico, saying that he doesn't take a shower! -1 pitico heart.";
+            }
             btn_cont.Visible = true;
             prosseguir1.Visible = false;
             pitico_3.Visible = false;
@@ -392,8 +464,14 @@ namespace Pitico
 
         private void btn_xingar_Click(object sender, EventArgs e)
         {
-            lbl_pergunta.Text = "Reação: Cshar -1 Coração. Ele espalha por todo lugar que o pitico o atacou primeiro, dando um ataque de -1 coração" +
-                "\n do pitico ";
+            if (Config.Ling == true)
+            {
+                lbl_pergunta.Text = "Chsar espalha por todo lugar que o pitico o atacou primeiro... -1 coração pitico e cshar";
+            }
+            else
+            {
+                lbl_pergunta.Text = "Chsar spreads everywhere that the pitico attacked him first... -1 pitico heart and cshar";
+            }
             prosseguir2.Visible = true;
             btn_ajuda.Visible = false;
             btn_block.Visible = false;
@@ -404,8 +482,16 @@ namespace Pitico
 
         private void prosseguir2_Click(object sender, EventArgs e)
         {
-            lbl_pergunta.Text = "Por mais satisfatório que isso possa parecer," +
-                " \n ainda é crime! Pitico deve levar suas questões contra seus inimigos para o Tribunal e não usando agressão.  ";
+            if (Config.Ling == true)
+            {
+                lbl_pergunta.Text = "Por mais satisfatório que isso possa parecer," +
+                " \n ainda é crime! Pitico deve levar suas questões contra seus inimigos para o Tribunal e não usando agressão.";
+            }
+            else
+            {
+                lbl_pergunta.Text = "As satisfying as this may seem," +
+                    "\n It's still a crime! Pitico must take his issues against his enemies to court and not using aggression.";
+            }
             btn_cont.Visible = true;
             prosseguir2.Visible = false;
             pitico_3.Visible = false;
@@ -418,7 +504,14 @@ namespace Pitico
 
         private void btn_ajuda_Click(object sender, EventArgs e)
         {
-            lbl_pergunta.Text = "Pitico pede ajuda da multidão à sua volta, e os cidadãos lhe dão motivação! +1 coração.";
+            if (Config.Ling == true)
+            {
+                lbl_pergunta.Text = "Pitico pede ajuda da multidão à sua volta, e os cidadãos lhe dão motivação! +1 coração.";
+            }
+            else
+            {
+                lbl_pergunta.Text = "Pitico asks for help from the crowd around him, and the citizens give him motivation! + 1 heart.";
+            }
             prosseguir3.Visible = true;
             btn_ajuda.Visible = false;
             btn_block.Visible = false;
@@ -429,7 +522,14 @@ namespace Pitico
 
         private void prosseguir3_Click(object sender, EventArgs e)
         {
-            lbl_pergunta.Text = "Cshar fica irritado e começa a juntar bots para ficar mais forte.";
+            if (Config.Ling == true)
+            {
+                lbl_pergunta.Text = "Cshar fica irritado e começa a juntar bots para ficar mais forte.";
+            }
+            else
+            {
+                lbl_pergunta.Text = "Cshar gets angry and starts gathering bots to get stronger";
+            }
             btn_cont.Visible = true;
             prosseguir3.Visible = false;
             pitico_3.Visible = false;
@@ -442,9 +542,18 @@ namespace Pitico
 
         private void btn_ignorar_Click(object sender, EventArgs e)
         {
-            lbl_pergunta.Text = "Pitico resolveu não bloquear seu assediador, seus dias se passaram de forma extremamente estressante," +
+            if (Config.Ling == true)
+            {
+                lbl_pergunta.Text = "Pitico resolveu não bloquear seu assediador, seus dias se passaram de forma extremamente estressante," +
                 " \n até chegar ao ponto de simplesmente não sentir mais vontade ou felicidade compartilhando as coisas que gosta," +
                 " \n sequer se comunicando com pessoas ao seu redor, ficando apenas cabisbaixo em seu quarto. Tão deprimente. .";
+            }
+            else
+            {
+                lbl_pergunta.Text = "Pitico decided not to block his harasser, his days passed in an extremely stressful way," +
+                    "\n until you get to the point where you simply no longer feel like sharing the things you like," +
+                    "\n not even communicating with people around him, just staying with his head down in his room. So depressing...";
+            }
             prosseguir4.Visible = true;
             btn_ajuda.Visible = false;
             btn_block.Visible = false;
@@ -457,7 +566,14 @@ namespace Pitico
 
         private void prosseguir4_Click(object sender, EventArgs e)
         {
-            lbl_pergunta.Text = "Cshar continua xingando pitico, mandando mensagens de como ele é feio!-1 coração para pitico";
+            if (Config.Ling == true)
+            {
+                lbl_pergunta.Text = "Cshar continua xingando pitico, mandando mensagens de como ele é feio!-1 coração para pitico";
+            }
+            else
+            {
+                lbl_pergunta.Text = "Cshar keeps cursing Pitico, sending messages about how ugly he is !-1 heart for Pitico";
+            }
             btn_cont.Visible = true;
             prosseguir4.Visible = false;
             pitico_3.Visible = false;
@@ -470,7 +586,14 @@ namespace Pitico
 
         private void btn_denunciar_Click(object sender, EventArgs e)
         {
-            lbl_pergunta.Text = "Pitico resolve denunciar o perfil do seu hater, diminuindo o alcance de seu perfil.";
+            if (Config.Ling == true)
+            {
+                lbl_pergunta.Text = "Pitico resolve denunciar o perfil do seu hater, diminuindo o alcance de seu perfil.";
+            }
+            else
+            {
+                lbl_pergunta.Text = "Pitico decides to report his hater's profile, reducing the reach of his profile.";
+            }
             prosseguir5.Visible = true;
             btn_ajuda.Visible = false;
             btn_block.Visible = false;
@@ -481,7 +604,14 @@ namespace Pitico
 
         private void prosseguir5_Click(object sender, EventArgs e)
         {
-            lbl_pergunta.Text = "Cshar -1 coração. Ele gasta esse turno criando uma conta nova!";
+            if (Config.Ling == true)
+            {
+                lbl_pergunta.Text = "Ele gasta esse turno criando uma conta nova! -1 coração cshar";
+            }
+            else
+            {
+                lbl_pergunta.Text = "He spends this turn creating a new account! -1 cshar heart";
+            }
             btn_cont.Visible = true;
             prosseguir5.Visible = false;
             pitico_3.Visible = false;
@@ -495,7 +625,14 @@ namespace Pitico
 
         private void btn_cont_Click(object sender, EventArgs e)
         {
-            lbl_pergunta.Text = "O que o pitico fará? ";
+            if(Config.Ling == true)
+            {
+                lbl_pergunta.Text = "O que o pitico fará? ";
+            }
+            else
+            {
+                lbl_pergunta.Text = "What will the pitico do?";
+            }
             btn_cont.Visible = false;
             btn_ajuda.Visible = true;
             btn_block.Visible = true;
@@ -520,7 +657,14 @@ namespace Pitico
             pitico_1.Visible = true;
             textBox1.Visible = true;
             lbl_pergunta.Visible = true;
-            lbl_pergunta.Text = "O que o pitico fará?";
+            if(Config.Ling == true)
+            {
+                lbl_pergunta.Text = "O que o pitico fará?";
+            }
+            else
+            {
+                lbl_pergunta.Text = "What will the pitico do?";
+            }
             VidaPitico1.Visible = true;
             VidaPitico2.Visible = true;
             VidaPitico3.Visible = true;
@@ -541,9 +685,12 @@ namespace Pitico
 
         private void AxWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
         {
-            if (e.newState == (int)WMPLib.WMPPlayState.wmppsStopped)
+            if (e.newState == (int)WMPLib.WMPPlayState.wmppsPlaying)
             {
-
+               lbl_pressione.Visible = false;
+            }
+            else if (e.newState == (int)WMPLib.WMPPlayState.wmppsStopped)
+            {
                 if (vidaCshar > 0 && videoAtual <= 8 && !modoJogoIniciado)
                 {
                     lbl_pressione.Visible = true;
@@ -613,6 +760,7 @@ namespace Pitico
                             break;
                         case 2:
                             Block.Visible = true;
+                            lbl_pressione.Visible = false;
                             MostrarBotoesParaProssseguir();
                             videoAtual++;
                             break;
@@ -661,7 +809,7 @@ namespace Pitico
                             videoSequenciaFinalDub++;
                             break;
                         case 4:
-                            MessageBox.Show("Parabéns! Você venceu a fase dublada!");
+                            MessageBox.Show("Parabéns! Você venceu a fase!");
                             Form proximoFormulario = new Fase3();
                             proximoFormulario.Show();
                             break;
@@ -703,7 +851,7 @@ namespace Pitico
 
             if (videoBytes != null)
             {
-
+                lbl_pressione.Visible = false;
                 btn_next.Visible = false;
 
 
@@ -803,6 +951,7 @@ namespace Pitico
             btn_next.Visible = false;
             Block.Visible = false;
             batalha.Visible = false;
+            lbl_pressione.Visible = false;
 
 
             if (vidaCshar > 0)
@@ -829,7 +978,7 @@ namespace Pitico
             btn_denunciar.Visible = true;
             btn_xingar.Visible = true;
             btn_ignorar.Visible = true;
-            btn_next.Visible = true;
+            btn_next.Visible = false;
         }
 
         private void batalha_Click(object sender, EventArgs e)

@@ -44,17 +44,17 @@ namespace Pjt_Pitico
             // Associa o evento VisibleChanged da PictureBox
             pictureBox3.VisibleChanged += PictureBox3_VisibleChanged;
 
-            if (Config.Ling == true)
-            {
-                btn_clicar.Text = "VOCÊ ACABA DE GANHAR 10 MIL REAIS!   CLIQUE NO LINK ABAIXO AGORA!";
-                btn_email.Text = "VOCÊ RECEBEU UM EMAIL!";
-            }
+            //if (Config.Ling == true)
+            //{
+            //    btn_clicar.Text = "VOCÊ ACABA DE GANHAR 10 MIL REAIS!   CLIQUE NO LINK ABAIXO AGORA!";
+            //    btn_email.Text = "VOCÊ RECEBEU UM EMAIL!";
+            //}
 
-            else
-            {
-                btn_email.Text = "YOU RECEIVED AN EMAIL!";
-                btn_clicar.Text = "YOU JUST WON 10 THOUSAND DOLLARS!   CLICK THE LINK BELOW NOW!";
-            }
+            //else
+            //{
+            //   btn_email.Text = "YOU RECEIVED AN EMAIL!";
+            //    btn_clicar.Text = "YOU JUST WON 10 THOUSAND DOLLARS!   CLICK THE LINK BELOW NOW!";
+            //}
         }
 
         private void BlinkTimer_Tick(object sender, EventArgs e)

@@ -241,7 +241,7 @@ namespace Pitico
                 textBoxperg3.Text = "Qual mensagem não deveria ser compartilhada de forma nenhuma?";
                 LetraAperg3.Text = "A. Fotos de gatinhos fofinhos :3";
                 LetraBperg3.Text = "B. Uma notícia claramente sem fontes, cujo conteúdo é extremamente chamativo.";
-                LetraCperg3.Text = "Receitas de brownie";
+                LetraCperg3.Text = "C. Receitas de brownie";
 
                 textBoxperg4.Text = "Agora como recompensa por ter respondido nossas últimas perguntas, você acaba de ganhar 100 mil reais! Deseja clicar no botão para aceitar?";
                 LetraAperg4.Text = "A. Óbvio! São 100 mil reais, quem seria burro de não aceitar?";
@@ -258,8 +258,9 @@ namespace Pitico
                 BotaoCenario5.Text = "Prosseguir";
                 BotaoCenario3.Text = "Prosseguir";
                 BotaoCenario4.Text = "Prosseguir";
-
-
+                prosseguir_fase2.Text = "PROSSEGUIR";
+                lbl_infoWal.Text = "Quando recebemos links suspeitos com mensagens tendenciosas, sensacionalistas ou milagrosas, devemos tomar cuidado, já que essa é uma maneira de atrair pessoas para roubar seus dados ou invadir sua máquina, essa técnica se chama Phishing, uma prática em que pescam pessoas desatentas para conseguir obter informações confidenciais.  ";
+                btn_avanca.Text = "PRESSIONE ENTER PARA CONTINUAR";
             }
             else
             {
@@ -275,8 +276,8 @@ namespace Pitico
 
                 textBoxperg3.Text = "Which message should never be shared?";
                 LetraAperg3.Text = "A. Cute kitty photos :3";
-                LetraBperg3.Text = "B. A clearly source-less news story with extremely catchy and sensational content.";
-                LetraCperg3.Text = "Brownie recipes";
+                LetraBperg3.Text = "B. A clearly source-less news story with extremely catchy";
+                LetraCperg3.Text = "C. Brownie recipes";
 
                 textBoxperg4.Text = "Now as a reward for answering our last questions, you just won 100 thousand reais! Do you want to click the button to accept?";
                 LetraAperg4.Text = "A. Of course! It's 100 thousand reais, who would be dumb not to accept?";
@@ -293,6 +294,9 @@ namespace Pitico
                 BotaoCenario3.Text = "Proceed";
                 BotaoCenario4.Text = "Proceed";
                 BotaoCenario5.Text = "Proceed";
+                prosseguir_fase2.Text = "PROCEED";
+                lbl_infoWal.Text = "When we receive suspicious links with biased, sensationalist or miraculous messages, we must be careful, as this is a way of attracting people to steal your data or invade your machine, this technique is called Phishing, a practice in which they prey on inattentive people to obtain confidential information.";
+                btn_avanca.Text = "PRESS ENTER TO CONTINUE";
             }
         }
         private void CenterButton()
@@ -337,6 +341,9 @@ namespace Pitico
 
             prosseguir_fase2.Left = (this.ClientSize.Width - prosseguir_fase2.Width) / 2;
             prosseguir_fase2.Top = (this.ClientSize.Height - prosseguir_fase2.Height) / 2;
+
+            btn_avanca.Left = (this.ClientSize.Width - btn_avanca.Width) / 2;
+            btn_avanca.Top = (this.ClientSize.Height - btn_avanca.Height) / 2;
 
             button_tentardnv.Left = (this.ClientSize.Width - button_tentardnv.Width) / 2;
             button_tentardnv.Top = prosseguir_fase2.Top + prosseguir_fase2.Height + 20;
@@ -756,6 +763,7 @@ namespace Pitico
                     case "fase1final4":
                         video = Resources.fase1final4;
                         Atual = "fase1final4";
+                        informativo.Visible = false;
                         break;
                     case "fase1final5":
                         video = Resources.fase1final5;
@@ -805,32 +813,34 @@ namespace Pitico
         {
             if (e.newState == (int)WMPLib.WMPPlayState.wmppsPlaying)
             {
-                btn_avanca.Visible = false;
-                videoConcluido = false; // Resetar quando o vídeo começa a tocar
+                btn_avanca.Visible = false; // Esconder o botão enquanto o vídeo está tocando
+                videoConcluido = false; // Resetar o estado do vídeo
             }
 
             if (e.newState == (int)WMPLib.WMPPlayState.wmppsMediaEnded)
             {
-                btn_avanca.Visible = true; // Torna o botão visível ao término do vídeo
-                btn_avanca.Enabled = true;
-                videoConcluido = true; // Marcar que o vídeo foi concluído
+                videoConcluido = true; // O vídeo foi concluído
+                btn_avanca.Visible = true; // Mostrar o botão para avançar
+                btn_avanca.Enabled = true; // Habilitar o botão
 
+                // Separar a exibição do informativo para não interferir no fluxo de vídeos
                 if (Atual == "fase1final2_dub" || Atual == "fase1final2")
                 {
-                    Atual = "Info";
-                    informativo.Visible = true;
-                    lbl_infoWal.Visible = true;
-                    lbl_infoWal.BringToFront();
-                }
-                else
-                {
-
-        
-
-
+                    ExibirInformativo();
                 }
             }
         }
+
+        // Função para exibir o informativo separadamente
+        private void ExibirInformativo()
+        {
+            Atual = "Info";
+            informativo.Visible = true;
+            lbl_infoWal.Visible = true;
+            btn_avanca.Visible = false; // Esconde o botão quando o informativo aparece
+            lbl_infoWal.BringToFront();
+        }
+
 
         private void Cenario9_Click(object sender, EventArgs e)
         {
@@ -910,13 +920,14 @@ namespace Pitico
 
         private void btn_avanca_Click(object sender, EventArgs e)
         {
+            // Verificar se o informativo está visível e escondê-lo
             if (informativo.Visible)
             {
                 informativo.Visible = false;
                 lbl_infoWal.Visible = false;
             }
 
-            // Se o vídeo foi concluído, avança
+            // Só avança se o vídeo foi concluído
             if (videoConcluido)
             {
                 // Verificar se é o último vídeo
@@ -958,6 +969,7 @@ namespace Pitico
             }
         }
 
+
         private bool VerificarUltimoVideo()
         {
             if (Config.Dub == true && Atual == "fase1final8_dub")
@@ -984,12 +996,11 @@ namespace Pitico
                 }
                 else
                 {
+                    btn_avanca_Click(sender, e);
                     e.Handled = true; 
                 }
             }
         }
-
-
     }
 
 }

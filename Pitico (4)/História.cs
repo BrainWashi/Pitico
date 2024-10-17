@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using WMPLib;
 using Pitico.Properties;
+using System.Diagnostics.Eventing.Reader;
 
 namespace Pjt_Pitico
 {
@@ -159,7 +160,7 @@ namespace Pjt_Pitico
 
 
                 lbl_fala1.Left = (pictureBox1.Width - lbl_fala1.Width) / 2;
-            lbl_fala1.Top = (pictureBox1.Height - lbl_fala1.Height) / 2;
+                lbl_fala1.Top = (pictureBox1.Height - lbl_fala1.Height) / 2;
 
     
             pictureBox1.Resize += (s, e) =>
@@ -227,6 +228,7 @@ private void SetFullScreenVideo()
         {
             PositionLabelAtBottom();
             Form1_Resize(this, EventArgs.Empty);
+            CenterButton();
 
             PlayVideoFromResources("video");
 
@@ -243,10 +245,17 @@ private void SetFullScreenVideo()
             if (Config.Ling == true)
             {
                 btn_avancar.Text = "AVANÇAR";
+                btn_passar_mae1.Text = "Prosseguir";
+                btn_passar_mae2.Text = "Prosseguir";
+                btn_passar_pitico1.Text = "Prosseguir";
             }
             else
             {
                 btn_avancar.Text = "NEXT";
+
+                btn_passar_mae1.Text = "Proceed";
+                btn_passar_mae2.Text = "Proceed";
+                btn_passar_pitico1.Text = "Proceed";
             }
 
         }
@@ -258,22 +267,22 @@ private void SetFullScreenVideo()
                 case 0:  
                     if (Config.Ling == true)
                     {
-                        legendaAtual = "Pitico chega em casa cansado depois de um longo dia estudando e vai direto à cozinha conversar com sua mãe que está preparando o almoço";
+                        legendaAtual = "Pitico o jovem guaxinim chega em casa cansado depois de um longo dia estudando e vai direto a cozinha comversar com sua mãe, que está preparando o almoço.";
                     }
                     else
                     {
-                        legendaAtual = "Pitico comes home tired after a long day of studying and goes straight to the kitchen to talk to his mother who is preparing lunch.";
+                        legendaAtual = "Pitico, the young raccoon comes home tired after a long day of studying and goes straight to the kitchen to talk to his mother, who is preparing lunch.";
                     }
                     break;
 
                 case 1:  
                     if (Config.Ling == true)
                     {
-                        legendaAtual = "Após o almoço, Pitico se dirige ao seu quarto, deixando suas coisas ao lado de sua cama e indo ligar seu computador, logo abre suas redes sociais para conversar com seus amigos";
+                        legendaAtual = "Após o almoço, Pitico se dirige ao seu quarto, deixando as suas coisas de lado e indo ligar seu computador.";
                     }
                     else
                     {
-                        legendaAtual = "After lunch, Pitico goes to his room, leaves his things next to his bed, turns on his computer, and quickly opens his social networks to chat with his friends.";
+                        legendaAtual = "After lunch, Pitico goes to his room, leaving his things aside and going to turn on his computer.";
                     }
                     break;
 
@@ -402,11 +411,12 @@ private void SetFullScreenVideo()
                     }
                 }
             }
-        
+
 
 
         private void axWindowsMediaPlayer1_PlayStateChange(object sender, _WMPOCXEvents_PlayStateChangeEvent e)
         {
+            // Quando o vídeo terminar (estado 8 é "Stopped")
             if (e.newState == 8)
             {
                 legendaIndex = 1;
@@ -414,78 +424,100 @@ private void SetFullScreenVideo()
                 sequenceStep++;
                 ControlFlow();
 
+                axWindowsMediaPlayer1.Focus();
             }
 
-
-            if (e.newState == 8)
+            // Verifica se o vídeo atual é o "cut2.mp4" ou "cuintro2Dub" e se terminou
+            if (e.newState == 8 && (axWindowsMediaPlayer1.URL.Contains("cut2.mp4") || axWindowsMediaPlayer1.URL.Contains("cuintro2Dub")))
             {
-                if (axWindowsMediaPlayer1.URL.Contains("cut2.mp4"))
-                {
-                    axWindowsMediaPlayer1.uiMode = "none";
-                    textBoxOverlay.Visible = true;
-                    btn_avancar.Visible = true;
-                    axWindowsMediaPlayer1.Visible = false;
+                axWindowsMediaPlayer1.uiMode = "none";
+                textBoxOverlay.Visible = true;
+                btn_avancar.Visible = false;
+                axWindowsMediaPlayer1.Visible = false;
+                lbl_pressione.BringToFront();
+                lbl_pressione.Visible = true;  // Exibe o lbl_pressione quando o vídeo 2 termina
 
-                            // Permite que o Enter agora leve para o próximo formulário
-                            isFinalState = true;  // Flag que será usada no KeyDown para mudar de form
-                        }
-
+                isFinalState = true;  // Flag que será usada no KeyDown para mudar de form
             }
+            
         }
-    
 
 
-    private void ReproduzirAudioMp3(string filePath)
+        private void CenterButton()
         {
-            string fullPath = Path.Combine(Application.StartupPath, filePath); // Caminho completo do arquivo
-
-            // Configura o player para o caminho do arquivo e toca o áudio
-            player.URL = fullPath;
-            player.controls.play();
+            lbl_pressione.Left = (this.ClientSize.Width - lbl_pressione.Width) / 2;
+            lbl_pressione.Top = (this.ClientSize.Height - lbl_pressione.Height) / 2;
         }
-    
-
-private void ControlFlow()
-        {
+            private void ControlFlow()
+            {
             if (isFinalState) return;
 
             switch (sequenceStep)
-            {
+            { 
+                
                 case 1:
                     pictureBox1.Visible = true;
                     lbl_fala1.Visible = true;
                     pic_mae1.Visible = true;
                     btn_passar_mae1.Visible = true;
-                    lbl_fala1.Text = "Oi filho, chegou cedo em casa hoje!";
+                    if (Config.Ling == true)
+                    {
+                        lbl_fala1.Text = "Oi filho, chegou cedo em casa hoje!";
+                    }
+                    else
+                    {
+                        lbl_fala1.Text = "Hi son, you came home early today!";
+                    }
                     lbl_fala2.Visible = false;
                     break;
-                case 2:
 
+                case 2:
                     pic_mae1.Visible = false;
                     pitico_1.Visible = true;
-                    lbl_fala1.Text = "Sim, o professor liberou a gente mais cedo hoje.";
+                    if (Config.Ling == true)
+                    {
+                        lbl_fala1.Text = "Sim, o professor liberou a gente mais cedo hoje";
+                    }
+                    else
+                    {
+                        lbl_fala1.Text = "Yes, the teacher let us out earlier today.";
+                    }
                     btn_passar_pitico1.Visible = true;
                     break;
+
                 case 3:
-                    ReproduzirAudioMp3("Audios/mãe1.mp3");
                     pitico_1.Visible = false;
                     pic_mae2.Visible = true;
-                    lbl_fala1.Text = "Que bom meu filho. Cadê seu irmão, ele não veio com você?";
+                    if (Config.Ling == true)
+                    {
+                        lbl_fala1.Text = "Que bom meu filho. Cadê seu irmão, ele não veio com você?";
+                    }
+                    else
+                    {
+                        lbl_fala1.Text = "That's good, my son. Where is your brother? Didn't he come with you?";
+                    }
                     btn_passar_mae2.Visible = true;
                     break;
+
                 case 4:
                     pic_mae2.Visible = false;
                     pitico_2.Visible = true;
                     btn_passar_pra_cutscene.Visible = true;
-                    lbl_fala1.Text = "Ele disse que ia na casa de um amigo dele e depois voltava pra casa";
+                    if (Config.Ling == true)
+                    {
+                        lbl_fala1.Text = "Ele disse que ia na casa de um amigo dele e depois voltava pra casa";
+                    }
+                    else
+                    {
+                        lbl_fala1.Text = "He said he was going to a friend's house and would come back home later.";
+                    }
                     break;
+
                 case 5:
                     pitico_2.Visible = false;
                     btn_passar_pra_cutscene.Visible = false;
                     PlayVideoFromResources("cut2");
                     textBoxOverlay.Visible = true;
-                 
-         
                     break;
             }
         }
@@ -494,7 +526,6 @@ private void ControlFlow()
         {
             if (e.KeyCode == Keys.Enter)
             {
-                // Se o vídeo terminou (isFinalState) vai para o próximo formulário
                 if (isFinalState)
                 {
                     this.Hide(); // Esconde o formulário atual
@@ -541,7 +572,7 @@ private void ControlFlow()
             pictureBox1.Visible = false;
             lbl_fala1.Visible = false;
             telapreta2.Visible = false;
-            btn_avancar.Visible = true;
+            btn_avancar.Visible = false;
             isFinalState = true;
             btn_passar_pra_cutscene.Visible = false;
             pitico_2.Visible = false;
@@ -551,8 +582,14 @@ private void ControlFlow()
    
         private void passar_mae2_Click(object sender, EventArgs e)
         {
-
-            lbl_fala1.Text = "Ele disse que ia na casa de um amigo dele e depois iria voltar pra casa";
+            if(Config.Ling == true)
+            {
+                lbl_fala1.Text = "Ele disse que ia na casa de um amigo dele e depois iria voltar pra casa";
+            }
+            else
+            {
+                lbl_fala1.Text = "He said he was going to a friend's house and would come back home later.";
+            }
             pic_mae2.Visible = false;
             btn_passar_mae2.Visible = false;
             pitico_2.Visible = true;
@@ -565,8 +602,14 @@ private void ControlFlow()
         private void passar_pitico1_Click(object sender, EventArgs e)
         {
 
-            ReproduzirAudioMp3("Audios/mãe1.mp3");
-            lbl_fala1.Text = "Que bom meu filho, mas cadê seu irmão?Ele não veio com você?";
+            if (Config.Ling == true)
+            {
+                lbl_fala1.Text = "Que bom meu filho, mas cadê seu irmão? Ele não veio com você?";
+            }
+            else
+            {
+                lbl_fala1.Text = "That's good, my son. Where is your brother? Didn't he come with you?";
+            }
             pitico_1.Visible = false;
             btn_passar_pitico1.Visible = false;
             pic_mae2.Visible = true;
@@ -577,7 +620,14 @@ private void ControlFlow()
         {
             if (btn_passar_mae1.CanSelect);
             {
-                lbl_fala1.Text = "Sim, o professor Ivaldo liberou a gente mais cedo hoje!";
+                if (Config.Ling == true)
+                {
+                    lbl_fala1.Text = "Sim, o professor Ivaldo liberou a gente mais cedo hoje!";
+                }
+                else
+                {
+                    lbl_fala1.Text = "Yes, the teacher let us out earlier today.";
+                }
                 pic_mae1.Visible = false;
                 btn_passar_mae1.Visible = false;
                 pitico_1.Visible = true;
@@ -597,19 +647,33 @@ private void ControlFlow()
             telapreta1.Visible = false;
             btn_telapreta2.Visible = false;
             lbl_fala1.Visible = true;
-            lbl_fala1.Text = "Pode deixar mãe,… vou mexer um pouco no computador agora tá? Obrigado pelo almoço.";
+
+            if (Config.Ling == true)
+            {
+                lbl_fala1.Text = "Pode deixar mãe, vou mexer um pouco no computador agora tá? Obrigado pelo almoço.";
+            }
+            else
+            {
+                lbl_fala1.Text = "Don't worry mom, I'm going to play with the computer a little now, okay? Thanks for lunch.";
+            }
         }
 
         private void btn_telapreta1_Click(object sender, EventArgs e)
         {
 
-            ReproduzirAudioMp3("Audios/mãe2.mp3");
             pitico_2.Visible = false;
             telapreta1.Visible = true;
             btn_telapreta2.Visible = true;
             lbl_fala1.Visible = true;
             btn_telapreta1.Visible = false;
-            lbl_fala1.Text = "Ah ok, preste atenção nele. Seu irmão está meio…mal… Você deve cuidar dele, ta bom?";
+            if (Config.Ling == true)
+            {
+                lbl_fala1.Text = "Ah ok, preste atenção nele. Seu irmão está meio… mal… Você deve cuidar dele, ta bom?";
+            }
+            else
+            {
+                lbl_fala1.Text = "Ah ok, pay attention to him. Your brother is a little... bad... You should take care of him, okay";
+            }
         }
 
 

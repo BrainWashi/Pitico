@@ -8,33 +8,34 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(História));
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btn_passar_mae1 = new System.Windows.Forms.Button();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.lbl_fala2 = new System.Windows.Forms.Label();
+            this.lbl_fala1 = new System.Windows.Forms.Label();
             this.btn_passar_pitico1 = new System.Windows.Forms.Button();
             this.btn_passar_mae2 = new System.Windows.Forms.Button();
-            this.btn_passar_pra_cutscene = new System.Windows.Forms.Button();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.btn_passar_mae1 = new System.Windows.Forms.Button();
             this.btn_telapreta1 = new System.Windows.Forms.Button();
             this.btn_telapreta2 = new System.Windows.Forms.Button();
-            this.telapreta1 = new System.Windows.Forms.PictureBox();
-            this.telapreta2 = new System.Windows.Forms.PictureBox();
+            this.btn_passar_pra_cutscene = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_avancar = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pitico_1 = new System.Windows.Forms.PictureBox();
             this.pitico_2 = new System.Windows.Forms.PictureBox();
             this.pic_mae1 = new System.Windows.Forms.PictureBox();
             this.pic_mae2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbl_fala2 = new System.Windows.Forms.Label();
-            this.lbl_fala1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.telapreta1 = new System.Windows.Forms.PictureBox();
+            this.telapreta2 = new System.Windows.Forms.PictureBox();
+            this.lbl_pressione = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.telapreta1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.telapreta2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pitico_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pitico_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_mae1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_mae2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.telapreta1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.telapreta2)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -47,21 +48,40 @@
             this.textBox1.TabIndex = 1;
             this.textBox1.Visible = false;
             // 
-            // btn_passar_mae1
+            // axWindowsMediaPlayer1
             // 
-            this.btn_passar_mae1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_passar_mae1.AutoSize = true;
-            this.btn_passar_mae1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_passar_mae1.BackgroundImage = global::Pitico.Properties.Resources.BotãoMenu;
-            this.btn_passar_mae1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_passar_mae1.Location = new System.Drawing.Point(918, 551);
-            this.btn_passar_mae1.Name = "btn_passar_mae1";
-            this.btn_passar_mae1.Size = new System.Drawing.Size(100, 40);
-            this.btn_passar_mae1.TabIndex = 8;
-            this.btn_passar_mae1.Text = "Prosseguir";
-            this.btn_passar_mae1.UseVisualStyleBackColor = false;
-            this.btn_passar_mae1.Visible = false;
-            this.btn_passar_mae1.Click += new System.EventHandler(this.passar_mae1_Click);
+            this.axWindowsMediaPlayer1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(0, 0);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1067, 675);
+            this.axWindowsMediaPlayer1.TabIndex = 0;
+            // 
+            // lbl_fala2
+            // 
+            this.lbl_fala2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lbl_fala2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbl_fala2.Font = new System.Drawing.Font("Verdana", 12F);
+            this.lbl_fala2.Location = new System.Drawing.Point(0, 569);
+            this.lbl_fala2.Name = "lbl_fala2";
+            this.lbl_fala2.Size = new System.Drawing.Size(1049, 59);
+            this.lbl_fala2.TabIndex = 18;
+            this.lbl_fala2.Text = ".";
+            this.lbl_fala2.Visible = false;
+            // 
+            // lbl_fala1
+            // 
+            this.lbl_fala1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_fala1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lbl_fala1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_fala1.Location = new System.Drawing.Point(84, 543);
+            this.lbl_fala1.Name = "lbl_fala1";
+            this.lbl_fala1.Size = new System.Drawing.Size(860, 48);
+            this.lbl_fala1.TabIndex = 19;
+            this.lbl_fala1.Text = "Olá filho, chegou cedo em casa hoje.";
+            this.lbl_fala1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_fala1.Visible = false;
             // 
             // btn_passar_pitico1
             // 
@@ -95,31 +115,21 @@
             this.btn_passar_mae2.Visible = false;
             this.btn_passar_mae2.Click += new System.EventHandler(this.passar_mae2_Click);
             // 
-            // btn_passar_pra_cutscene
+            // btn_passar_mae1
             // 
-            this.btn_passar_pra_cutscene.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_passar_pra_cutscene.AutoSize = true;
-            this.btn_passar_pra_cutscene.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_passar_pra_cutscene.BackgroundImage = global::Pitico.Properties.Resources.BotãoMenu;
-            this.btn_passar_pra_cutscene.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_passar_pra_cutscene.Location = new System.Drawing.Point(918, 551);
-            this.btn_passar_pra_cutscene.Name = "btn_passar_pra_cutscene";
-            this.btn_passar_pra_cutscene.Size = new System.Drawing.Size(100, 40);
-            this.btn_passar_pra_cutscene.TabIndex = 11;
-            this.btn_passar_pra_cutscene.Text = "Prosseguir";
-            this.btn_passar_pra_cutscene.UseVisualStyleBackColor = false;
-            this.btn_passar_pra_cutscene.Visible = false;
-            this.btn_passar_pra_cutscene.Click += new System.EventHandler(this.passar_pra_cutscene_Click);
-            // 
-            // axWindowsMediaPlayer1
-            // 
-            this.axWindowsMediaPlayer1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(0, 0);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1067, 675);
-            this.axWindowsMediaPlayer1.TabIndex = 0;
+            this.btn_passar_mae1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_passar_mae1.AutoSize = true;
+            this.btn_passar_mae1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_passar_mae1.BackgroundImage = global::Pitico.Properties.Resources.BotãoMenu;
+            this.btn_passar_mae1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_passar_mae1.Location = new System.Drawing.Point(918, 551);
+            this.btn_passar_mae1.Name = "btn_passar_mae1";
+            this.btn_passar_mae1.Size = new System.Drawing.Size(100, 40);
+            this.btn_passar_mae1.TabIndex = 8;
+            this.btn_passar_mae1.Text = "Prosseguir";
+            this.btn_passar_mae1.UseVisualStyleBackColor = false;
+            this.btn_passar_mae1.Visible = false;
+            this.btn_passar_mae1.Click += new System.EventHandler(this.passar_mae1_Click);
             // 
             // btn_telapreta1
             // 
@@ -154,32 +164,35 @@
             this.btn_telapreta2.Visible = false;
             this.btn_telapreta2.Click += new System.EventHandler(this.btn_telapreta2_Click);
             // 
-            // telapreta1
+            // btn_passar_pra_cutscene
             // 
-            this.telapreta1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.telapreta1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.telapreta1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.telapreta1.Location = new System.Drawing.Point(0, 0);
-            this.telapreta1.Name = "telapreta1";
-            this.telapreta1.Size = new System.Drawing.Size(1052, 628);
-            this.telapreta1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.telapreta1.TabIndex = 14;
-            this.telapreta1.TabStop = false;
-            this.telapreta1.Visible = false;
-            this.telapreta1.Click += new System.EventHandler(this.telapreta1_Click);
+            this.btn_passar_pra_cutscene.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_passar_pra_cutscene.AutoSize = true;
+            this.btn_passar_pra_cutscene.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_passar_pra_cutscene.BackgroundImage = global::Pitico.Properties.Resources.BotãoMenu;
+            this.btn_passar_pra_cutscene.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_passar_pra_cutscene.Location = new System.Drawing.Point(918, 551);
+            this.btn_passar_pra_cutscene.Name = "btn_passar_pra_cutscene";
+            this.btn_passar_pra_cutscene.Size = new System.Drawing.Size(100, 40);
+            this.btn_passar_pra_cutscene.TabIndex = 11;
+            this.btn_passar_pra_cutscene.Text = "Prosseguir";
+            this.btn_passar_pra_cutscene.UseVisualStyleBackColor = false;
+            this.btn_passar_pra_cutscene.Visible = false;
+            this.btn_passar_pra_cutscene.Click += new System.EventHandler(this.passar_pra_cutscene_Click);
             // 
-            // telapreta2
+            // pictureBox1
             // 
-            this.telapreta2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.telapreta2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.telapreta2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.telapreta2.Location = new System.Drawing.Point(0, 0);
-            this.telapreta2.Name = "telapreta2";
-            this.telapreta2.Size = new System.Drawing.Size(1432, 653);
-            this.telapreta2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.telapreta2.TabIndex = 13;
-            this.telapreta2.TabStop = false;
-            this.telapreta2.Visible = false;
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::Pitico.Properties.Resources.BalaoFala;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 472);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1052, 156);
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // btn_avancar
             // 
@@ -194,6 +207,19 @@
             this.btn_avancar.UseVisualStyleBackColor = true;
             this.btn_avancar.Visible = false;
             this.btn_avancar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = global::Pitico.Properties.Resources.BalaoFala;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 472);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(1052, 156);
+            this.pictureBox2.TabIndex = 20;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pitico_1
             // 
@@ -248,61 +274,51 @@
             this.pic_mae2.TabStop = false;
             this.pic_mae2.Visible = false;
             // 
-            // pictureBox1
+            // telapreta1
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::Pitico.Properties.Resources.BalaoFala;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 472);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1052, 156);
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
+            this.telapreta1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.telapreta1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.telapreta1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.telapreta1.Location = new System.Drawing.Point(0, 0);
+            this.telapreta1.Name = "telapreta1";
+            this.telapreta1.Size = new System.Drawing.Size(1052, 628);
+            this.telapreta1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.telapreta1.TabIndex = 14;
+            this.telapreta1.TabStop = false;
+            this.telapreta1.Visible = false;
+            this.telapreta1.Click += new System.EventHandler(this.telapreta1_Click);
             // 
-            // lbl_fala2
+            // telapreta2
             // 
-            this.lbl_fala2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lbl_fala2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lbl_fala2.Font = new System.Drawing.Font("Verdana", 12F);
-            this.lbl_fala2.Location = new System.Drawing.Point(0, 569);
-            this.lbl_fala2.Name = "lbl_fala2";
-            this.lbl_fala2.Size = new System.Drawing.Size(1049, 59);
-            this.lbl_fala2.TabIndex = 18;
-            this.lbl_fala2.Text = ".";
-            this.lbl_fala2.Visible = false;
+            this.telapreta2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.telapreta2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.telapreta2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.telapreta2.Location = new System.Drawing.Point(0, 0);
+            this.telapreta2.Name = "telapreta2";
+            this.telapreta2.Size = new System.Drawing.Size(1432, 653);
+            this.telapreta2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.telapreta2.TabIndex = 13;
+            this.telapreta2.TabStop = false;
+            this.telapreta2.Visible = false;
             // 
-            // lbl_fala1
+            // lbl_pressione
             // 
-            this.lbl_fala1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbl_fala1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lbl_fala1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_fala1.Location = new System.Drawing.Point(84, 543);
-            this.lbl_fala1.Name = "lbl_fala1";
-            this.lbl_fala1.Size = new System.Drawing.Size(860, 48);
-            this.lbl_fala1.TabIndex = 19;
-            this.lbl_fala1.Text = "Olá filho, chegou cedo em casa hoje.";
-            this.lbl_fala1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_fala1.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::Pitico.Properties.Resources.BalaoFala;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 472);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1052, 156);
-            this.pictureBox2.TabIndex = 20;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.lbl_pressione.AutoSize = true;
+            this.lbl_pressione.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_pressione.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_pressione.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl_pressione.Location = new System.Drawing.Point(326, 302);
+            this.lbl_pressione.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_pressione.Name = "lbl_pressione";
+            this.lbl_pressione.Size = new System.Drawing.Size(396, 25);
+            this.lbl_pressione.TabIndex = 51;
+            this.lbl_pressione.Text = "PRESSIONE ENTER PARA CONTINUAR";
+            this.lbl_pressione.Visible = false;
             // 
             // História
             // 
             this.ClientSize = new System.Drawing.Size(1049, 628);
+            this.Controls.Add(this.lbl_pressione);
             this.Controls.Add(this.lbl_fala1);
             this.Controls.Add(this.btn_passar_pitico1);
             this.Controls.Add(this.btn_passar_mae2);
@@ -328,14 +344,14 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.telapreta1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.telapreta2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pitico_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pitico_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_mae1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_mae2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.telapreta1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.telapreta2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,5 +377,6 @@
         private System.Windows.Forms.Label lbl_fala2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lbl_fala1;
+        private System.Windows.Forms.Label lbl_pressione;
     }
 }
