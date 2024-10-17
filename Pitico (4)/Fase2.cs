@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +22,11 @@ namespace Pitico
         private const int vidaMaxima = 5;
         private int vidaCshar = 5;
         private double aspectRatio = 16.0 / 9.0;
-
+        private int videoAtualDub = 1;
         private int videoAtual = 1;
         private bool modoJogoIniciado = false;
         private int videoSequenciaFinal = 1;
+        private int videoSequenciaFinalDub = 1;
         private TextBox textBoxOverlay;
 
         public Fase2()
@@ -108,9 +110,15 @@ namespace Pitico
             this.KeyDown += new KeyEventHandler(Faase2_KeyDown);
             this.KeyDown += new KeyEventHandler(Fase2_KeyDown);
 
+            if (Config.Dub == true)
+            {
+                ReproduzirVideo("fase2intro1");
+            }
 
-            ReproduzirVideo("fase2intro1");
-
+            else
+            {
+                ReproduzirVideo("fase2intro1Dub");
+            }
 
             axWindowsMediaPlayer1.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(AxWindowsMediaPlayer1_PlayStateChange);
 
@@ -337,8 +345,14 @@ namespace Pitico
 
 
             btn_next.Visible = true;
-
-            ReproduzirVideo("fase2final1");
+            if (Config.Dub == true)
+            {
+                ReproduzirVideo("fase2final1Dub");
+            }
+            else
+            {
+                ReproduzirVideo("fase2final1");
+            }
         }
 
 
@@ -550,68 +564,132 @@ namespace Pitico
         {
             btn_next.Visible = false;
 
-
             if (vidaCshar > 0)
             {
-
-                switch (videoAtual)
+                if (Config.Dub == true)
                 {
-                    case 1:
-                        ReproduzirVideo("fase2intro2");
-                        videoAtual++;
-                        break;
-                    case 2:
-                        Block.Visible = true;
-                        MostrarBotoesParaProssseguir();
-                        videoAtual++;
-                        break;
-                    case 3:
-                        Block.Visible = false;
-                        ReproduzirVideo("fase2intro3");
-                        videoAtual++;
-                        break;
-                    case 4:
-                        ReproduzirVideo("fase2intro4");
-                        videoAtual++;
-                        break;
-                    case 5:
-                        ReproduzirVideo("fase2intro5");
-                        videoAtual++;
-                        break;
-                    case 6:
-                        batalha.Visible = true;
-                        MostrarBotoesParaProssseguir();
-                        videoAtual++;
-                        break;
-                    case 7:
-                        textBoxOverlay.Visible = false;
-                        IniciarJogo();
-                        break;
+                    switch (videoAtualDub)
+                    {
+                        case 1:
+                            ReproduzirVideo("fase2intro2Dub");
+                            videoAtualDub++;
+                            break;
+                        case 2:
+                            Block.Visible = true;
+                            MostrarBotoesParaProssseguir();
+                            videoAtualDub++;
+                            break;
+                        case 3:
+                            Block.Visible = false;
+                            ReproduzirVideo("fase2intro3Dub");
+                            videoAtualDub++;
+                            break;
+                        case 4:
+                            ReproduzirVideo("fase2intro4Dub");
+                            videoAtualDub++;
+                            break;
+                        case 5:
+                            ReproduzirVideo("fase2intro5Dub");
+                            videoAtualDub++;
+                            break;
+                        case 6:
+                            batalha.Visible = true;
+                            MostrarBotoesParaProssseguir();
+                            videoAtualDub++;
+                            break;
+                        case 7:
+                            textBoxOverlay.Visible = false;
+                            IniciarJogo();
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (videoAtual)
+                    {
+                        case 1:
+                            ReproduzirVideo("fase2intro2");
+                            videoAtual++;
+                            break;
+                        case 2:
+                            Block.Visible = true;
+                            MostrarBotoesParaProssseguir();
+                            videoAtual++;
+                            break;
+                        case 3:
+                            Block.Visible = false;
+                            ReproduzirVideo("fase2intro3");
+                            videoAtual++;
+                            break;
+                        case 4:
+                            ReproduzirVideo("fase2intro4");
+                            videoAtual++;
+                            break;
+                        case 5:
+                            ReproduzirVideo("fase2intro5");
+                            videoAtual++;
+                            break;
+                        case 6:
+                            batalha.Visible = true;
+                            MostrarBotoesParaProssseguir();
+                            videoAtual++;
+                            break;
+                        case 7:
+                            textBoxOverlay.Visible = false;
+                            IniciarJogo();
+                            break;
+                    }
                 }
             }
             else
             {
-
-                switch (videoSequenciaFinal)
+                if (Config.Dub == true)
                 {
-                    case 1:
-                        ReproduzirVideo("fase2final2");
-                        textBoxOverlay.Visible = true;
-                        videoSequenciaFinal++;
-                        break;
-                    case 2:
-                        ReproduzirVideo("fase2final3");
-                        videoSequenciaFinal++;
-                        break;
-                    case 3:
-                        ReproduzirVideo("fase2final4");
-                        videoSequenciaFinal++;
-                        break;
-                    case 4:
-                        MessageBox.Show("Parabéns! Você venceu a fase!");
-                        Form proximoFormulario = new Fase3();
-                        proximoFormulario.Show();
-                        break;
+                    switch (videoSequenciaFinalDub)
+                    {
+                        case 1:
+                            ReproduzirVideo("fase2final2Dub");
+                            textBoxOverlay.Visible = true;
+                            videoSequenciaFinalDub++;
+                            break;
+                        case 2:
+                            ReproduzirVideo("fase2final3Dub");
+                            videoSequenciaFinalDub++;
+                            break;
+                        case 3:
+                            ReproduzirVideo("fase2final4Dub");
+                            videoSequenciaFinalDub++;
+                            break;
+                        case 4:
+                            MessageBox.Show("Parabéns! Você venceu a fase dublada!");
+                            Form proximoFormulario = new Fase3();
+                            proximoFormulario.Show();
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (videoSequenciaFinal)
+                    {
+                        case 1:
+                            ReproduzirVideo("fase2final2");
+                            textBoxOverlay.Visible = true;
+                            videoSequenciaFinal++;
+                            break;
+                        case 2:
+                            ReproduzirVideo("fase2final3");
+                            videoSequenciaFinal++;
+                            break;
+                        case 3:
+                            ReproduzirVideo("fase2final4");
+                            videoSequenciaFinal++;
+                            break;
+                        case 4:
+                            MessageBox.Show("Parabéns! Você venceu a fase!");
+                            Form proximoFormulario = new Fase3();
+                            proximoFormulario.Show();
+                            break;
+                    }
                 }
             }
         }

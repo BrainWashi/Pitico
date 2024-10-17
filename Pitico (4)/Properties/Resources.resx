@@ -568,4 +568,37 @@
   <data name="mãe21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mãe2.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="cutintro3Dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cutintro3Dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cut_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cut 3.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2final1Dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2final1Dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2final2Dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2final2Dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2final3Dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2final3Dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2final4Dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2final4Dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2intro1Dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2intro1Dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2intro2Dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2intro2Dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2intro3Dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2intro3Dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2intro4Dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2intro4Dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase2intro5Dub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase2intro5Dub.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

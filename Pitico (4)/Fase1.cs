@@ -240,7 +240,7 @@ namespace Pitico
 
                 textBoxperg3.Text = "Qual mensagem não deveria ser compartilhada de forma nenhuma?";
                 LetraAperg3.Text = "A. Fotos de gatinhos fofinhos :3";
-                LetraBperg3.Text = "B. Uma notícia claramente sem fontes, cujo conteúdo e extremamente chamativo e sensacionalista.";
+                LetraBperg3.Text = "B. Uma notícia claramente sem fontes, cujo conteúdo é extremamente chamativo.";
                 LetraCperg3.Text = "Receitas de brownie";
 
                 textBoxperg4.Text = "Agora como recompensa por ter respondido nossas últimas perguntas, você acaba de ganhar 100 mil reais! Deseja clicar no botão para aceitar?";
@@ -978,10 +978,17 @@ namespace Pitico
         {
             if (e.KeyCode == Keys.Enter)
             {
-
-                e.Handled = true; // Impede o tratamento padrão da tecla
+                if (cenario_original.Visible)
+                {
+                    btn_Póspergunta3_Click(sender, e);
+                }
+                else
+                {
+                    e.Handled = true; 
+                }
             }
         }
+
 
     }
 
