@@ -267,7 +267,7 @@ private void SetFullScreenVideo()
                 case 0:  
                     if (Config.Ling == true)
                     {
-                        legendaAtual = "Pitico o jovem guaxinim chega em casa cansado depois de um longo dia estudando e vai direto a cozinha comversar com sua mãe, que está preparando o almoço.";
+                        legendaAtual = "Pitico o jovem guaxinim chega em casa cansado depois de um longo dia estudando e vai direto a cozinha conversar com sua mãe, que está preparando o almoço.";
                     }
                     else
                     {

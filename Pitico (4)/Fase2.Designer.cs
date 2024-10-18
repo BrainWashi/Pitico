@@ -99,7 +99,7 @@ namespace Pitico
             this.cshar_1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cshar_1.BackColor = System.Drawing.Color.Transparent;
             this.cshar_1.Image = global::Pitico.Properties.Resources.pixel_cshar_1;
-            this.cshar_1.Location = new System.Drawing.Point(1100, 17);
+            this.cshar_1.Location = new System.Drawing.Point(543, -66);
             this.cshar_1.Margin = new System.Windows.Forms.Padding(2);
             this.cshar_1.Name = "cshar_1";
             this.cshar_1.Size = new System.Drawing.Size(676, 576);
@@ -113,7 +113,7 @@ namespace Pitico
             this.pitico_1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pitico_1.BackColor = System.Drawing.Color.Transparent;
             this.pitico_1.Image = global::Pitico.Properties.Resources.pixel_pitico_1;
-            this.pitico_1.Location = new System.Drawing.Point(60, 524);
+            this.pitico_1.Location = new System.Drawing.Point(169, 256);
             this.pitico_1.Margin = new System.Windows.Forms.Padding(2);
             this.pitico_1.Name = "pitico_1";
             this.pitico_1.Size = new System.Drawing.Size(467, 314);
@@ -509,7 +509,7 @@ namespace Pitico
             this.cshar_2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cshar_2.BackColor = System.Drawing.Color.Transparent;
             this.cshar_2.Image = global::Pitico.Properties.Resources.pixel_cshar_2;
-            this.cshar_2.Location = new System.Drawing.Point(1100, 17);
+            this.cshar_2.Location = new System.Drawing.Point(543, 17);
             this.cshar_2.Margin = new System.Windows.Forms.Padding(2);
             this.cshar_2.Name = "cshar_2";
             this.cshar_2.Size = new System.Drawing.Size(676, 576);
@@ -523,7 +523,7 @@ namespace Pitico
             this.cshar_3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cshar_3.BackColor = System.Drawing.Color.Transparent;
             this.cshar_3.Image = global::Pitico.Properties.Resources.pixel_cshar_3;
-            this.cshar_3.Location = new System.Drawing.Point(1100, 17);
+            this.cshar_3.Location = new System.Drawing.Point(731, 23);
             this.cshar_3.Margin = new System.Windows.Forms.Padding(2);
             this.cshar_3.Name = "cshar_3";
             this.cshar_3.Size = new System.Drawing.Size(549, 512);
@@ -537,7 +537,7 @@ namespace Pitico
             this.pitico_2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pitico_2.BackColor = System.Drawing.Color.Transparent;
             this.pitico_2.Image = global::Pitico.Properties.Resources.pixel_pitico_2;
-            this.pitico_2.Location = new System.Drawing.Point(60, 524);
+            this.pitico_2.Location = new System.Drawing.Point(169, 263);
             this.pitico_2.Margin = new System.Windows.Forms.Padding(2);
             this.pitico_2.Name = "pitico_2";
             this.pitico_2.Size = new System.Drawing.Size(467, 314);
@@ -551,7 +551,7 @@ namespace Pitico
             this.pitico_3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pitico_3.BackColor = System.Drawing.Color.Transparent;
             this.pitico_3.Image = global::Pitico.Properties.Resources.pixel_pitico_3;
-            this.pitico_3.Location = new System.Drawing.Point(60, 524);
+            this.pitico_3.Location = new System.Drawing.Point(169, 263);
             this.pitico_3.Margin = new System.Windows.Forms.Padding(2);
             this.pitico_3.Name = "pitico_3";
             this.pitico_3.Size = new System.Drawing.Size(467, 314);
