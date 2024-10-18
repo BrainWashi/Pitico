@@ -625,7 +625,7 @@ namespace Pitico
 
         private void btn_cont_Click(object sender, EventArgs e)
         {
-            if(Config.Ling == true)
+            if (Config.Ling == true)
             {
                 lbl_pergunta.Text = "O que o pitico fará? ";
             }
@@ -651,13 +651,14 @@ namespace Pitico
             AtualizarCoracoesAdversario();
 
             game_over.Visible = false;
+            textBoxOverlay.Visible = false;
             btn_recomeçar.Visible = false;
             btn_continuarfase.Visible = false;
             cshar_1.Visible = true;
             pitico_1.Visible = true;
             textBox1.Visible = true;
             lbl_pergunta.Visible = true;
-            if(Config.Ling == true)
+            if (Config.Ling == true)
             {
                 lbl_pergunta.Text = "O que o pitico fará?";
             }
@@ -687,7 +688,7 @@ namespace Pitico
         {
             if (e.newState == (int)WMPLib.WMPPlayState.wmppsPlaying)
             {
-               lbl_pressione.Visible = false;
+                lbl_pressione.Visible = false;
             }
             else if (e.newState == (int)WMPLib.WMPPlayState.wmppsStopped)
             {
@@ -722,7 +723,6 @@ namespace Pitico
                             videoAtualDub++;
                             break;
                         case 2:
-                            Block.Visible = true;
                             MostrarBotoesParaProssseguir();
                             videoAtualDub++;
                             break;
@@ -759,7 +759,7 @@ namespace Pitico
                             videoAtual++;
                             break;
                         case 2:
-                            Block.Visible = true;
+
                             lbl_pressione.Visible = false;
                             MostrarBotoesParaProssseguir();
                             videoAtual++;
@@ -998,4 +998,3 @@ namespace Pitico
     }
 
 }
-

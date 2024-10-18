@@ -79,9 +79,13 @@ namespace Pitico
                 Rdb_DesligarNarração.Text = "Off";
                 Rdb_ligarNar.Text = "On";
             }
-        }
+        
+    
+    
+}
+    
 
-        private void Btn_voltar_Click(object sender, EventArgs e)
+private void Btn_voltar_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form form = new Configurações();

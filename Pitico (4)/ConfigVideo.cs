@@ -77,7 +77,7 @@ namespace Pitico
             }
 
             rdb_desligado.Checked = false;
-            rdb_ligado.Checked = false;
+            rdb_ligado.Checked = true;
         }
     }
 }
