@@ -22,7 +22,7 @@ namespace Pitico
 
         private void Fase3_Load(object sender, EventArgs e)
         {
-
+           
         }
 
 
