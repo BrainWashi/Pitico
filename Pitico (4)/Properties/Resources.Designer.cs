@@ -953,6 +953,46 @@ namespace Pitico.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Byte[].
         /// </summary>
+        internal static byte[] fase2final5 {
+            get {
+                object obj = ResourceManager.GetObject("fase2final5", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] fase2final5Dub {
+            get {
+                object obj = ResourceManager.GetObject("fase2final5Dub", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fase2final6 {
+            get {
+                object obj = ResourceManager.GetObject("fase2final6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fase2final7 {
+            get {
+                object obj = ResourceManager.GetObject("fase2final7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
         internal static byte[] fase2intro1 {
             get {
                 object obj = ResourceManager.GetObject("fase2intro1", resourceCulture);
@@ -1057,6 +1097,16 @@ namespace Pitico.Properties {
             get {
                 object obj = ResourceManager.GetObject("fase2intro5Dub", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fase3_fundo {
+            get {
+                object obj = ResourceManager.GetObject("fase3_fundo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

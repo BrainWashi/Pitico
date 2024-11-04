@@ -15,11 +15,34 @@ namespace Pitico
         public Fase3()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            this.KeyDown += new KeyEventHandler(Form1_KeyDown);
+            this.KeyPreview = true; 
         }
 
         private void Fase3_Load(object sender, EventArgs e)
         {
+           
+        }
 
+        
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.W:
+                    pitico.Image = Image.FromFile("pitico andando de costas (1).gif");
+                    break;
+                case Keys.A:
+                    pitico.Image = Image.FromFile("pitico andando pra esquerda (1)1.gif");
+                    break;
+                case Keys.S:
+                    pitico.Image = Image.FromFile("pitico andando pra direita (1).gif");
+                    break;
+                case Keys.D:
+                    pitico.Image = Image.FromFile("pitico walk (1).gif");
+                    break;
+            }
         }
     }
 }
