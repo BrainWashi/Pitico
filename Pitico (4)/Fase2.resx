@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="info_cosenjo.Text" xml:space="preserve">
+    <value>Pitico, cyberbullying é uma prática muito recorrente na internet nos últimos anos pessoas mal intencionadas destinam o seu ódio aqueles que não podem se defender, por estar atrás de um máscara virtual acham que seus crimes não tem consequências não podemos combater o cyberbullying na mesma moeda devemos denunciar e relatar para as autoridades mais próxima</value>
+  </data>
   <data name="axWindowsMediaPlayer1.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w

@@ -31,6 +31,7 @@ namespace Pitico
             this.StartPosition = FormStartPosition.CenterScreen;
             axWindowsMediaPlayer1.PlayStateChange += axWindowsMediaPlayer1_PlayStateChange;
 
+
             btn_avanca.Enabled = false;
 
             lbl_infoWal.Visible = false;

@@ -37,11 +37,10 @@ namespace Pitico
               if (keyData == Keys.Enter)
               {
                 Form historiaForm = new História();
-                historiaForm.Show(); // Abre o formulário História
-                this.Hide(); // Oculte o formulário Inicio, se desejado
+                historiaForm.Show(); 
+                this.Hide(); 
             }
             return base.ProcessCmdKey(ref msg, keyData);
             }
     }
 }
-//teste

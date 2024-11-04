@@ -111,6 +111,9 @@ namespace Pitico
             btn_next.Visible = false;
             Block.Visible = false;
             batalha.Visible = false;
+            cosenjo_1.Visible = false;
+            cosenjo_2.Visible = false;
+            info_cosenjo.Visible = false;
             this.KeyPreview = true;
 
             this.KeyPreview = true; // Permite que o formulário receba eventos de tecla
@@ -759,7 +762,6 @@ namespace Pitico
                             videoAtual++;
                             break;
                         case 2:
-
                             lbl_pressione.Visible = false;
                             MostrarBotoesParaProssseguir();
                             videoAtual++;
@@ -809,7 +811,22 @@ namespace Pitico
                             videoSequenciaFinalDub++;
                             break;
                         case 4:
-                            MessageBox.Show("Parabéns! Você venceu a fase!");
+                            ReproduzirVideo("fase2final5Dub");
+                            videoSequenciaFinalDub++;
+                            break;
+                        case 5:
+                            cosenjo_1.Visible = true;
+                            info_cosenjo.Visible = true;
+                            videoSequenciaFinalDub++;
+                            break;
+                        case 6:
+                            cosenjo_1.Visible = false;
+                            info_cosenjo.Visible = false;
+                            cosenjo_2.Visible = true;
+                            videoSequenciaFinalDub++;
+                            break;
+                        case 7:
+                            cosenjo_2.Visible = false;
                             Form proximoFormulario = new Fase3();
                             proximoFormulario.Show();
                             break;
@@ -833,7 +850,22 @@ namespace Pitico
                             videoSequenciaFinal++;
                             break;
                         case 4:
-                            MessageBox.Show("Parabéns! Você venceu a fase!");
+                            ReproduzirVideo("fase2final5");
+                            videoSequenciaFinal++;
+                            break;
+                        case 5:
+                            cosenjo_1.Visible = true;
+                            info_cosenjo.Visible = true;
+                            videoSequenciaFinal++;
+                            break;
+                        case 6:
+                            cosenjo_1.Visible = false;
+                            info_cosenjo.Visible = false;
+                            cosenjo_2.Visible = true;
+                            videoSequenciaFinal++;
+                            break;
+                        case 7:
+                            cosenjo_2.Visible = false;
                             Form proximoFormulario = new Fase3();
                             proximoFormulario.Show();
                             break;
@@ -890,6 +922,10 @@ namespace Pitico
             Block.Height = this.ClientSize.Height;
             batalha.Width = this.ClientSize.Width;
             batalha.Height = this.ClientSize.Height;
+            cosenjo_1.Width = this.ClientSize.Width;
+            cosenjo_1.Height = this.ClientSize.Height;
+            cosenjo_2.Width = this.ClientSize.Width;
+            cosenjo_2.Height = this.ClientSize.Height;
 
 
             cshar_1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -902,6 +938,8 @@ namespace Pitico
             game_over.SizeMode = PictureBoxSizeMode.StretchImage;
             Block.SizeMode = PictureBoxSizeMode.StretchImage;
             batalha.SizeMode = PictureBoxSizeMode.StretchImage;
+            cosenjo_1.SizeMode = PictureBoxSizeMode.StretchImage;
+            cosenjo_2.SizeMode = PictureBoxSizeMode.StretchImage;
 
             if (this.WindowState == FormWindowState.Maximized)
             {
@@ -994,6 +1032,11 @@ namespace Pitico
                 AdvanceVideo();
                 e.Handled = true; // Impede o tratamento padrão da tecla
             }
+        }
+
+        private void info_cosenjo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
