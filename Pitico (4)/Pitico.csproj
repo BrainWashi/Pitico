@@ -713,5 +713,11 @@
   <ItemGroup>
     <None Include="Resources\fase3_fundo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase3intro2.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fase3intro1.mp4" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

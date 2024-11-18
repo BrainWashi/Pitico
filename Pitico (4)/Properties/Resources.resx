@@ -616,4 +616,10 @@
   <data name="fase3_fundo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fase3_fundo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fase3intro1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase3intro1.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fase3intro2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fase3intro2.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

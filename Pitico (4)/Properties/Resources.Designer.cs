@@ -1111,6 +1111,26 @@ namespace Pitico.Properties {
         }
         
         /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] fase3intro1 {
+            get {
+                object obj = ResourceManager.GetObject("fase3intro1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] fase3intro2 {
+            get {
+                object obj = ResourceManager.GetObject("fase3intro2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap gameoverfase1 {
