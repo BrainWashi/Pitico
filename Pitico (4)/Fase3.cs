@@ -21,12 +21,14 @@ namespace Pitico
         {
             InitializeComponent();
 
+            axWindowsMediaPlayer1.PlayStateChange += AxWindowsMediaPlayer1_PlayStateChange;
+
             this.WindowState = FormWindowState.Maximized;
             this.KeyDown += new KeyEventHandler(Faase2_KeyDown);
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(Movimento_Pitico);
             this.KeyPreview = true;
-            Controles();
+            Form1_Resize();
 
         }
 
@@ -34,20 +36,25 @@ namespace Pitico
         {
             ReproduzirVideo("fase3intro1");
 
-            
+            SetFullScreenVideo();
             this.KeyPreview = true; // Permite que o formulário receba eventos de tecla
             this.KeyDown += new KeyEventHandler(Faase2_KeyDown);
 
         }
 
-        private void Controles()
+        private void Form1_Resize()
         {
             int largura = this.ClientSize.Width;
             int altura = (largura * 9) / 16;
             this.ClientSize = new Size(largura, altura);
 
 
-           
+            
+            axWindowsMediaPlayer1.Height = this.ClientSize.Height;
+            axWindowsMediaPlayer1.Width = this.ClientSize.Width;
+
+            axWindowsMediaPlayer1.Location = new Point(0, 0);
+
             if (this.WindowState == FormWindowState.Maximized)
             {
 
@@ -90,7 +97,8 @@ namespace Pitico
 
         private void Movimento_Pitico(object sender, KeyEventArgs e)
         {
-            int moveStep = 10; // Define a quantidade de pixels para cada movimento
+            int moveStep = 8
+                ; // Define a quantidade de pixels para cada movimento
 
             switch (e.KeyCode)
             {
@@ -113,9 +121,30 @@ namespace Pitico
                     Pitico_walk.Left += moveStep;
                     Pitico_walk.Image = Properties.Resources.pitico_andando_pra_direita__1_;
                     break;
+
+                case Keys.Up: // Movimenta para cima
+                    Pitico_walk.Top -= moveStep;
+                    Pitico_walk.Image = Properties.Resources.pitico_andando_de_costas__1_;
+                    break;
+
+                case Keys.Left: // Movimenta para a esquerda
+                    Pitico_walk.Left -= moveStep;
+                    Pitico_walk.Image = Properties.Resources.pitico_andando_pra_esquerda__1_1;
+                    break;
+
+                case Keys.Down: // Movimenta para baixo
+                    Pitico_walk.Top += moveStep;
+                    Pitico_walk.Image = Properties.Resources.pitico_walk__1_;
+                    break;
+
+                case Keys.Right: // Movimenta para a direita
+                    Pitico_walk.Left += moveStep;
+                    Pitico_walk.Image = Properties.Resources.pitico_andando_pra_direita__1_;
+                    break;
             }
 
             // Impede que o personagem saia da tela
+            Pitico_walk.Invalidate();
             Pitico_walk.Top = Math.Max(0, Pitico_walk.Top);
             Pitico_walk.Left = Math.Max(0, Pitico_walk.Left);
             Pitico_walk.Top = Math.Min(this.ClientSize.Height - Pitico_walk.Height, Pitico_walk.Top);
@@ -160,22 +189,22 @@ namespace Pitico
         }
         private void AxWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
         {
+            // Quando o player começar a tocar (estado 'wmppsPlaying')
             if (e.newState == (int)WMPLib.WMPPlayState.wmppsPlaying)
             {
-                lbl_pressione.Visible = false;
-            }
-            else if (e.newState == (int)WMPLib.WMPPlayState.wmppsStopped)
-            {
-                lbl_pressione.Visible = true;
-
-                // Verifica se o vídeo atual é "fase3intro2"
-                string currentMediaPath = axWindowsMediaPlayer1.currentMedia?.sourceURL; // Caminho do arquivo de mídia
-                if (!string.IsNullOrEmpty(currentMediaPath) && currentMediaPath.Contains("fase3intro2"))
+                if (videoAtual == 3)
                 {
                     axWindowsMediaPlayer1.Visible = false; 
                 }
+
+
+                else
+                {
+                    lbl_pressione.Visible = false;
+                }
             }
         }
+
 
 
 
@@ -185,19 +214,36 @@ namespace Pitico
             switch (videoAtual)
             {
                 case 1:
-                ReproduzirVideo("fase3intro2");
-                videoAtual++;
+                    ReproduzirVideo("fase3intro2");
+                    videoAtual++;
                 break;
+
+                case 2:
+                    ReproduzirVideo("fase3intro2");
+                    videoAtual++;
+                break;
+
             }
         }
 
         private void Faase2_KeyDown(object sender, KeyEventArgs e)
         {
+
             if (e.KeyCode == Keys.Enter)
             {
                 AdvanceVideo();
-                e.Handled = true; // Impede o tratamento padrão da tecla
+                e.Handled = true; 
             }
+
+            if (videoAtual == 3)
+            {
+                axWindowsMediaPlayer1.Visible = false;
+            }
+        }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

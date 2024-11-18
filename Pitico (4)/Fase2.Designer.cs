@@ -625,7 +625,7 @@ namespace Pitico
             this.info_cosenjo.Font = new System.Drawing.Font("Kristen ITC", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.info_cosenjo.Location = new System.Drawing.Point(114, 192);
             this.info_cosenjo.Name = "info_cosenjo";
-            this.info_cosenjo.Size = new System.Drawing.Size(855, 673);
+            this.info_cosenjo.Size = new System.Drawing.Size(966, 673);
             this.info_cosenjo.TabIndex = 53;
             this.info_cosenjo.Text = resources.GetString("info_cosenjo.Text");
             this.info_cosenjo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
