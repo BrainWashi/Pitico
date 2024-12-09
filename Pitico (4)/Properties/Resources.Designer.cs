@@ -243,6 +243,26 @@ namespace Pitico.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cenário_com_as_casas_2 {
+            get {
+                object obj = ResourceManager.GetObject("cenário_com_as_casas_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cenário_com_as_casas_3 {
+            get {
+                object obj = ResourceManager.GetObject("cenário_com_as_casas_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cenario1 {
             get {
                 object obj = ResourceManager.GetObject("cenario1", resourceCulture);
@@ -1657,6 +1677,46 @@ namespace Pitico.Properties {
             get {
                 object obj = ResourceManager.GetObject("video4_dub", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vírus_1 {
+            get {
+                object obj = ResourceManager.GetObject("vírus_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vírus_2 {
+            get {
+                object obj = ResourceManager.GetObject("vírus_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vírus_3 {
+            get {
+                object obj = ResourceManager.GetObject("vírus_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vírus_4 {
+            get {
+                object obj = ResourceManager.GetObject("vírus_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

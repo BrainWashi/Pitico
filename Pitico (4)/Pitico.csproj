@@ -719,5 +719,23 @@
   <ItemGroup>
     <None Include="Resources\fase3intro1.mp4" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cenário com as casas 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cenário com as casas 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vírus 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vírus 4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vírus 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vírus 2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
