@@ -64,6 +64,7 @@
             // 
             // axWindowsMediaPlayer1
             // 
+            this.axWindowsMediaPlayer1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.axWindowsMediaPlayer1.Enabled = true;
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(640, 82);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
@@ -117,9 +118,9 @@
             // 
             // VidaPitico1
             // 
-            this.VidaPitico1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.VidaPitico1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.VidaPitico1.Image = global::Pitico.Properties.Resources._10528948_pixel_coracao_icone_gratis_vetor;
-            this.VidaPitico1.Location = new System.Drawing.Point(79, 10);
+            this.VidaPitico1.Location = new System.Drawing.Point(21, 10);
             this.VidaPitico1.Margin = new System.Windows.Forms.Padding(4);
             this.VidaPitico1.Name = "VidaPitico1";
             this.VidaPitico1.Size = new System.Drawing.Size(36, 28);
@@ -129,9 +130,9 @@
             // 
             // VidaPitico2
             // 
-            this.VidaPitico2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.VidaPitico2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.VidaPitico2.Image = global::Pitico.Properties.Resources._10528948_pixel_coracao_icone_gratis_vetor;
-            this.VidaPitico2.Location = new System.Drawing.Point(129, 10);
+            this.VidaPitico2.Location = new System.Drawing.Point(71, 10);
             this.VidaPitico2.Margin = new System.Windows.Forms.Padding(4);
             this.VidaPitico2.Name = "VidaPitico2";
             this.VidaPitico2.Size = new System.Drawing.Size(36, 28);
@@ -141,9 +142,9 @@
             // 
             // VidaPitico3
             // 
-            this.VidaPitico3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.VidaPitico3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.VidaPitico3.Image = global::Pitico.Properties.Resources._10528948_pixel_coracao_icone_gratis_vetor;
-            this.VidaPitico3.Location = new System.Drawing.Point(178, 10);
+            this.VidaPitico3.Location = new System.Drawing.Point(120, 10);
             this.VidaPitico3.Margin = new System.Windows.Forms.Padding(4);
             this.VidaPitico3.Name = "VidaPitico3";
             this.VidaPitico3.Size = new System.Drawing.Size(36, 28);
@@ -153,9 +154,9 @@
             // 
             // VidaPitico4
             // 
-            this.VidaPitico4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.VidaPitico4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.VidaPitico4.Image = global::Pitico.Properties.Resources._10528948_pixel_coracao_icone_gratis_vetor;
-            this.VidaPitico4.Location = new System.Drawing.Point(228, 10);
+            this.VidaPitico4.Location = new System.Drawing.Point(170, 10);
             this.VidaPitico4.Margin = new System.Windows.Forms.Padding(4);
             this.VidaPitico4.Name = "VidaPitico4";
             this.VidaPitico4.Size = new System.Drawing.Size(36, 28);
@@ -165,9 +166,9 @@
             // 
             // VidaPitico5
             // 
-            this.VidaPitico5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.VidaPitico5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.VidaPitico5.Image = global::Pitico.Properties.Resources._10528948_pixel_coracao_icone_gratis_vetor;
-            this.VidaPitico5.Location = new System.Drawing.Point(278, 10);
+            this.VidaPitico5.Location = new System.Drawing.Point(220, 10);
             this.VidaPitico5.Margin = new System.Windows.Forms.Padding(4);
             this.VidaPitico5.Name = "VidaPitico5";
             this.VidaPitico5.Size = new System.Drawing.Size(38, 28);
