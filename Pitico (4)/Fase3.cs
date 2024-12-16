@@ -47,9 +47,9 @@ namespace Pitico
             this.KeyPreview = true;
             Controles();
 
-            Pitico_walk.Location = new Point(0, 360); // Nova posição inicial
+            Pitico_walk.Location = new Point(0, 360);
             Spyware.Location = new Point(1000, 360);
-            VidaPitico1.Location = new Point(79, 0);
+            VidaPitico1.Location = new Point(0, 0);
             VidaPitico2.Location = new Point(129, 0);
             VidaPitico3.Location = new Point(178, 0);
             VidaPitico4.Location = new Point(228, 0);
