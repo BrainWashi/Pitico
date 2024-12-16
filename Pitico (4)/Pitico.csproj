@@ -726,9 +726,6 @@
     <None Include="Resources\cenário com as casas 2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\vírus 1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\vírus 4.png" />
   </ItemGroup>
   <ItemGroup>
@@ -736,6 +733,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\vírus 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vírus 1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
