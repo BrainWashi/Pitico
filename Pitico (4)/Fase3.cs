@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,14 +20,13 @@ namespace Pitico
         private double aspectRatio = 16.0 / 9.0;
         private int videoAtual = 1;
         private Timer timerCoordenadas;
-        int xMin = 1324; // Posição X mínima
-        int xMax = 1324; // Posição X máxima
-        int yMin = 270; // Posição Y mínima
-        int yMax = 500; // Posição Y máxima
-        private bool dano = false;
-        private int deslizeVelocidade = 5;
+        int xMin = 1324;
+        int xMax = 1324;
+        int yMin = 270;
+        int yMax = 500;
         private int vida = 5;
-        private const int vidaMaxima = 5;
+        private Timer timerSpyware;
+       
 
         public Fase3()
         {
@@ -37,8 +37,12 @@ namespace Pitico
             timerCoordenadas.Tick += TimerCoordenadas_Tick;
             timerCoordenadas.Start();
             Spyware.Tag = "Spyware";
+            
 
-
+            timerSpyware = new Timer();
+            timerSpyware.Interval = 50; // Movimento gradual a cada 50ms
+            timerSpyware.Tick += TimerSpyware_Tick;
+            timerSpyware.Start();
 
             this.WindowState = FormWindowState.Maximized;
             this.KeyDown += new KeyEventHandler(Faase2_KeyDown);
@@ -54,64 +58,58 @@ namespace Pitico
             VidaPitico3.Location = new Point(178, 0);
             VidaPitico4.Location = new Point(228, 0);
             VidaPitico5.Location = new Point(278, 0);
-
-            if (vida == 5)
-            {
-                VidaPitico5.Visible = true;
-                VidaPitico4.Visible = true;
-                VidaPitico3.Visible = true;
-                VidaPitico2.Visible = true;
-                VidaPitico1.Visible = true;
-            }
-
-            if (vida == 4) 
-            {
-                VidaPitico5.Visible = false;
-                VidaPitico4.Visible = true;
-                VidaPitico3.Visible = true;
-                VidaPitico2.Visible = true;
-                VidaPitico1.Visible = true;
-            }
-
-            if (vida == 3)
-            {
-                VidaPitico5.Visible = false;
-                VidaPitico4.Visible = false;
-                VidaPitico3.Visible = true;
-                VidaPitico2.Visible = true;
-                VidaPitico1.Visible = true;
-            }
-
-            if (vida == 2)
-            {
-                VidaPitico5.Visible = false;
-                VidaPitico4.Visible = false;
-                VidaPitico3.Visible = false;
-                VidaPitico2.Visible = true;
-                VidaPitico1.Visible = true;
-            }
-
-            if (vida == 1)
-            {
-                VidaPitico5.Visible = false;
-                VidaPitico4.Visible = false;
-                VidaPitico3.Visible = false;
-                VidaPitico2.Visible = false;
-                VidaPitico1.Visible = true;
-            }
-
-            if (vida == 0)
-            {
-                VidaPitico5.Visible = false;
-                VidaPitico4.Visible = false;
-                VidaPitico3.Visible = false;
-                VidaPitico2.Visible = false;
-                VidaPitico1.Visible = false;
-
-                MessageBox.Show("Você Perdeu!");
-            }
+            Informativo.Location = new Point(340, 150);
 
         }
+        private void TimerSpyware_Tick(object sender, EventArgs e)
+        {
+            MoverSpyware();
+        }
+
+       
+
+        private void MoverSpyware()
+        {
+            int movimentoX = 0;
+            int movimentoY = 0;
+
+            if(Spyware.Visible == true)
+            {
+                if (Pitico_walk.Left > Spyware.Left)
+                {
+                    movimentoX = 1;
+                }
+                else if (Pitico_walk.Left < Spyware.Left)
+                {
+                    movimentoX = -1;
+                }
+
+                if (Pitico_walk.Top > Spyware.Top)
+                {
+                    movimentoY = 1;
+                }
+                else if (Pitico_walk.Top < Spyware.Top)
+                {
+                    movimentoY = -1;
+                }
+            }
+
+            int velocidade = 2;
+
+            // Atualizando a posição do Spyware
+            Spyware.Left += movimentoX * velocidade;
+            Spyware.Top += movimentoY * velocidade;
+
+            if (Spyware.Bounds.IntersectsWith(Pitico_walk.Bounds))
+            {
+                EmpurrarPersonagem(Spyware);  // Chama o método correto para empurrar o personagem
+            }
+
+
+        }
+
+
+
 
         private void Fase3_Load(object sender, EventArgs e)
         {
@@ -121,7 +119,8 @@ namespace Pitico
             this.KeyPreview = true; // Permite que o formulário receba eventos de tecla
             this.KeyDown += new KeyEventHandler(Faase2_KeyDown);
             SetFullScreenVideo();
-
+            AdjustVideoSize();
+            Controles();
         }
 
         private void TimerCoordenadas_Tick(object sender, EventArgs e)
@@ -224,54 +223,119 @@ namespace Pitico
             if (Pitico_walk.Left >= xMin && Pitico_walk.Left <= xMax &&
                 Pitico_walk.Top >= yMin && Pitico_walk.Top <= yMax)
             {
-                TrocarCenario(); 
+                AvancarCenario(); 
             }
 
             foreach (Control x in this.Controls)
             {
-                if (x is PictureBox && (string)x.Tag == "Spyware") 
+                if (x is PictureBox && (string)x.Tag == "Spyware")
                 {
-                    if (Pitico_walk.Bounds.IntersectsWith(x.Bounds)) 
+                    if (Pitico_walk.Bounds.IntersectsWith(x.Bounds))
                     {
-                        EmpurrarPersonagem(e, x); 
-                        break; 
+                        EmpurrarPersonagem(x);
+                        break;
                     }
                 }
             }
-
         }
 
-        private void EmpurrarPersonagem(KeyEventArgs e, Control spyware)
+        private void LevouDano()
         {
-            int deslizeVelocidade = 50; 
-
-          
-            if (Pitico_walk.Bounds.IntersectsWith(spyware.Bounds))
+            if (vida == 5)
             {
-                vida--;
-                if (Pitico_walk.Left < spyware.Left)
-                    Pitico_walk.Left -= deslizeVelocidade; 
-                else if (Pitico_walk.Left > spyware.Left)
-                    Pitico_walk.Left += deslizeVelocidade; 
+                VidaPitico5.Visible = true;
+                VidaPitico4.Visible = true;
+                VidaPitico3.Visible = true;
+                VidaPitico2.Visible = true;
+                VidaPitico1.Visible = true;
+            }
 
-                if (Pitico_walk.Top < spyware.Top)
-                    Pitico_walk.Top -= deslizeVelocidade; 
-                else if (Pitico_walk.Top > spyware.Top)
-                    Pitico_walk.Top += deslizeVelocidade;             }
+            if (vida == 4)
+            {
+                VidaPitico5.Visible = false;
+                VidaPitico4.Visible = true;
+                VidaPitico3.Visible = true;
+                VidaPitico2.Visible = true;
+                VidaPitico1.Visible = true;
+            }
+
+            if (vida == 3)
+            {
+                VidaPitico5.Visible = false;
+                VidaPitico4.Visible = false;
+                VidaPitico3.Visible = true;
+                VidaPitico2.Visible = true;
+                VidaPitico1.Visible = true;
+            }
+
+            if (vida == 2)
+            {
+                VidaPitico5.Visible = false;
+                VidaPitico4.Visible = false;
+                VidaPitico3.Visible = false;
+                VidaPitico2.Visible = true;
+                VidaPitico1.Visible = true;
+            }
+
+            if (vida == 1)
+            {
+                VidaPitico5.Visible = false;
+                VidaPitico4.Visible = false;
+                VidaPitico3.Visible = false;
+                VidaPitico2.Visible = false;
+                VidaPitico1.Visible = true;
+            }
+
+            if (vida == 0)
+            {
+                VidaPitico5.Visible = false;
+                VidaPitico4.Visible = false;
+                VidaPitico3.Visible = false;
+                VidaPitico2.Visible = false;
+                VidaPitico1.Visible = false;
+
+                MessageBox.Show("Você Perdeu!");
+            }
         }
 
-
-        private void TrocarCenario()
+        private void EmpurrarPersonagem(Control spyware)
         {
-           
-            this.BackgroundImage = null;
+            int deslizeVelocidade = 50;
 
+            if (Spyware.Visible == true)
+            {
+                if (Pitico_walk.Bounds.IntersectsWith(spyware.Bounds))
+                {
+                    vida--;
+                    LevouDano();
+                    Console.WriteLine($"Colidiu com o spyware! Vida: {vida}");
+                    if (Pitico_walk.Left < spyware.Left)
+                        Pitico_walk.Left -= deslizeVelocidade;
+                    else if (Pitico_walk.Left > spyware.Left)
+                        Pitico_walk.Left += deslizeVelocidade;
+
+                    if (Pitico_walk.Top < spyware.Top)
+                        Pitico_walk.Top -= deslizeVelocidade;
+                    else if (Pitico_walk.Top > spyware.Top)
+                        Pitico_walk.Top += deslizeVelocidade;
+                }
+            }
+        }
+
+        private void AvancarCenario()
+        {
             
+            this.BackgroundImage = null;
             this.BackgroundImage = Properties.Resources.cenário_com_as_casas_2;
 
+            Pitico_walk.Location = new Point(0, 360);
+            Spyware.Location = new Point(662, 0);
+            Spyware.Visible = true;
+            Spyware.Enabled = true;
             
-            Pitico_walk.Location = new Point(0, 360); 
         }
+
+
 
 
         private void pitico_Click(object sender, EventArgs e)
@@ -351,6 +415,11 @@ namespace Pitico
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Informativo_Click(object sender, EventArgs e)
         {
 
         }

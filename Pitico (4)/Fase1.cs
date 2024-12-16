@@ -792,6 +792,7 @@ namespace Pitico
 
                 using (var fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
                 {
+                    
                     fs.Write(video, 0, video.Length);
                 }
 

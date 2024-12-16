@@ -40,6 +40,7 @@
             this.VidaPitico3 = new System.Windows.Forms.PictureBox();
             this.VidaPitico4 = new System.Windows.Forms.PictureBox();
             this.VidaPitico5 = new System.Windows.Forms.PictureBox();
+            this.Informativo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Pitico_walk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Spyware)).BeginInit();
@@ -56,14 +57,15 @@
             this.Pitico_walk.Image = ((System.Drawing.Image)(resources.GetObject("Pitico_walk.Image")));
             this.Pitico_walk.Location = new System.Drawing.Point(71, 62);
             this.Pitico_walk.Name = "Pitico_walk";
-            this.Pitico_walk.Size = new System.Drawing.Size(283, 224);
-            this.Pitico_walk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pitico_walk.Size = new System.Drawing.Size(224, 222);
+            this.Pitico_walk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Pitico_walk.TabIndex = 0;
             this.Pitico_walk.TabStop = false;
             this.Pitico_walk.Click += new System.EventHandler(this.pitico_Click);
             // 
             // axWindowsMediaPlayer1
             // 
+            this.axWindowsMediaPlayer1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.axWindowsMediaPlayer1.Enabled = true;
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(640, 82);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
@@ -96,14 +98,16 @@
             // Spyware
             // 
             this.Spyware.BackColor = System.Drawing.Color.Transparent;
-            this.Spyware.Image = ((System.Drawing.Image)(resources.GetObject("Spyware.Image")));
+            this.Spyware.Enabled = false;
+            this.Spyware.Image = global::Pitico.Properties.Resources.vírus_1;
             this.Spyware.Location = new System.Drawing.Point(566, 14);
             this.Spyware.Name = "Spyware";
-            this.Spyware.Size = new System.Drawing.Size(283, 224);
-            this.Spyware.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Spyware.Size = new System.Drawing.Size(120, 224);
+            this.Spyware.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Spyware.TabIndex = 53;
             this.Spyware.TabStop = false;
             this.Spyware.Tag = "Spyware";
+            this.Spyware.Visible = false;
             this.Spyware.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lbl_vida
@@ -117,9 +121,9 @@
             // 
             // VidaPitico1
             // 
-            this.VidaPitico1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.VidaPitico1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.VidaPitico1.Image = global::Pitico.Properties.Resources._10528948_pixel_coracao_icone_gratis_vetor;
-            this.VidaPitico1.Location = new System.Drawing.Point(79, 10);
+            this.VidaPitico1.Location = new System.Drawing.Point(21, 10);
             this.VidaPitico1.Margin = new System.Windows.Forms.Padding(4);
             this.VidaPitico1.Name = "VidaPitico1";
             this.VidaPitico1.Size = new System.Drawing.Size(36, 28);
@@ -129,9 +133,9 @@
             // 
             // VidaPitico2
             // 
-            this.VidaPitico2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.VidaPitico2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.VidaPitico2.Image = global::Pitico.Properties.Resources._10528948_pixel_coracao_icone_gratis_vetor;
-            this.VidaPitico2.Location = new System.Drawing.Point(129, 10);
+            this.VidaPitico2.Location = new System.Drawing.Point(71, 10);
             this.VidaPitico2.Margin = new System.Windows.Forms.Padding(4);
             this.VidaPitico2.Name = "VidaPitico2";
             this.VidaPitico2.Size = new System.Drawing.Size(36, 28);
@@ -141,9 +145,9 @@
             // 
             // VidaPitico3
             // 
-            this.VidaPitico3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.VidaPitico3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.VidaPitico3.Image = global::Pitico.Properties.Resources._10528948_pixel_coracao_icone_gratis_vetor;
-            this.VidaPitico3.Location = new System.Drawing.Point(178, 10);
+            this.VidaPitico3.Location = new System.Drawing.Point(120, 10);
             this.VidaPitico3.Margin = new System.Windows.Forms.Padding(4);
             this.VidaPitico3.Name = "VidaPitico3";
             this.VidaPitico3.Size = new System.Drawing.Size(36, 28);
@@ -153,9 +157,9 @@
             // 
             // VidaPitico4
             // 
-            this.VidaPitico4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.VidaPitico4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.VidaPitico4.Image = global::Pitico.Properties.Resources._10528948_pixel_coracao_icone_gratis_vetor;
-            this.VidaPitico4.Location = new System.Drawing.Point(228, 10);
+            this.VidaPitico4.Location = new System.Drawing.Point(170, 10);
             this.VidaPitico4.Margin = new System.Windows.Forms.Padding(4);
             this.VidaPitico4.Name = "VidaPitico4";
             this.VidaPitico4.Size = new System.Drawing.Size(36, 28);
@@ -165,15 +169,28 @@
             // 
             // VidaPitico5
             // 
-            this.VidaPitico5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.VidaPitico5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.VidaPitico5.Image = global::Pitico.Properties.Resources._10528948_pixel_coracao_icone_gratis_vetor;
-            this.VidaPitico5.Location = new System.Drawing.Point(278, 10);
+            this.VidaPitico5.Location = new System.Drawing.Point(220, 10);
             this.VidaPitico5.Margin = new System.Windows.Forms.Padding(4);
             this.VidaPitico5.Name = "VidaPitico5";
             this.VidaPitico5.Size = new System.Drawing.Size(38, 28);
             this.VidaPitico5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.VidaPitico5.TabIndex = 59;
             this.VidaPitico5.TabStop = false;
+            // 
+            // Informativo
+            // 
+            this.Informativo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Informativo.BackColor = System.Drawing.Color.Black;
+            this.Informativo.ForeColor = System.Drawing.SystemColors.Control;
+            this.Informativo.Location = new System.Drawing.Point(68, 118);
+            this.Informativo.Name = "Informativo";
+            this.Informativo.Size = new System.Drawing.Size(433, 73);
+            this.Informativo.TabIndex = 60;
+            this.Informativo.Text = "Pressione Enter em frente aos Professores para buscar ajuda!";
+            this.Informativo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Informativo.Click += new System.EventHandler(this.Informativo_Click);
             // 
             // Fase3
             // 
@@ -182,6 +199,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Informativo);
             this.Controls.Add(this.VidaPitico5);
             this.Controls.Add(this.VidaPitico4);
             this.Controls.Add(this.VidaPitico3);
@@ -224,5 +242,6 @@
         private System.Windows.Forms.PictureBox VidaPitico3;
         private System.Windows.Forms.PictureBox VidaPitico4;
         private System.Windows.Forms.PictureBox VidaPitico5;
+        private System.Windows.Forms.Label Informativo;
     }
 }
