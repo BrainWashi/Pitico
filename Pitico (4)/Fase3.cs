@@ -11,6 +11,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WMPLib;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Pitico
@@ -26,7 +27,6 @@ namespace Pitico
         int yMax = 500;
         private int vida = 5;
         private Timer timerSpyware;
-       
 
         public Fase3()
         {
@@ -37,7 +37,6 @@ namespace Pitico
             timerCoordenadas.Tick += TimerCoordenadas_Tick;
             timerCoordenadas.Start();
             Spyware.Tag = "Spyware";
-            
 
             timerSpyware = new Timer();
             timerSpyware.Interval = 50; // Movimento gradual a cada 50ms
@@ -59,21 +58,18 @@ namespace Pitico
             VidaPitico4.Location = new Point(228, 0);
             VidaPitico5.Location = new Point(278, 0);
             Informativo.Location = new Point(340, 150);
-
         }
         private void TimerSpyware_Tick(object sender, EventArgs e)
         {
             MoverSpyware();
         }
 
-       
-
         private void MoverSpyware()
         {
             int movimentoX = 0;
             int movimentoY = 0;
 
-            if(Spyware.Visible == true)
+            if (Spyware.Visible == true)
             {
                 if (Pitico_walk.Left > Spyware.Left)
                 {
@@ -104,23 +100,19 @@ namespace Pitico
             {
                 EmpurrarPersonagem(Spyware);  // Chama o método correto para empurrar o personagem
             }
-
-
         }
-
-
-
 
         private void Fase3_Load(object sender, EventArgs e)
         {
             ReproduzirVideo("fase3intro1");
 
-
             this.KeyPreview = true; // Permite que o formulário receba eventos de tecla
             this.KeyDown += new KeyEventHandler(Faase2_KeyDown);
-            SetFullScreenVideo();
             AdjustVideoSize();
             Controles();
+            axWindowsMediaPlayer1.uiMode = "none"; // Oculta os controles
+            this.WindowState = FormWindowState.Maximized;
+            SetFullScreenVideo();
         }
 
         private void TimerCoordenadas_Tick(object sender, EventArgs e)
@@ -134,55 +126,45 @@ namespace Pitico
             }
         }
 
-
         private void Controles()
         {
             int largura = this.ClientSize.Width;
             int altura = (largura * 9) / 16;
             this.ClientSize = new Size(largura, altura);
 
-
-
             if (this.WindowState == FormWindowState.Maximized)
             {
-
                 SetFullScreenVideo();
             }
             else
             {
-
                 AdjustVideoSize();
             }
         }
         private void SetFullScreenVideo()
         {
-
             int newWidth = this.ClientSize.Width;
             int newHeight = (int)(newWidth / aspectRatio);
 
             if (newHeight > this.ClientSize.Height)
             {
-
                 newHeight = this.ClientSize.Height;
                 newWidth = (int)(newHeight * aspectRatio);
             }
 
-
             axWindowsMediaPlayer1.Width = newWidth;
             axWindowsMediaPlayer1.Height = newHeight;
 
-
             axWindowsMediaPlayer1.Location = new Point((this.ClientSize.Width - newWidth) / 2, (this.ClientSize.Height - newHeight) / 2);
+            axWindowsMediaPlayer1.Dock = DockStyle.Fill; 
+            axWindowsMediaPlayer1.stretchToFit = true;  
         }
 
         private void AdjustVideoSize()
         {
-
             axWindowsMediaPlayer1.Width = this.ClientSize.Width;
             axWindowsMediaPlayer1.Height = this.ClientSize.Height;
-
         }
-
 
         private void Movimento_Pitico(object sender, KeyEventArgs e)
         {
@@ -216,14 +198,13 @@ namespace Pitico
             Pitico_walk.Top = Math.Min(this.ClientSize.Height - Pitico_walk.Height, Pitico_walk.Top);
             Pitico_walk.Left = Math.Min(this.ClientSize.Width - Pitico_walk.Width, Pitico_walk.Left);
 
-          
             Console.WriteLine($"Pitico_walk Position: Top={Pitico_walk.Top}, Left={Pitico_walk.Left}");
             lblCoordenadas.Text = $"X: {Pitico_walk.Left}, Y: {Pitico_walk.Top}";
 
             if (Pitico_walk.Left >= xMin && Pitico_walk.Left <= xMax &&
                 Pitico_walk.Top >= yMin && Pitico_walk.Top <= yMax)
             {
-                AvancarCenario(); 
+                AvancarCenario();
             }
 
             foreach (Control x in this.Controls)
@@ -324,7 +305,6 @@ namespace Pitico
 
         private void AvancarCenario()
         {
-            
             this.BackgroundImage = null;
             this.BackgroundImage = Properties.Resources.cenário_com_as_casas_2;
 
@@ -332,11 +312,7 @@ namespace Pitico
             Spyware.Location = new Point(662, 0);
             Spyware.Visible = true;
             Spyware.Enabled = true;
-            
         }
-
-
-
 
         private void pitico_Click(object sender, EventArgs e)
         {
@@ -345,26 +321,18 @@ namespace Pitico
 
         private void ReproduzirVideo(string videoNome)
         {
-
             byte[] videoBytes = (byte[])Properties.Resources.ResourceManager.GetObject(videoNome);
 
             if (videoBytes != null)
             {
-                // lbl_pressione.Visible = false;
-                // btn_next.Visible = false;
-
-
                 string videoTempPath = Path.Combine(Path.GetTempPath(), videoNome + ".mp4");
-
 
                 if (File.Exists(videoTempPath))
                 {
                     File.Delete(videoTempPath);
                 }
 
-
                 File.WriteAllBytes(videoTempPath, videoBytes);
-
 
                 axWindowsMediaPlayer1.URL = videoTempPath;
                 axWindowsMediaPlayer1.Ctlcontrols.play();
@@ -385,6 +353,8 @@ namespace Pitico
                 axWindowsMediaPlayer1.Visible = false;
             }
         }
+
+
 
 
 
@@ -425,3 +395,4 @@ namespace Pitico
         }
     }
 }
+ 
