@@ -18,8 +18,8 @@ namespace Pitico
 {
     public partial class Fase3 : Form
     {
-        private int spywareHealth = 100; // Vida inicial do Spyware
-        private int attackRange = 90; // Distância máxima para o ataque funcionar
+        private int spywareHealth = 100; 
+        private int attackRange = 120;
 
         private double aspectRatio = 16.0 / 9.0;
         private int videoAtual = 1;
@@ -28,6 +28,7 @@ namespace Pitico
         int xMax = 1359;
         int yMin = 270;
         int yMax = 500;
+        private Timer timerAtualizacao;
 
         int yAugusto = 378;
         int xAugusto = 710;
@@ -50,7 +51,11 @@ namespace Pitico
             timerCoordenadas.Tick += TimerCoordenadas_Tick;
             timerCoordenadas.Start();
 
-            
+            timerAtualizacao = new Timer();
+            timerAtualizacao.Interval = 100; // Atualiza a cada 100 ms
+            timerAtualizacao.Tick += AtualizarPosicao;
+            timerAtualizacao.Start();
+
             Spyware.Tag = "Spyware";
 
             timerSpyware = new Timer();
@@ -89,18 +94,12 @@ namespace Pitico
             if (distanciaX <= attackRange && distanciaY <= attackRange)
             {
                 spywareHealth -= 20; // Reduz a vida do Spyware
-                MessageBox.Show("Você acertou o Spyware!");
 
                 // Verifica se o Spyware foi derrotado
                 if (spywareHealth <= 0)
                 {
-                    Spyware.Visible = false; // Esconde o Spyware
-                    MessageBox.Show("Spyware derrotado!");
+                    Spyware.Visible = false; 
                 }
-            }
-            else
-            {
-                MessageBox.Show("O Spyware está muito longe para atacar!");
             }
         }
 
@@ -255,11 +254,12 @@ namespace Pitico
             Console.WriteLine($"Pitico_walk Position: Top={Pitico_walk.Top}, Left={Pitico_walk.Left}");
             lblCoordenadas.Text = $"X: {Pitico_walk.Left}, Y: {Pitico_walk.Top}";
 
-            if (Pitico_walk.Left >= xMin && Pitico_walk.Left <= xMax &&
-                Pitico_walk.Top >= yMin && Pitico_walk.Top <= yMax)
-            {
-                AvancarCenario();
-            }
+           // if (Pitico_walk.Left >= xMin && Pitico_walk.Left <= xMax &&
+            //    Pitico_walk.Top >= yMin && Pitico_walk.Top <= yMax)
+            //{
+             //   AvancarCenario();
+            //}
+          
 
             foreach (Control x in this.Controls)
             {
@@ -271,6 +271,19 @@ namespace Pitico
                         break;
                     }
                 }
+            }
+        }
+
+        private void AtualizarPosicao(object sender, EventArgs e)
+        {
+            // Obtenha as coordenadas do personagem (exemplo: Pitico_walk)
+            int xAtual = Pitico_walk.Left;
+            int yAtual = Pitico_walk.Top;
+
+            // Verifique se está dentro do intervalo para trocar de cenário
+            if (xAtual >= xMin && xAtual <= xMax && yAtual >= yMin && yAtual <= yMax)
+            {
+                AvancarCenario(); // Método para alterar cenário
             }
         }
 
@@ -359,8 +372,15 @@ namespace Pitico
             }
         }
 
+        
+
         private void AvancarCenario()
         {
+            int xMin = 1359;
+            int xMax = 1359;
+            int yMin = 270;
+            int yMax = 500;
+            
             switch (CenarioAtual)
             {
                 case 1:
@@ -371,10 +391,12 @@ namespace Pitico
                     Info_Thiago.Visible = false;
                     Spyware.Visible = true;
                     Spyware.Enabled = true;
+                    
                     CenarioAtual++;
                     break;
                 case 2:
                     this.BackgroundImage = Properties.Resources.cenário_com_as_casas_2;
+                    
                     CenarioAtual++;
                     break;
             }
