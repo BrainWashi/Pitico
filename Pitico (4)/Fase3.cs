@@ -18,14 +18,27 @@ namespace Pitico
 {
     public partial class Fase3 : Form
     {
+        private int spywareHealth = 100; // Vida inicial do Spyware
+        private int attackRange = 90; // Distância máxima para o ataque funcionar
+
         private double aspectRatio = 16.0 / 9.0;
         private int videoAtual = 1;
         private Timer timerCoordenadas;
-        int xMin = 1324;
-        int xMax = 1324;
+        int xMin = 1359;
+        int xMax = 1359;
         int yMin = 270;
         int yMax = 500;
+
+        int yAugusto = 378;
+        int xAugusto = 710;
+
+        int yThiago = 378;
+        int xThiago = 740;
+
+        private int CenarioAtual = 1;
+
         private int vida = 5;
+        private int spywareVida = 3;
         private Timer timerSpyware;
 
         public Fase3()
@@ -36,6 +49,8 @@ namespace Pitico
             timerCoordenadas.Interval = 100; // Atualiza a cada 100ms (0.1 segundo)
             timerCoordenadas.Tick += TimerCoordenadas_Tick;
             timerCoordenadas.Start();
+
+            
             Spyware.Tag = "Spyware";
 
             timerSpyware = new Timer();
@@ -48,17 +63,47 @@ namespace Pitico
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(Movimento_Pitico);
             this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(Dialogos);
+            this.KeyPreview = true;
             Controles();
 
-            Pitico_walk.Location = new Point(0, 360);
-            Spyware.Location = new Point(1000, 360);
-            VidaPitico1.Location = new Point(0, 0);
-            VidaPitico2.Location = new Point(129, 0);
-            VidaPitico3.Location = new Point(178, 0);
-            VidaPitico4.Location = new Point(228, 0);
-            VidaPitico5.Location = new Point(278, 0);
-            Informativo.Location = new Point(340, 150);
+            Pitico_walk.Location = new Point((int)(this.ClientSize.Width * 0.10), (int)(this.ClientSize.Height * 0.50));
+            Spyware.Location = new Point((int)(this.ClientSize.Width * 0.80), (int)(this.ClientSize.Height * 0.50));
+            VidaPitico1.Location = new Point((int)(this.ClientSize.Width * 0.01), (int)(this.ClientSize.Height * 0.01));
+            VidaPitico2.Location = new Point((int)(this.ClientSize.Width * 0.06), (int)(this.ClientSize.Height * 0.01));
+            VidaPitico3.Location = new Point((int)(this.ClientSize.Width * 0.11), (int)(this.ClientSize.Height * 0.01));
+            VidaPitico4.Location = new Point((int)(this.ClientSize.Width * 0.16), (int)(this.ClientSize.Height * 0.01));
+            VidaPitico5.Location = new Point((int)(this.ClientSize.Width * 0.21), (int)(this.ClientSize.Height * 0.01));
+
+            Thiago.Location = new Point((int)(this.ClientSize.Width * 0.20), (int)(this.ClientSize.Height * 0.70));
+            Augusto.Location = new Point((int)(this.ClientSize.Width * 0.60), (int)(this.ClientSize.Height * 0.70));
         }
+
+        private void AtacarSpyware()
+        {
+            // Calcula a distância entre o jogador e o Spyware
+            int distanciaX = Math.Abs(Pitico_walk.Left - Spyware.Left);
+            int distanciaY = Math.Abs(Pitico_walk.Top - Spyware.Top);
+
+            // Verifica se o Spyware está dentro da área de ataque
+            if (distanciaX <= attackRange && distanciaY <= attackRange)
+            {
+                spywareHealth -= 20; // Reduz a vida do Spyware
+                MessageBox.Show("Você acertou o Spyware!");
+
+                // Verifica se o Spyware foi derrotado
+                if (spywareHealth <= 0)
+                {
+                    Spyware.Visible = false; // Esconde o Spyware
+                    MessageBox.Show("Spyware derrotado!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("O Spyware está muito longe para atacar!");
+            }
+        }
+
         private void TimerSpyware_Tick(object sender, EventArgs e)
         {
             MoverSpyware();
@@ -102,10 +147,16 @@ namespace Pitico
             }
         }
 
+
         private void Fase3_Load(object sender, EventArgs e)
         {
             ReproduzirVideo("fase3intro1");
-
+            VidaPitico1.Visible = false;
+            VidaPitico2.Visible = false;
+            VidaPitico3.Visible = false;
+            VidaPitico4.Visible = false;
+            VidaPitico5.Visible = false;
+            lblCoordenadas.Visible = false;
             this.KeyPreview = true; // Permite que o formulário receba eventos de tecla
             this.KeyDown += new KeyEventHandler(Faase2_KeyDown);
             AdjustVideoSize();
@@ -141,6 +192,8 @@ namespace Pitico
                 AdjustVideoSize();
             }
         }
+
+
         private void SetFullScreenVideo()
         {
             int newWidth = this.ClientSize.Width;
@@ -156,8 +209,8 @@ namespace Pitico
             axWindowsMediaPlayer1.Height = newHeight;
 
             axWindowsMediaPlayer1.Location = new Point((this.ClientSize.Width - newWidth) / 2, (this.ClientSize.Height - newHeight) / 2);
-            axWindowsMediaPlayer1.Dock = DockStyle.Fill; 
-            axWindowsMediaPlayer1.stretchToFit = true;  
+            axWindowsMediaPlayer1.Dock = DockStyle.Fill;
+            axWindowsMediaPlayer1.stretchToFit = true;
         }
 
         private void AdjustVideoSize()
@@ -191,6 +244,7 @@ namespace Pitico
                     Pitico_walk.Left += moveStep;
                     Pitico_walk.Image = Properties.Resources.pitico_andando_pra_direita__1_;
                     break;
+                
             }
 
             Pitico_walk.Top = Math.Max(0, Pitico_walk.Top);
@@ -225,6 +279,7 @@ namespace Pitico
             if (vida == 5)
             {
                 VidaPitico5.Visible = true;
+             
                 VidaPitico4.Visible = true;
                 VidaPitico3.Visible = true;
                 VidaPitico2.Visible = true;
@@ -276,6 +331,7 @@ namespace Pitico
                 VidaPitico1.Visible = false;
 
                 MessageBox.Show("Você Perdeu!");
+                // FimDoJogo();
             }
         }
 
@@ -305,13 +361,23 @@ namespace Pitico
 
         private void AvancarCenario()
         {
-            this.BackgroundImage = null;
-            this.BackgroundImage = Properties.Resources.cenário_com_as_casas_2;
-
-            Pitico_walk.Location = new Point(0, 360);
-            Spyware.Location = new Point(662, 0);
-            Spyware.Visible = true;
-            Spyware.Enabled = true;
+            switch (CenarioAtual)
+            {
+                case 1:
+                    this.BackgroundImage = Properties.Resources.cenário_com_as_casas_3;
+                    Augusto.Visible = false;
+                    Thiago.Visible = false;
+                    Info_Augusto.Visible = false;
+                    Info_Thiago.Visible = false;
+                    Spyware.Visible = true;
+                    Spyware.Enabled = true;
+                    CenarioAtual++;
+                    break;
+                case 2:
+                    this.BackgroundImage = Properties.Resources.cenário_com_as_casas_2;
+                    CenarioAtual++;
+                    break;
+            }
         }
 
         private void pitico_Click(object sender, EventArgs e)
@@ -338,38 +404,47 @@ namespace Pitico
                 axWindowsMediaPlayer1.Ctlcontrols.play();
             }
         }
-        private void AxWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
-        {
-            if (e.newState == (int)WMPLib.WMPPlayState.wmppsPlaying)
-            {
-                lbl_pressione.Visible = false; // Esconde o label ao iniciar o vídeo
-            }
-            else if (e.newState == (int)WMPLib.WMPPlayState.wmppsStopped)
-            {
-                lbl_pressione.Visible = true; // Exibe o label quando o vídeo para
-            }
-            else if (e.newState == (int)WMPLib.WMPPlayState.wmppsStopped && axWindowsMediaPlayer1.URL != null && axWindowsMediaPlayer1.URL.Contains("fase3intro2"))
-            {
-                axWindowsMediaPlayer1.Visible = false;
-            }
-        }
-
-
-
-
-
-
+     
         private void AdvanceVideo()
         {
             switch (videoAtual)
             {
                 case 1:
                     ReproduzirVideo("fase3intro2");
+                    axWindowsMediaPlayer1.Visible = true;
+                    VidaPitico1.Visible = false;
+                    VidaPitico2.Visible = false;
+                    VidaPitico3.Visible = false;
+                    VidaPitico4.Visible = false;
+                    VidaPitico5.Visible = false;
+                    lblCoordenadas.Visible = false;
+                    Augusto.Visible = false;
+                    Thiago.Visible = false;
                     videoAtual++;
                     break;
                 case 2:
-                    axWindowsMediaPlayer1.Visible = false; // Garante que o player fique invisível
+                    axWindowsMediaPlayer1.Visible = true; // Garante que o player fique invisível
+                    VidaPitico1.Visible = false;
+                    VidaPitico2.Visible = false;
+                    VidaPitico3.Visible = false;
+                    VidaPitico4.Visible = false;
+                    VidaPitico5.Visible = false;
+                    lblCoordenadas.Visible = false;
+                    Thiago.Visible = false;
+                    Augusto.Visible = false;
                     videoAtual++;
+                    break;
+                case 3:
+                    axWindowsMediaPlayer1.Visible = false;
+                    videoAtual++;
+                    VidaPitico1.Visible = true;
+                    VidaPitico2.Visible = true;
+                    VidaPitico3.Visible = true;
+                    VidaPitico4.Visible = true;
+                    VidaPitico5.Visible = true;
+                    lblCoordenadas.Visible = true;
+                    Augusto.Visible = true;
+                    Thiago.Visible = true;
                     break;
             }
         }
@@ -382,6 +457,25 @@ namespace Pitico
                 AdvanceVideo();
                 e.Handled = true; // Impede o tratamento padrão da tecla
             }
+
+            if (e.KeyCode == Keys.Space)
+            {
+                AtacarSpyware();
+            }
+        }
+
+        private void Dialogos(object sender, KeyEventArgs e)
+        {
+            if (yAugusto == Pitico_walk.Top && xAugusto == Pitico_walk.Left && e.KeyCode == Keys.Enter)
+            {
+                Info_Augusto.Visible = !Info_Augusto.Visible;
+                e.Handled = true;
+            }
+            if (yThiago == Pitico_walk.Top && xThiago == Pitico_walk.Left && e.KeyCode == Keys.Enter)
+            {
+                Info_Thiago.Visible = !Info_Thiago.Visible;
+                e.Handled = true;
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -393,6 +487,10 @@ namespace Pitico
         {
 
         }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
- 
