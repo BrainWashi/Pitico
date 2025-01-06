@@ -19,37 +19,31 @@ namespace Pitico
     public partial class Fase3 : Form
     {
         private int spywareHealth = 100; 
-        private int attackRange = 120;
+        private int attackRange = 150;
 
         private double aspectRatio = 16.0 / 9.0;
         private int videoAtual = 1;
-        private Timer timerCoordenadas;
+        private int videofinal = 1;
         int xMin = 1359;
         int xMax = 1359;
         int yMin = 270;
         int yMax = 500;
         private Timer timerAtualizacao;
 
-        int yAugusto = 378;
-        int xAugusto = 710;
+        int yAugusto = 370;
+        int xAugusto = 346;
 
-        int yThiago = 378;
-        int xThiago = 740;
+        int yThiago = 370;
+        int xThiago = 346;
 
         private int CenarioAtual = 1;
 
         private int vida = 5;
-        private int spywareVida = 3;
         private Timer timerSpyware;
 
         public Fase3()
         {
             InitializeComponent();
-
-            timerCoordenadas = new Timer();
-            timerCoordenadas.Interval = 100; // Atualiza a cada 100ms (0.1 segundo)
-            timerCoordenadas.Tick += TimerCoordenadas_Tick;
-            timerCoordenadas.Start();
 
             timerAtualizacao = new Timer();
             timerAtualizacao.Interval = 100; // Atualiza a cada 100 ms
@@ -68,37 +62,24 @@ namespace Pitico
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(Movimento_Pitico);
             this.KeyPreview = true;
-            this.KeyDown += new KeyEventHandler(Dialogos);
-            this.KeyPreview = true;
             Controles();
 
-            Pitico_walk.Location = new Point((int)(this.ClientSize.Width * 0.10), (int)(this.ClientSize.Height * 0.50));
-            Spyware.Location = new Point((int)(this.ClientSize.Width * 0.80), (int)(this.ClientSize.Height * 0.50));
-            VidaPitico1.Location = new Point((int)(this.ClientSize.Width * 0.01), (int)(this.ClientSize.Height * 0.01));
-            VidaPitico2.Location = new Point((int)(this.ClientSize.Width * 0.06), (int)(this.ClientSize.Height * 0.01));
-            VidaPitico3.Location = new Point((int)(this.ClientSize.Width * 0.11), (int)(this.ClientSize.Height * 0.01));
-            VidaPitico4.Location = new Point((int)(this.ClientSize.Width * 0.16), (int)(this.ClientSize.Height * 0.01));
-            VidaPitico5.Location = new Point((int)(this.ClientSize.Width * 0.21), (int)(this.ClientSize.Height * 0.01));
-
-            Thiago.Location = new Point((int)(this.ClientSize.Width * 0.20), (int)(this.ClientSize.Height * 0.70));
-            Augusto.Location = new Point((int)(this.ClientSize.Width * 0.60), (int)(this.ClientSize.Height * 0.70));
         }
 
         private void AtacarSpyware()
         {
-            // Calcula a distância entre o jogador e o Spyware
             int distanciaX = Math.Abs(Pitico_walk.Left - Spyware.Left);
             int distanciaY = Math.Abs(Pitico_walk.Top - Spyware.Top);
 
-            // Verifica se o Spyware está dentro da área de ataque
             if (distanciaX <= attackRange && distanciaY <= attackRange)
             {
-                spywareHealth -= 20; // Reduz a vida do Spyware
+                spywareHealth -= 20;
 
-                // Verifica se o Spyware foi derrotado
                 if (spywareHealth <= 0)
                 {
-                    Spyware.Visible = false; 
+                    Spyware.Visible = false;
+                    MessageBox.Show("Você ganhou o jogo!");
+                    
                 }
             }
         }
@@ -251,15 +232,13 @@ namespace Pitico
             Pitico_walk.Top = Math.Min(this.ClientSize.Height - Pitico_walk.Height, Pitico_walk.Top);
             Pitico_walk.Left = Math.Min(this.ClientSize.Width - Pitico_walk.Width, Pitico_walk.Left);
 
-            Console.WriteLine($"Pitico_walk Position: Top={Pitico_walk.Top}, Left={Pitico_walk.Left}");
-            lblCoordenadas.Text = $"X: {Pitico_walk.Left}, Y: {Pitico_walk.Top}";
+            int xAtual = Pitico_walk.Left;
+            int yAtual = Pitico_walk.Top;
 
-           // if (Pitico_walk.Left >= xMin && Pitico_walk.Left <= xMax &&
-            //    Pitico_walk.Top >= yMin && Pitico_walk.Top <= yMax)
-            //{
-             //   AvancarCenario();
-            //}
-          
+            if (xAtual >= xMin && xAtual <= xMax && yAtual >= yMin && yAtual <= yMax)
+            {
+                AvancarCenario(); 
+            }
 
             foreach (Control x in this.Controls)
             {
@@ -376,27 +355,28 @@ namespace Pitico
 
         private void AvancarCenario()
         {
-            int xMin = 1359;
-            int xMax = 1359;
-            int yMin = 270;
-            int yMax = 500;
-            
             switch (CenarioAtual)
             {
+
                 case 1:
-                    this.BackgroundImage = Properties.Resources.cenário_com_as_casas_3;
+                    this.BackgroundImage = Properties.Resources.cenário_com_as_casas_2;
                     Augusto.Visible = false;
                     Thiago.Visible = false;
                     Info_Augusto.Visible = false;
-                    Info_Thiago.Visible = false;
                     Spyware.Visible = true;
                     Spyware.Enabled = true;
-                    
                     CenarioAtual++;
                     break;
                 case 2:
                     this.BackgroundImage = Properties.Resources.cenário_com_as_casas_2;
-                    
+                    CenarioAtual++;
+                    break;
+                case 3:
+                    this.BackgroundImage = Properties.Resources.cenário_com_as_casas_2;
+                    CenarioAtual++;
+                    break;
+                case 4:
+                    this.BackgroundImage = Properties.Resources.cenário_com_as_casas_2;
                     CenarioAtual++;
                     break;
             }
@@ -486,19 +466,9 @@ namespace Pitico
             }
         }
 
-        private void Dialogos(object sender, KeyEventArgs e)
-        {
-            if (yAugusto == Pitico_walk.Top && xAugusto == Pitico_walk.Left && e.KeyCode == Keys.Enter)
-            {
-                Info_Augusto.Visible = !Info_Augusto.Visible;
-                e.Handled = true;
-            }
-            if (yThiago == Pitico_walk.Top && xThiago == Pitico_walk.Left && e.KeyCode == Keys.Enter)
-            {
-                Info_Thiago.Visible = !Info_Thiago.Visible;
-                e.Handled = true;
-            }
-        }
+        
+
+        
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {

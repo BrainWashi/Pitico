@@ -773,5 +773,9 @@
   <ItemGroup>
     <None Include="Resources\vírus 1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\fase3final1.mp4" />
+    <Content Include="Properties\fase3final2.mp4" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

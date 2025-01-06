@@ -41,7 +41,6 @@
             this.Thiago = new System.Windows.Forms.PictureBox();
             this.Augusto = new System.Windows.Forms.PictureBox();
             this.Info_Augusto = new System.Windows.Forms.PictureBox();
-            this.Info_Thiago = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Pitico_walk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Spyware)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VidaPitico1)).BeginInit();
@@ -53,7 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Thiago)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Augusto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Info_Augusto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Info_Thiago)).BeginInit();
             this.SuspendLayout();
             // 
             // Pitico_walk
@@ -82,10 +80,10 @@
             this.Spyware.BackColor = System.Drawing.Color.Transparent;
             this.Spyware.Enabled = false;
             this.Spyware.Image = global::Pitico.Properties.Resources.vírus_1;
-            this.Spyware.Location = new System.Drawing.Point(638, 114);
+            this.Spyware.Location = new System.Drawing.Point(561, 78);
             this.Spyware.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Spyware.Name = "Spyware";
-            this.Spyware.Size = new System.Drawing.Size(120, 224);
+            this.Spyware.Size = new System.Drawing.Size(197, 260);
             this.Spyware.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Spyware.TabIndex = 53;
             this.Spyware.TabStop = false;
@@ -95,9 +93,8 @@
             // 
             // VidaPitico1
             // 
-            this.VidaPitico1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.VidaPitico1.Image = global::Pitico.Properties.Resources._10528948_pixel_coracao_icone_gratis_vetor;
-            this.VidaPitico1.Location = new System.Drawing.Point(11, -96);
+            this.VidaPitico1.Location = new System.Drawing.Point(0, 21);
             this.VidaPitico1.Margin = new System.Windows.Forms.Padding(4);
             this.VidaPitico1.Name = "VidaPitico1";
             this.VidaPitico1.Size = new System.Drawing.Size(36, 28);
@@ -107,9 +104,8 @@
             // 
             // VidaPitico2
             // 
-            this.VidaPitico2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.VidaPitico2.Image = global::Pitico.Properties.Resources._10528948_pixel_coracao_icone_gratis_vetor;
-            this.VidaPitico2.Location = new System.Drawing.Point(51, -96);
+            this.VidaPitico2.Location = new System.Drawing.Point(67, 21);
             this.VidaPitico2.Margin = new System.Windows.Forms.Padding(4);
             this.VidaPitico2.Name = "VidaPitico2";
             this.VidaPitico2.Size = new System.Drawing.Size(36, 28);
@@ -119,9 +115,8 @@
             // 
             // VidaPitico3
             // 
-            this.VidaPitico3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.VidaPitico3.Image = global::Pitico.Properties.Resources._10528948_pixel_coracao_icone_gratis_vetor;
-            this.VidaPitico3.Location = new System.Drawing.Point(91, -96);
+            this.VidaPitico3.Location = new System.Drawing.Point(133, 21);
             this.VidaPitico3.Margin = new System.Windows.Forms.Padding(4);
             this.VidaPitico3.Name = "VidaPitico3";
             this.VidaPitico3.Size = new System.Drawing.Size(36, 28);
@@ -131,9 +126,8 @@
             // 
             // VidaPitico4
             // 
-            this.VidaPitico4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.VidaPitico4.Image = global::Pitico.Properties.Resources._10528948_pixel_coracao_icone_gratis_vetor;
-            this.VidaPitico4.Location = new System.Drawing.Point(131, -96);
+            this.VidaPitico4.Location = new System.Drawing.Point(200, 21);
             this.VidaPitico4.Margin = new System.Windows.Forms.Padding(4);
             this.VidaPitico4.Name = "VidaPitico4";
             this.VidaPitico4.Size = new System.Drawing.Size(36, 28);
@@ -143,9 +137,8 @@
             // 
             // VidaPitico5
             // 
-            this.VidaPitico5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.VidaPitico5.Image = global::Pitico.Properties.Resources._10528948_pixel_coracao_icone_gratis_vetor;
-            this.VidaPitico5.Location = new System.Drawing.Point(171, -96);
+            this.VidaPitico5.Location = new System.Drawing.Point(267, 21);
             this.VidaPitico5.Margin = new System.Windows.Forms.Padding(4);
             this.VidaPitico5.Name = "VidaPitico5";
             this.VidaPitico5.Size = new System.Drawing.Size(37, 28);
@@ -156,7 +149,7 @@
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(135, 71);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(729, 180);
             this.axWindowsMediaPlayer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
@@ -169,7 +162,7 @@
             this.Thiago.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Thiago.BackColor = System.Drawing.Color.Transparent;
             this.Thiago.Image = ((System.Drawing.Image)(resources.GetObject("Thiago.Image")));
-            this.Thiago.Location = new System.Drawing.Point(161, -65);
+            this.Thiago.Location = new System.Drawing.Point(170, 193);
             this.Thiago.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Thiago.Name = "Thiago";
             this.Thiago.Size = new System.Drawing.Size(134, 132);
@@ -183,7 +176,7 @@
             this.Augusto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Augusto.BackColor = System.Drawing.Color.Transparent;
             this.Augusto.Image = ((System.Drawing.Image)(resources.GetObject("Augusto.Image")));
-            this.Augusto.Location = new System.Drawing.Point(374, -51);
+            this.Augusto.Location = new System.Drawing.Point(383, 207);
             this.Augusto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Augusto.Name = "Augusto";
             this.Augusto.Size = new System.Drawing.Size(137, 133);
@@ -194,24 +187,13 @@
             // 
             // Info_Augusto
             // 
-            this.Info_Augusto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Info_Augusto.Image = ((System.Drawing.Image)(resources.GetObject("Info_Augusto.Image")));
-            this.Info_Augusto.Location = new System.Drawing.Point(363, 14);
+            this.Info_Augusto.Location = new System.Drawing.Point(435, 14);
             this.Info_Augusto.Name = "Info_Augusto";
             this.Info_Augusto.Size = new System.Drawing.Size(382, 140);
             this.Info_Augusto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Info_Augusto.TabIndex = 63;
             this.Info_Augusto.TabStop = false;
-            // 
-            // Info_Thiago
-            // 
-            this.Info_Thiago.Image = ((System.Drawing.Image)(resources.GetObject("Info_Thiago.Image")));
-            this.Info_Thiago.Location = new System.Drawing.Point(22, 12);
-            this.Info_Thiago.Name = "Info_Thiago";
-            this.Info_Thiago.Size = new System.Drawing.Size(335, 163);
-            this.Info_Thiago.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Info_Thiago.TabIndex = 64;
-            this.Info_Thiago.TabStop = false;
             // 
             // Fase3
             // 
@@ -230,7 +212,6 @@
             this.Controls.Add(this.VidaPitico1);
             this.Controls.Add(this.Spyware);
             this.Controls.Add(this.lblCoordenadas);
-            this.Controls.Add(this.Info_Thiago);
             this.Controls.Add(this.Info_Augusto);
             this.Controls.Add(this.Thiago);
             this.DoubleBuffered = true;
@@ -250,7 +231,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Thiago)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Augusto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Info_Augusto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Info_Thiago)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,6 +250,5 @@
         private System.Windows.Forms.PictureBox Thiago;
         private System.Windows.Forms.PictureBox Augusto;
         private System.Windows.Forms.PictureBox Info_Augusto;
-        private System.Windows.Forms.PictureBox Info_Thiago;
     }
 }
